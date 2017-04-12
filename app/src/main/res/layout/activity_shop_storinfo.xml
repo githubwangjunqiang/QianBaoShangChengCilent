@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+    android:layout_width="match_parent"
+    android:id="@+id/stor_title"
+    android:layout_height="wrap_content"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/stor_layout"
+        android:layout_height="match_parent">
+
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:id="@+id/stor_appbar"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:orientation="vertical">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:layout_scrollFlags="scroll">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_collapseMode="parallax">
+
+                        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+                            android:layout_width="0dp"
+                            android:id="@+id/stor_image"
+                            android:padding="@dimen/pading_4"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/meinv" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2.5"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/pading_6"
+                            android:paddingLeft="@dimen/pading_10"
+                            android:paddingTop="@dimen/pading_6">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/stor_tvname"
+                                android:drawableRight="@mipmap/rentou"
+                                android:gravity="center_vertical"
+                                android:text="@string/app_name"
+                                android:lines="1"
+                                android:ellipsize="end"
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/text_size_14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+                                <RatingBar
+                                    android:id="@+id/stor_ratinbar"
+                                    style="@style/Widget.AppCompat.RatingBar.Small"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:rating="3" />
+
+                                <TextView
+                                    android:id="@+id/stor_tvfenshu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="@dimen/pading_10"
+                                    android:text="00分"
+                                    android:textColor="@color/app_color"
+                                    android:textSize="@dimen/text_size_12sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/stor_tvadress"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:drawableLeft="@mipmap/dingwei"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:textColor="@color/text_color_alp"
+                                android:textSize="@dimen/text_size_12sp"
+                                android:text="地址：地址地址地址地址地址" />
+
+                            <TextView
+                                android:id="@+id/stor_tvtime"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:textSize="@dimen/text_size_12sp"
+                                android:textColor="@color/text_color"
+                                android:text="营业时间：00:00—00:00" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/stor_ivxing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:paddingRight="@dimen/pading_10"
+                            android:src="@drawable/shoucang_image" />
+                    </LinearLayout>
+                </android.support.design.widget.CollapsingToolbarLayout>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/text_color"
+                   android:background="@color/white"
+                   android:layout_marginTop="@dimen/pading_2"
+                   android:layout_marginBottom="@dimen/pading_2"
+                   android:padding="@dimen/pading_10"
+                   android:textSize="@dimen/text_size_14sp"
+                   android:text="@string/dianneishangpin"/>
+
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/stor_recyleview"
+                android:background="@color/white"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        </android.support.design.widget.CoordinatorLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

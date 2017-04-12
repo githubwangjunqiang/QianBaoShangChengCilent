@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/dialog_time_ll"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_ktv_yu_tvname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/pading_10"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp"
+        tools:text="小房" />
+
+    <TextView
+        android:id="@+id/dialog_ktv_yu_tvcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:padding="@dimen/pading_10"
+        android:textColor="@color/text_color_alp"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="今天（03-08）12：30至18：00内，任选5小时" />
+
+    <TextView
+        android:id="@+id/dialog_ktv_yu_tvtime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/pading_10"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingRight="@dimen/pading_10"
+        android:text="@string/qingxuanzekaichangshijian"
+        android:textColor="@color/blue_p"
+        android:textSize="@dimen/text_size_13sp" />
+
+    <GridView
+        android:id="@+id/dialog_ktv_yu_gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:numColumns="4"
+        android:horizontalSpacing="@dimen/pading_10"
+        android:padding="@dimen/pading_10"
+        android:verticalSpacing="@dimen/pading_10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/dialog_ktv_yu_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/pading_16"
+            android:background="@drawable/yuan_jiao_blue"
+            android:minHeight="@dimen/pading_1"
+            android:padding="@dimen/pading_10"
+            android:text="@string/xiayibu"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_13sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/map_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:onClick="daohang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:drawableLeft="@mipmap/daohandaodian"
+            android:gravity="center"
+            android:padding="@dimen/pading_10"
+            android:text="@string/kaishidaohang"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+        <TextView
+            android:onClick="moni"
+            android:layout_marginLeft="@dimen/pading_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:drawableLeft="@mipmap/monidaohang"
+            android:gravity="center"
+            android:padding="@dimen/pading_10"
+            android:text="@string/monidaohang"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+        <TextView
+            android:onClick="wodeding"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:layout_marginLeft="@dimen/pading_1"
+            android:drawableLeft="@mipmap/wodeweizhi"
+            android:gravity="center"
+            android:padding="@dimen/pading_10"
+            android:text="@string/wodeweizhi"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

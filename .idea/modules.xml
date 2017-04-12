@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/NRecyclerView/NRecyclerView.iml" filepath="$PROJECT_DIR$/NRecyclerView/NRecyclerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QianBaoShangChengCilent.iml" filepath="$PROJECT_DIR$/QianBaoShangChengCilent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calend/calend.iml" filepath="$PROJECT_DIR$/calend/calend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libzxing-master/libzxing-master.iml" filepath="$PROJECT_DIR$/libzxing-master/libzxing-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pingpp/pingpp.iml" filepath="$PROJECT_DIR$/pingpp/pingpp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/roundedimageview/roundedimageview.iml" filepath="$PROJECT_DIR$/roundedimageview/roundedimageview.iml" />
+    </modules>
+  </component>
+</project>

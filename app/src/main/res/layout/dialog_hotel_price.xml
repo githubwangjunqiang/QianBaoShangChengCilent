@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:id="@+id/dailog_lltop"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dialog_hotel_price_ivback"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/pading_1"
+                android:paddingLeft="@dimen/pading_10"
+                android:paddingRight="@dimen/pading_10"
+                android:src="@mipmap/fanhuidialog" />
+
+            <TextView
+                android:id="@+id/dialog_price_tvtop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:minHeight="@dimen/pading_5"
+                android:gravity="center"
+                android:padding="@dimen/pading_10"
+                android:text="@string/xuanzejiage"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <Button
+                android:id="@+id/dialog_hotel_price_btnbuxian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:minHeight="@dimen/pading_5"
+                android:padding="@dimen/pading_10"
+                android:text="@string/buxian"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pading_0.5"
+            android:background="@color/background" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/pading_10"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/pading_10"
+            android:paddingBottom="@dimen/pading_20">
+
+            <TextView
+                android:id="@+id/dialog_hotel_price_tvprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00元\t---\t500元"
+                android:textColor="@color/blue_p"
+                android:textSize="@dimen/text_size_16sp" />
+
+        </LinearLayout>
+
+
+        <com.appyvet.rangebar.RangeBar xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/rangebar_hotelprice"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pading_80"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="@dimen/pading_14"
+            custom:barWeight="@dimen/pading_8"
+            custom:connectingLineColor="@color/blue"
+            custom:connectingLineWeight="@dimen/pading_4"
+            custom:paddingStart="@dimen/pading_10"
+            custom:pinColor="@color/blue_p"
+            custom:pinMinFont="@dimen/text_size_14sp"
+            custom:pinPadding="@dimen/pading_10"
+            custom:pinRadius="@dimen/pading_20"
+            custom:rangeBarColor="@color/background"
+            custom:selectorColor="@color/blue_p"
+            custom:selectorSize="@dimen/pading_8"
+            custom:tickColor="@color/blue_p"
+            custom:tickEnd="10"
+            custom:tickHeight="@dimen/pading_2"
+            custom:tickInterval="1"
+            custom:tickStart="0" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pading_0.5"
+            android:background="@color/background" />
+
+        <Button
+            android:id="@+id/dialog_hotel_price_btnok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pading_10"
+            android:layout_marginLeft="@dimen/pading_10"
+            android:layout_marginRight="@dimen/pading_10"
+            android:layout_marginTop="@dimen/pading_20"
+            android:background="@color/blue"
+            android:minHeight="@dimen/pading_1"
+            android:padding="@dimen/pading_10"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14sp" />
+
+    </LinearLayout>
+</LinearLayout>

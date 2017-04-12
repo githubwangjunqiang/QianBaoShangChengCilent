@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+            android:id="@+id/pingjia_ivimage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/meishi" />
+
+        <TextView
+            android:id="@+id/pingjia_tvname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ellipsize="end"
+            android:padding="@dimen/pading_10"
+            android:text="@string/app_name"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <TextView
+            android:id="@+id/pingjia_tvtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|right"
+            android:padding="@dimen/pading_10"
+            android:text="0000-00-00"
+            android:textColor="@color/text_color_alp"
+            android:textSize="@dimen/text_size_12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pingjia_tvcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/pading_1"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:padding="@dimen/pading_10"
+        android:text="@string/app_name"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_12sp" />
+
+    <LinearLayout
+        android:id="@+id/pingjia_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+            android:id="@+id/pingjia_iv0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/meishi" />
+
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+            android:id="@+id/pingjia_iv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pading_4"
+            android:layout_marginRight="@dimen/pading_4"
+            android:layout_weight="1"
+            android:src="@mipmap/meishi" />
+
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+            android:id="@+id/pingjia_iv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/meishi" />
+    </LinearLayout>
+</LinearLayout>

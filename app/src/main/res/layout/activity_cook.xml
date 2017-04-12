@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/cook_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.MySwLayout
+        android:id="@+id/activity_cook_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--<com.baoyz.widget.PullRefreshLayout-->
+        <!--android:id="@+id/activity_cook_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:refreshType="circles">-->
+
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/cook_coordinatorlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/activity_cook_appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/activity_cook_recview0"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/pading_160"
+                    android:layout_marginBottom="@dimen/pading_4"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/pading_10"
+                    android:paddingTop="@dimen/pading_4"
+                    app:layout_scrollFlags="scroll" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/activity_cook_recview1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/pading_6"
+                    android:paddingTop="@dimen/pading_6"
+                    app:layout_scrollFlags="scroll" />
+
+                    <TextView
+                        android:id="@+id/activity_cook_tvxuan0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/pading_0.5"
+                        android:background="@color/white"
+                        android:drawableRight="@mipmap/sanjiao"
+                        android:layout_marginTop="@dimen/pading_1"
+                        android:padding="@dimen/pading_10"
+                        android:text="@string/fujintuijainshanjia"
+                        android:textColor="@color/near_top_te_app_se"
+                        android:textSize="@dimen/text_size_12sp" />
+
+
+            </android.support.design.widget.AppBarLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_cook_recview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/pading_1"
+                android:overScrollMode="never"
+                android:background="@color/white"
+                android:scrollbars="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </android.support.design.widget.CoordinatorLayout>
+    </com.yunyouzhiyuan.qianbaoshangchengclient.ui.MySwLayout>
+    <!--</com.baoyz.widget.PullRefreshLayout>-->
+</LinearLayout>

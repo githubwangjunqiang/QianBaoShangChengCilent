@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.ShangjiaPingjiaActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/ping_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/ping_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.ScrollListView
+            android:id="@+id/ping_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@color/background"
+            android:overScrollMode="always"
+            android:dividerHeight="@dimen/pading_2" />
+
+        <TextView
+            android:id="@+id/ping_tve"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="暂无评价"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

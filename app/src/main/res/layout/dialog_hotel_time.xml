@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:calendar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ivback_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_10"
+            android:src="@mipmap/fanhuidialog" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/xuanzeshijian"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+    </RelativeLayout>
+
+    <com.andexert.calendarlistview.library.DayPickerView
+        android:id="@+id/pickerView_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/pading_1"
+        android:layout_marginTop="@dimen/pading_1"
+        android:layout_weight="1"
+        android:background="@color/white"
+        calendar:colorCurrentDay="#f40303"
+        calendar:colorDayName="#3f3535"
+        calendar:colorMonthName="@color/app_color"
+        calendar:drawRoundRect="true" />
+
+    <Button
+        android:id="@+id/btn_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/food_buttom_btn"
+        android:minHeight="@dimen/pading_10"
+        android:padding="@dimen/pading_10"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14sp" />
+
+</LinearLayout>

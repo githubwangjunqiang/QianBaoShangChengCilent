@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingRight="@dimen/pading_10">
+
+
+    <TextView
+        android:id="@+id/itme_ktv_yuyue_tvname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:lineSpacingExtra="@dimen/pading_6"
+        android:padding="@dimen/pading_10"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_13sp"
+        tools:text="KTV 12:00-18:00\n￥：000\t\t\t时间：12:00-18:00" />
+
+
+    <TextView
+        android:id="@+id/itme_ktv_yuyue_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/yuan_jiao"
+        android:minHeight="@dimen/pading_10"
+        android:paddingLeft="@dimen/pading_14"
+        android:paddingRight="@dimen/pading_14"
+        android:paddingTop="@dimen/pading_4"
+        android:paddingBottom="@dimen/pading_4"
+        android:text="@string/yuyue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp" />
+
+</LinearLayout>

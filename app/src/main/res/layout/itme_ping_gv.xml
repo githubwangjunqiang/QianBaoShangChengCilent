@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scaleType="fitXY"
+    android:layout_margin="@dimen/pading_10"
+    android:src="@mipmap/addphoto">
+
+</com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView>

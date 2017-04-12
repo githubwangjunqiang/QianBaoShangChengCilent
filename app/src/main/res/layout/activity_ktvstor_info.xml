@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.KTVStorInfoActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyZoomScrollView
+        android:id="@+id/rl_ktv_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never" />
+
+    <RelativeLayout
+        android:id="@+id/rl_ktv_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pading_46"
+        android:background="@drawable/juxing_ktv_top">
+
+        <ImageView
+            android:id="@+id/ktvinfo_ivback_wr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/pading_10"
+            android:background="@drawable/yuan_banlk"
+            android:padding="@dimen/pading_10"
+            android:src="@mipmap/fanhui" />
+
+        <ImageView
+            android:id="@+id/ktvinfo_ivback_banlk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/pading_10"
+            android:padding="@dimen/pading_10"
+            android:src="@mipmap/fanhui_hei" />
+
+        <ImageView
+            android:id="@+id/ktvinfo_ivshoucang_wr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/pading_10"
+            android:background="@drawable/yuan_banlk"
+            android:padding="@dimen/pading_10"
+            android:src="@drawable/hotel_shoucang" />
+
+        <ImageView
+            android:id="@+id/ktvinfo_ivshoucang_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/pading_10"
+            android:padding="@dimen/pading_10"
+            android:src="@drawable/hotel_shoucang2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/ktvinfo"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp"
+            android:id="@+id/ltv_title_tv"/>
+    </RelativeLayout>
+</RelativeLayout>

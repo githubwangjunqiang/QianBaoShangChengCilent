@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.SheZhiActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/shezhi_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/shezhi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading_10">
+
+                <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+                    android:id="@+id/shezhi_iviamge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    tools:src="@mipmap/meinv" />
+
+                <TextView
+                    android:id="@+id/shezhi_tvphoto"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:drawableRight="@mipmap/jinru"
+                    android:gravity="center|end"
+                    android:text="@string/xiugaiyouxiang"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_4"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/xiugainicheng"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <EditText
+                    android:id="@+id/shezhi_etname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/pading_20"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:hint="@string/qingshurunicheng"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:padding="@dimen/pading_10"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_4"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/xiugaishengri"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/shezhi_tvbirday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:drawableRight="@mipmap/jinru"
+                    android:gravity="center_vertical|right"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/xiugaishengri"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_4"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/xiugaiaddress"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/shezhi_tvaddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:drawableRight="@mipmap/jinru"
+                    android:gravity="center_vertical|right"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/jinrudizhi"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_14sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/shezhi_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/pading_30"
+                android:layout_marginRight="@dimen/pading_30"
+                android:layout_marginTop="@dimen/pading_30"
+                android:background="@color/app_color"
+                android:gravity="center"
+                android:minHeight="@dimen/pading_1"
+                android:padding="@dimen/pading_10"
+                android:text="@string/tuichudenglu"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

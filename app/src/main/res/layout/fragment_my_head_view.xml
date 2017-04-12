@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:gravity="bottom">
+
+    <ImageView
+        android:id="@+id/iv_user_head"
+        android:layout_width="@dimen/pading_60"
+        android:layout_height="@dimen/pading_60"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/pading_20"
+        android:scaleType="fitXY"
+        android:src="@mipmap/meinv" />
+
+    <TextView
+        android:padding="@dimen/pading_10"
+        android:id="@+id/tv_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/pading_20"
+        android:layout_toRightOf="@id/iv_user_head"
+        android:drawableRight="@mipmap/jinru_whrite"
+        android:gravity="center_vertical"
+        android:text="@string/qingdianji"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_action_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/head_tv_pingjia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/fragment_my_top_head_bac_color"
+            android:drawableLeft="@mipmap/pingjia"
+            android:gravity="center"
+            android:padding="@dimen/pading_10"
+            android:text="@string/pingjia"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <TextView
+            android:id="@+id/head_tvshoucang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pading_2"
+            android:layout_weight="1"
+            android:background="@drawable/fragment_my_top_head_bac_color"
+            android:drawableLeft="@mipmap/shoucang"
+            android:gravity="center"
+            android:padding="@dimen/pading_10"
+            android:text="@string/shoucang"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="@dimen/pading_10"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

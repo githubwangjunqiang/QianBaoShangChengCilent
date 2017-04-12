@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.StorListActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/storlist_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout
+        android:id="@+id/storlist_layout"
+        app:srl_direction="both"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/storlist_recyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+    </com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout>
+
+
+</LinearLayout>

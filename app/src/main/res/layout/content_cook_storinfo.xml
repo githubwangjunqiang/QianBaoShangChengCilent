@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.CookStorinfoActivity"
+    tools:showIn="@layout/activity_cook_storinfo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cookstor_tvname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/pading_10"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp"
+            tools:text="旭老板私房菜" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_0.5"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="@dimen/pading_10"
+            >
+
+            <RatingBar
+                android:id="@+id/cookstor_rating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:rating="3" />
+
+            <TextView
+                android:id="@+id/cookstor_tvfenshu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/pading_10"
+                android:textColor="@color/text_color_alp"
+                android:textSize="@dimen/text_size_12sp"
+                tools:text="00分" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_0.5"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/pading_10"
+            >
+
+            <TextView
+                android:id="@+id/cookstor_tvaddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@mipmap/dingwei"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_13sp"
+                tools:text="通州区张家湾东方国际大厦工程部" />
+
+            <ImageView
+                android:id="@+id/cookstor_ivdinahua"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/pading_10"
+                android:src="@mipmap/dianhua" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_6"
+            android:background="@color/white"
+            android:drawableLeft="@mipmap/tuangou"
+            android:gravity="center_vertical"
+            android:padding="@dimen/pading_10"
+            android:text="@string/tangshitaocan"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyListview
+            android:id="@+id/cookstor_gvshop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_0.5"
+            android:background="@color/white"
+            android:divider="@color/background"
+            android:dividerHeight="@dimen/pading_2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_6"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:padding="@dimen/pading_10"
+            android:text="@string/yonghupingjia"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/pading_10">
+
+            <TextView
+                android:id="@+id/cookstor_tvpingjiafenshu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:gravity="right|center"
+                android:textColor="@color/app_color"
+                android:textSize="@dimen/text_size_18sp"
+                tools:text="0.0" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/zonghepingfen"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <RatingBar
+                    android:id="@+id/cookstor_tvpingjiabar"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:rating="3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/cookstor_tvpinggaoyu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_12sp"
+                    tools:text="高于%80的同行" />
+
+                <TextView
+                    android:id="@+id/cookstor_tvpingpinglv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_12sp"
+                    tools:text="好评率%100" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyListview
+            android:id="@+id/cookstor_gvpingjia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_1"
+            android:background="@color/white"
+            android:divider="@color/background"
+            android:dividerHeight="@dimen/pading_2" />
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

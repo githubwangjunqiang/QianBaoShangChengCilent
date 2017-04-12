@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="@dimen/pading_10">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+        android:id="@+id/itme_ktv_tuan_iviamge"
+        android:layout_width="0dp"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:src="@mipmap/meinv" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingRight="@dimen/pading_10">
+
+        <TextView
+            android:id="@+id/itme_ktv_tuan_tvname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp"
+            tools:text="通过属性获取ktv房间信息" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/pading_10">
+
+            <TextView
+                android:id="@+id/itme_ktv_tuan_tvprice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/blue_p"
+                android:textSize="@dimen/text_size_16sp"
+                tools:text="￥000\t\t\t原价￥000" />
+
+            <TextView
+                android:id="@+id/itme_ktv_tuan_tvyishou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_12sp"
+                tools:text="已售00" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/dingdan_layout"
+    android:layout_height="match_parent"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.fragment_dingdan.AllFragment">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.ScrollExpandableListView
+        android:id="@+id/dingdan_elistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:childIndicator="@null"
+        android:divider="@color/background"
+        android:dividerHeight="@dimen/pading_2"
+        android:childDivider="@color/background"
+        android:groupIndicator="@null" />
+
+</android.support.v4.widget.SwipeRefreshLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/itme_yue_tvtime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/pading_4"
+        android:paddingBottom="@dimen/pading_10"
+        android:paddingTop="@dimen/pading_10"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="2000.02.12\n00.00.00" />
+
+    <TextView
+        android:id="@+id/itme_yue_tvtype"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/pading_4"
+        android:paddingBottom="@dimen/pading_10"
+        android:paddingTop="@dimen/pading_10"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="备注\n提现" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/itme_yue_tvshouru"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:lineSpacingExtra="@dimen/pading_4"-->
+        <!--android:paddingBottom="@dimen/pading_10"-->
+        <!--android:paddingTop="@dimen/pading_10"-->
+        <!--android:textColor="@color/text_color"-->
+        <!--android:textSize="@dimen/text_size_12sp"-->
+        <!--tools:text="收入\n0" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/itme_yue_tvzhichu"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:lineSpacingExtra="@dimen/pading_4"-->
+        <!--android:paddingBottom="@dimen/pading_10"-->
+        <!--android:paddingTop="@dimen/pading_10"-->
+        <!--android:textColor="@color/text_color"-->
+        <!--android:textSize="@dimen/text_size_12sp"-->
+        <!--tools:text="支出\n1000" />-->
+
+    <TextView
+        android:id="@+id/itme_yue_tvyue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/pading_4"
+        android:padding="@dimen/pading_10"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="余额\n3000" />
+</LinearLayout>

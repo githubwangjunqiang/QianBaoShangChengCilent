@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pading_46"
+        android:background="@color/app_color">
+
+        <ImageView
+            android:id="@+id/dialog_date_se_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/pading_18"
+            android:paddingRight="@dimen/pading_18"
+            android:src="@mipmap/fanhui" />
+
+        <TextView
+            android:id="@+id/dialog_data_se_3_tvtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="城市"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/dialog_data_se_3_tvbtnok"
+        android:layout_below="@+id/r1"
+        android:orientation="horizontal">
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.xlistview.XListView
+            android:id="@+id/dialog_date_se_x0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice"
+            android:divider="@color/background"
+            android:dividerHeight="@dimen/pading_2"
+            android:scrollbars="none" />
+
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.xlistview.XListView
+            android:id="@+id/dialog_date_se_x1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/pading_2"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice"
+            android:divider="@color/background"
+            android:dividerHeight="@dimen/pading_2"
+            android:scrollbars="none" />
+
+
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.xlistview.XListView
+            android:id="@+id/dialog_date_se_x2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:layout_marginLeft="@dimen/pading_2"
+            android:layout_weight="1"
+            android:divider="@color/background"
+            android:dividerHeight="@dimen/pading_2"
+            android:scrollbars="none" />
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/dialog_data_se"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <TextView
+
+        android:id="@+id/dialog_data_se_3_tvbtnok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/app_color"
+        android:gravity="center"
+        android:padding="@dimen/pading_10"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14sp" />
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.SouSuoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pading_46"
+        android:background="@color/app_color"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/sousuoa_ibback"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:clickable="true"
+            android:paddingLeft="@dimen/pading_10"
+            android:paddingRight="@dimen/pading_10"
+            android:src="@mipmap/fanhui" />
+
+
+        <EditText
+            android:id="@+id/sousuoa_etsousuo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/yuan_main_top_btn"
+            android:drawableLeft="@mipmap/sousuo"
+            android:gravity="center_vertical"
+            android:hint="@string/qingshuru"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:minHeight="@dimen/pading_26"
+            android:maxLength="20"
+            android:paddingLeft="@dimen/pading_10"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color_alp"
+            android:textSize="@dimen/text_size_14sp" />
+
+
+        <TextView
+            android:id="@+id/sousuoa_toptvsouuo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/pading_20"
+            android:paddingRight="@dimen/pading_10"
+            android:text="@string/sousuo1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_12sp" />
+    </LinearLayout>
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout
+        android:id="@+id/sousuo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srl_direction="top">
+
+        <ListView
+            android:id="@+id/sousuo_recyleview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@color/background"
+            android:dividerHeight="@dimen/pading_1" />
+
+    </com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout>
+
+</LinearLayout>

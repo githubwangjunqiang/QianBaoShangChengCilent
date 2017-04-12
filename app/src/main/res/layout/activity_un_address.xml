@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.UnAddressActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:layout_width="match_parent"
+        android:id="@+id/add_adr_title"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_12"
+            android:text="@string/xingming"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <EditText
+            android:id="@+id/add_adr_etname"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/zuishaoliangge"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="10"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color_alp"
+            android:textSize="@dimen/text_size_13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_12"
+            android:text="@string/dianhua"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <EditText
+            android:id="@+id/add_adr_etphoe"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/bushaoyuqiwei"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:lines="1"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color_alp"
+            android:textSize="@dimen/text_size_13sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_12"
+            android:text="@string/diqu"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <TextView
+            android:id="@+id/add_adr_tvcity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="@string/sengfenchengshixianqu"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color_alp"
+            android:textSize="@dimen/text_size_13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_12"
+            android:text="@string/dizhi"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <EditText
+            android:id="@+id/add_adr_etaddress"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="@string/adressssss"
+            android:imeOptions="actionDone"
+            android:inputType="textMultiLine"
+            android:background="@null"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color_alp"
+            android:textSize="@dimen/text_size_13sp" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/add_adr_cmoren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置成默认收货地址"
+        android:layout_margin="@dimen/pading_10"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_13sp" />
+
+</LinearLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ktvinfo_tvname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingRight="@dimen/pading_10"
+        android:paddingTop="@dimen/pading_10"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp"
+        tools:text="麦乐迪海皮KTV" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/pading_10">
+
+        <RatingBar
+            android:id="@+id/ktvinfo_ratingbar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            tools:rating="3" />
+
+        <TextView
+            android:id="@+id/ktvinfo_tvfenshu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/pading_10"
+            android:textColor="@color/app_color"
+            android:textSize="@dimen/text_size_12sp"
+            tools:text="0.0分" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/pading_10">
+
+        <TextView
+            android:id="@+id/ktvinfo_tvaddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/wodeweizhi"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="@dimen/pading_4"
+            android:text="东城区建国门内大街甲18号王府井代销店家（北京站）"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <TextView
+            android:layout_width="@dimen/pading_1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/pading_10"
+            android:layout_marginRight="@dimen/pading_8"
+            android:background="@color/background" />
+
+        <ImageView
+            android:id="@+id/ktvinfo_ivphone"
+            android:layout_width="wrap_content"
+            android:paddingLeft="@dimen/pading_10"
+            android:paddingRight="@dimen/pading_10"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/dianhua" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_10"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ding"
+        android:gravity="center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/yuding"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ktvinfo_recyleviewdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ktvinfo_recyleviewbiaoqian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/pading_1"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/pading_4"
+        android:paddingRight="@dimen/pading_4" />
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyListview
+        android:id="@+id/ktvinfo_yudinglistview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:divider="@color/background"
+        android:dividerHeight="@dimen/pading_1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_10"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/tuangou"
+        android:gravity="center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/tuangou"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyListview
+        android:id="@+id/ktvinfo_tuanlistview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:divider="@color/background"
+        android:dividerHeight="@dimen/pading_1" />
+
+    <TextView
+        android:id="@+id/ktvinfo_tvpingjia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/wenda"
+        android:drawableRight="@mipmap/jinru"
+        android:gravity="center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/youshenmwenti"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+
+
+</LinearLayout>

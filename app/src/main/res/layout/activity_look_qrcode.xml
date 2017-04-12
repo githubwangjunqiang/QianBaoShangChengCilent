@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/pading_10"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.LookQRcodeActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/lookqr_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/look_layout"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/pading_4"
+                android:padding="@dimen/pading_10"
+                android:text="@string/qqingninjinshenbaoguan"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_13sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/lookqr_ivimage"
+                    android:scaleType="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/meinv" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/lookqr_tvordersn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/pading_10"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_13sp"
+                tools:text="@string/dingdanhao" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color"
+                android:gravity="center"
+                android:minHeight="@dimen/pading_1"
+                android:onClick="showorder_sn"
+                android:padding="@dimen/pading_10"
+                android:text="@string/dianjixianshi"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_13sp" />
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

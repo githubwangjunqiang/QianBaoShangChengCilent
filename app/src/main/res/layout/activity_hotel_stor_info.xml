@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.HotelStorInfoActivity">
+
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.scrllview.PullToZoomScrollViewEx
+        android:id="@+id/hotelstorinfo_PullToZoomScrollViewEx"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never" />
+
+    <RelativeLayout
+        android:id="@+id/rltop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pading_46"
+        android:background="@drawable/juxing_wr">
+
+        <ImageView
+            android:id="@+id/hotelstorinfo_ivback_wr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/pading_10"
+            android:background="@drawable/yuan_banlk"
+            android:padding="@dimen/pading_10"
+            android:src="@mipmap/fanhui" />
+
+        <ImageView
+            android:id="@+id/hotelstorinfo_ivback_banlk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/pading_10"
+            android:padding="@dimen/pading_10"
+            android:src="@mipmap/fanhui_hei" />
+
+        <ImageView
+            android:id="@+id/hotelstorinfo_ivshoucang_wr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/pading_10"
+            android:background="@drawable/yuan_banlk"
+            android:padding="@dimen/pading_10"
+            android:src="@drawable/hotel_shoucang" />
+
+        <ImageView
+            android:id="@+id/hotelstorinfo_ivshoucang_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/pading_10"
+            android:padding="@dimen/pading_10"
+            android:src="@drawable/hotel_shoucang2" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

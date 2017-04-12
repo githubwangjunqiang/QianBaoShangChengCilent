@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.YouhuiquanDingdanActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:layout_width="match_parent"
+        android:id="@+id/youhuiquandingdan_title"
+        android:layout_height="wrap_content" />
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/youhuiquandingdan_layout"
+        app:srl_direction="top">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/youihuiquandingdan_recyleview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout>
+
+
+</LinearLayout>

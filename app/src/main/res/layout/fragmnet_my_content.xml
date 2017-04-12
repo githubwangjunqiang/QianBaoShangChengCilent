@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_10"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/pading_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/dingdan"
+            android:gravity="center_vertical"
+            android:text="@string/wodedingdan"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <TextView
+            android:id="@+id/fragment_my_content_tvmydingdan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/jinru"
+            android:gravity="center_vertical|right"
+            android:text="@string/chakanquanbudingdan"
+            android:textColor="@color/text_color_alp"
+            android:textSize="@dimen/text_size_12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/pading_10">
+
+
+        <TextView
+            android:id="@+id/fragment_my_content_tvdaifukuan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/daifukaun"
+            android:gravity="center"
+            android:text="@string/daifukuan"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <TextView
+            android:id="@+id/fragment_my_content_tvdaishiyong"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/daishiyong"
+            android:gravity="center"
+            android:text="@string/daishiyong"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <TextView
+            android:id="@+id/fragment_my_content_tvdaipingjia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/daipingjia"
+            android:gravity="center"
+            android:text="@string/daipingjia"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <TextView
+            android:id="@+id/fragment_my_content_tvyiwancheng"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/tuikaun"
+            android:gravity="center"
+            android:text="@string/tuikuan"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/fragment_my_content_tvyuee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_10"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/yue"
+        android:drawableRight="@mipmap/jinru"
+        android:gravity="left|center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/wodeyue"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <Button
+        android:id="@+id/fragment_my_content_btnyouhuiquan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_1"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/youhuiquan"
+        android:drawableRight="@mipmap/jinru"
+        android:gravity="left|center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/yuohuiquan"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <Button
+        android:id="@+id/btnruzhushanjgia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_10"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ruzhushangjai"
+        android:drawableRight="@mipmap/jinru"
+        android:gravity="left|center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/ruzhushangjia"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <Button
+        android:id="@+id/fragment_my_content_btnkefu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_10"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/kefuzhongxin"
+        android:drawableRight="@mipmap/jinru"
+        android:gravity="left|center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/kefuzhongxin"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <Button
+        android:id="@+id/fragment_my_content_btnguanyu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pading_10"
+        android:layout_marginBottom="@dimen/pading_10"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/guanyu"
+        android:drawableRight="@mipmap/jinru"
+        android:gravity="left|center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/guanyuqianbao"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_14sp" />
+    <Button
+        android:id="@+id/fragment_my_content_btnout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/pading_10"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/tuichu"
+        android:drawableRight="@mipmap/jinru"
+        android:gravity="left|center_vertical"
+        android:padding="@dimen/pading_10"
+        android:text="@string/tuichu"
+        android:textColor="@color/red"
+        android:textSize="@dimen/text_size_14sp" />
+
+
+</LinearLayout>

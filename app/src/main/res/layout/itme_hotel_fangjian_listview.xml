@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/itme_hotel_tvcontent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:lineSpacingExtra="@dimen/pading_4"
+        android:padding="@dimen/pading_10"
+        android:textSize="@dimen/text_size_13sp"
+        tools:text="清新绿色主题房\n双床房|不含早|有窗\n￥000\n房间数：00" />
+
+    <Button
+        android:id="@+id/itme_hotel_btnyuyue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/pading_10"
+        android:background="@color/app_color"
+        android:minHeight="@dimen/pading_10"
+        android:padding="@dimen/pading_10"
+        android:text="@string/yuyue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp" />
+</LinearLayout>

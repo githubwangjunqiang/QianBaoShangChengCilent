@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yunyouzhiyuan.qianbaoshangchengclient.ui.CouponBgView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dingdan_youhuiquan_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/pading_10"
+    android:layout_marginLeft="@dimen/pading_20"
+    android:layout_marginRight="@dimen/pading_20"
+    android:layout_marginTop="@dimen/pading_10"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/pading_20"
+    app:horizontal_style="circle"
+    app:vertical_style="circle">
+
+    <TextView
+        android:id="@+id/dingdan_youhuiquan_tvcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/pading_6"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_13sp"
+        tools:text="￥80\t\t标题标题标题\n抵用券\t\t内容内容内容内容内容\n有效期：\t2008-01-01至2008-01-01" />
+
+    <TextView
+        android:id="@+id/dingdan_youhuiquan_tvstate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_13sp"
+        tools:text="未使用" />
+
+</com.yunyouzhiyuan.qianbaoshangchengclient.ui.CouponBgView>

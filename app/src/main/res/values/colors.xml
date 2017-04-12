@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#FD7200</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_alp_blank">#55000000</color>
+    <color name="color_blank">#000000</color>
+    <color name="transparent">#00000000</color>
+
+
+
+
+
+    <color name="app_color">#FD7200</color>
+    <color name="app_color_alp">#e3d393</color>
+    <color name="app_color_p">#fd3b00</color>
+    <color name="background">#ece5e5</color>
+    <color name="background_p">#ddc3c3</color>
+    <color name="background_pp">#cac7c7</color>
+    <color name="white">#ffffff</color>
+    <color name="white_alp">#f1f1f1</color>
+    <color name="text_color">#646464</color>
+    <color name="text_color_alp">#bb646464</color>
+    <color name="text_color_main_buttom_text">#13227a</color>
+    <color name="blue">#4BCEAE</color>
+    <color name="blue_p">#05a880</color>
+    <color name="red">#ca1f1f</color>
+    <color name="red_p">#880303</color>
+    <color name="gre">#05a841</color>
+    <color name="zi">#7205cc</color>
+    <color name="yellow">#f2c039</color>
+    <color name="yellow_p">#e1a604</color>
+    <color name="food_itme">#ece5e5</color>
+    <color name="qrcode">#ece5e5</color>
+</resources>

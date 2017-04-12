@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/main_tvtop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pading_46"
+            android:background="@color/app_color"
+            android:gravity="center"
+            android:text="@string/my"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <LinearLayout
+            android:id="@+id/main_lltop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pading_46"
+            android:background="@color/app_color"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/pading_26">
+
+            <TextView
+                android:id="@+id/main_top_tvads"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:drawableRight="@mipmap/xiala"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/pading_10"
+                android:paddingRight="@dimen/pading_10"
+                android:text="@string/beijing"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_13sp" />
+
+            <Button
+                android:id="@+id/main_top_btnsou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/yuan_main_top_btn"
+                android:drawableLeft="@mipmap/sousuo"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/pading_26"
+                android:paddingLeft="@dimen/pading_10" />
+
+
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pading_46"
+            android:layout_marginTop="@dimen/pading_0.5"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/pading_4"
+            android:paddingTop="@dimen/pading_2">
+
+            <LinearLayout
+                android:id="@+id/main_buttom_lhome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/main_buttom_ll_backlor"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_imagehome"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/home_image_home_se" />
+
+                <TextView
+                    android:id="@+id/main_tvhome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/main_buttom_home"
+                    android:textColor="@color/main_buttom_text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_buttom_ltechan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/main_buttom_ll_backlor"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_image_techan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/home_image_techan_se" />
+
+                <TextView
+                    android:id="@+id/main_tvtecahn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/main_buttom_techan"
+                    android:textColor="@color/main_buttom_text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_buttom_lfujin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/main_buttom_ll_backlor"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_image_fujin"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/home_image_fujin_se" />
+
+                <TextView
+                    android:id="@+id/main_tvfujin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/main_buttom_fujin"
+                    android:textColor="@color/main_buttom_text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_buttom_lmy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/main_buttom_ll_backlor"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_image_my"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/home_image_my_se" />
+
+                <TextView
+                    android:id="@+id/main_tvmy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/main_buttom_my"
+                    android:textColor="@color/main_buttom_text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/main_ivimage_beijing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/app_start"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/main_ivimage_tvhuanying"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/pading_100"
+        android:textSize="@dimen/text_size_16sp"
+        android:textStyle="bold"
+        tools:text="欢迎您！" />
+</RelativeLayout>

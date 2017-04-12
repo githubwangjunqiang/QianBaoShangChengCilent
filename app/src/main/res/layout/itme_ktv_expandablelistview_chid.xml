@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/itme_ktv_expanblelistview_chid_tvprice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:drawableLeft="@mipmap/ding"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/pading_2"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingRight="@dimen/pading_10"
+        android:paddingTop="@dimen/pading_6"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="000￥00\t\t\t\t\t欢乐套餐，顶级设备" />
+
+    <TextView
+        android:id="@+id/itme_ktv_expanblelistview_chid_tvyishou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:paddingBottom="@dimen/pading_2"
+        android:paddingRight="@dimen/pading_10"
+        android:textColor="@color/text_color_alp"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="已售0000" />
+</LinearLayout>

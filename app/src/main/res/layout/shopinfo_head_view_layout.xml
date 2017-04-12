@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/hendview_pro"
+        android:layout_width="@dimen/pading_40"
+        android:layout_marginTop="@dimen/pading_60"
+        android:layout_height="@dimen/pading_40"
+        android:visibility="gone"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:background="@drawable/yuan_aoocolor"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

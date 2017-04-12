@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <shape>
+            <corners android:radius="@dimen/pading_4" />
+            <solid android:color="#53fd7200" />
+            <size android:width="@dimen/pading_50" android:height="@dimen/pading_4" />
+        </shape>
+    </item>
+    <item android:state_checked="true">
+        <shape>
+            <corners android:radius="@dimen/pading_4" />
+            <solid android:color="@color/app_color" />
+            <size android:width="@dimen/pading_50" android:height="@dimen/pading_4" />
+        </shape>
+    </item>
+</selector>

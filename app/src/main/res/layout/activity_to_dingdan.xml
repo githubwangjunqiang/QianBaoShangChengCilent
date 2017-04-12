@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.ToDingdanActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/tijiaodingdan_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/todingdan_tvname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/pading_10"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp"
+                    tools:text="徐老板私房菜二人餐" />
+
+                <TextView
+                    android:id="@+id/todingdan_tvdanjia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/pading_10"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_16sp"
+                    tools:text="￥000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_1"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/shuliang"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <TextView
+                    android:id="@+id/todingdan_tvnumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/pading_10"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_16sp"
+                    tools:text="1件" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_1"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/xiaoji"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <TextView
+                    android:id="@+id/todingdan_tvxiaoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/pading_10"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size_16sp"
+                    tools:text="￥000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/youhuiquan"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <TextView
+                    android:id="@+id/todingdan_tvyouhuiquan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableRight="@mipmap/jinru"
+                    android:gravity="center_vertical|right"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/shiyongyouhuiquan"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_1"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/zongjia"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <TextView
+                    android:id="@+id/todingdan_tvyouhui2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_12sp"
+                    tools:text="(共一张)" />
+
+                <TextView
+                    android:id="@+id/todingdan_tvzongjia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/pading_10"
+                    android:paddingRight="@dimen/pading_10"
+                    android:paddingTop="@dimen/pading_10"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size_16sp"
+                    tools:text="￥000" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/zhifufanshi"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/pading_20"
+                    android:text="@string/zaixianzhifu"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:paddingLeft="@dimen/pading_10"
+                android:id="@+id/todingdan_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_1"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/todingdan_rg0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/pading_1"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:drawableLeft="@mipmap/zhifubao"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/zhifubaozhifu"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <RadioButton
+                    android:id="@+id/todingdan_rg1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/weixin"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/weixinzhifu"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/beizhuliuyan"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <EditText
+                    android:id="@+id/todingdan_etcontent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="@string/beizhu"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:lineSpacingExtra="@dimen/pading_4"
+                    android:maxLength="50"
+                    android:minHeight="@dimen/pading_80"
+                    android:paddingLeft="@dimen/pading_10"
+                    android:textColor="@color/text_color"
+                    android:textColorHint="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_14sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/pading_4"
+                android:padding="@dimen/pading_10"
+                android:text="黔宝商城提醒您：如果您选择了优惠券等优惠活动，点击提交订单后，会重新计算总价反馈给您，请您放心使用！"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <Button
+                android:id="@+id/todingdan_btntijiao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/pading_30"
+                android:background="@drawable/yuan_tijiao"
+                android:gravity="center"
+                android:minHeight="@dimen/pading_10"
+                android:padding="@dimen/pading_10"
+                android:text="@string/tijiaodingdan"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

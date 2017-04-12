@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/app_color"
+        >
+        <ImageView
+            android:id="@+id/webView_ivback"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/fanhui"
+            android:paddingLeft="@dimen/pading_10"
+            android:paddingRight="@dimen/pading_10"/>
+        <TextView
+            android:id="@+id/webview_tvtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:layout_centerInParent="true"
+            android:text="@string/app_name"/>
+    </RelativeLayout>
+    <WebView
+        android:id="@+id/webviewactivity_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </WebView>
+
+</LinearLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/dialog_lltixian"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/pading_10"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/pading_10"
+            android:text="@string/tixian"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pading_1"
+            android:background="@color/background" />
+
+        <TextView
+            android:id="@+id/dialog_tixiantvprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_10"
+            android:textColor="@color/blue_p"
+            android:textSize="@dimen/text_size_13sp"
+            tools:text="账户余额：00元" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:padding="@dimen/pading_10"
+                android:text="@string/shurujine"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <EditText
+                android:id="@+id/dialog_tixianetnumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/pading_10"
+                android:layout_weight="1"
+                android:background="@color/background"
+                android:hint="@string/zuishaoyibai"
+                android:inputType="number"
+                android:padding="@dimen/pading_10"
+                android:textColor="@color/blue_p"
+                android:textColorHint="@color/text_color_alp"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:padding="@dimen/pading_10"
+                android:text="@string/shuruyinhang"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <EditText
+                android:id="@+id/dialog_tixianetbank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/pading_10"
+                android:layout_weight="1"
+                android:background="@color/background"
+                android:hint="@string/bankname"
+                android:inputType="number"
+                android:padding="@dimen/pading_10"
+                android:textColor="@color/blue_p"
+                android:textColorHint="@color/text_color_alp"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:padding="@dimen/pading_10"
+                android:text="@string/banknameuser"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <EditText
+                android:id="@+id/dialog_tixianetname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/pading_10"
+                android:layout_weight="1"
+                android:background="@color/background"
+                android:hint="@string/bangkusernam"
+                android:inputType="text"
+                android:padding="@dimen/pading_10"
+                android:textColor="@color/blue_p"
+                android:textColorHint="@color/text_color_alp"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/pading_6">
+
+            <TextView
+                android:id="@+id/dialog_tixiantvbangkname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/pading_10"
+                android:textColor="@color/blue_p"
+                android:textSize="@dimen/text_size_13sp"
+                tools:text="银行名称：中国建设银行" />
+
+            <Button
+                android:id="@+id/dialog_tixianbtnbankname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:padding="@dimen/pading_4"
+                android:text="@string/huanquyinmhangmingcxheng"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/dialog_tixianbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pading_10"
+            android:layout_marginTop="@dimen/pading_10"
+            android:background="@drawable/tixianbtn"
+            android:gravity="center"
+            android:minHeight="0dp"
+            android:padding="@dimen/pading_10"
+            android:text="@string/tijiao"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_13sp" />
+
+    </LinearLayout>
+</LinearLayout>

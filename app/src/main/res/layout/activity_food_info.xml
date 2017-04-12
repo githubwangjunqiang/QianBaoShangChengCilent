@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_text2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.FoodOutInfoActivity">
+
+
+    <LinearLayout
+        android:id="@+id/food_out_info_llview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/food_out_info_topll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/foodout_top"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/pading_60">
+
+            <LinearLayout
+                android:id="@+id/food_top_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/pading_8">
+
+                <ImageView
+                    android:id="@+id/food_ivphoto"
+                    android:layout_width="@dimen/pading_50"
+                    android:layout_height="@dimen/pading_50"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/pading_28"
+                    android:src="@mipmap/meinv" />
+
+                <TextView
+                    android:id="@+id/food_tvname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/pading_10"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="@dimen/pading_6"
+                    android:maxLines="3"
+                    android:text="东北饺子王（张家湾店）\n公告量大优惠\t\t欢迎选购饺子与"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/food_tvshoucang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/pading_6"
+                    android:layout_marginRight="@dimen/pading_10"
+                    android:background="@drawable/food_top_shoucang"
+                    android:drawableLeft="@mipmap/food_shoucang"
+                    android:paddingBottom="@dimen/pading_1"
+                    android:paddingLeft="@dimen/pading_6"
+                    android:paddingRight="@dimen/pading_6"
+                    android:paddingTop="@dimen/pading_1"
+                    android:text="@string/shoucang"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/food_top_tvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/pading_30"
+                    android:layout_marginRight="@dimen/pading_30"
+                    android:lines="1"
+                    android:text=".........................................................................................."
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/food_tvgonggao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/pading_20"
+                    android:layout_marginRight="@dimen/pading_20"
+                    android:drawableLeft="@mipmap/gongao"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:padding="@dimen/pading_6"
+                    android:text="\t新用户立减00元，首次使用微信支付最高再减去0元（在一起在一起）。。。"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/food_out_info_tvcaipin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_alp"
+            android:drawableRight="@mipmap/jinru"
+            android:gravity="center_vertical"
+            android:padding="@dimen/pading_10"
+            android:paddingLeft="@dimen/pading_20"
+
+            android:text="查看本店评价"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <LinearLayout
+            android:id="@+id/food_info_llwaiwei"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:background="@color/white_alp"
+            android:orientation="horizontal">
+
+            <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AFloatListView
+                android:id="@+id/left_listview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:divider="@color/background_pp"
+                android:dividerHeight="@dimen/pading_1" />
+
+            <com.yunyouzhiyuan.qianbaoshangchengclient.ui.foodout.PinnedHeaderListView
+                android:id="@+id/rite_lisview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.8"
+                android:background="@android:color/white"
+                android:divider="@color/background"
+                android:dividerHeight="@dimen/pading_1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/food_top" />
+
+    <LinearLayout
+        android:id="@+id/foodinfo_llbuttom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/food_tvfreight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/pading_12"
+            android:text="配送费以订单为准"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_13sp" />
+
+        <Button
+            android:id="@+id/food_btnbuy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/food_buttom_btn"
+            android:gravity="center"
+            android:maxLength="7"
+            android:minHeight="@dimen/pading_10"
+            android:paddingBottom="@dimen/pading_12"
+            android:paddingTop="@dimen/pading_12"
+            android:text="00元起送"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/food_ivcart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/pading_2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/pading_10"
+        android:background="@drawable/food_bottom_cart"
+        android:src="@mipmap/cart" />
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/food_ivcart"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--app:layout_anchor="@id/app_bar"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--app:srcCompat="@mipmap/cart" />-->
+
+
+</RelativeLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/pading_6">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+        android:id="@+id/dingdan_ivimage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        tools:src="@mipmap/meinv" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/pading_4"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingRight="@dimen/pading_10"
+        android:paddingTop="@dimen/pading_4">
+
+        <TextView
+            android:id="@+id/dingdan_tvshopname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp"
+            tools:text="商品名称山贡品名称" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/pading_4"
+            android:paddingTop="@dimen/pading_4"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dingdan_tvprice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textColor="@color/red"
+                android:textSize="@dimen/text_size_12sp"
+                tools:text="￥18/斤  22/斤" />
+
+            <TextView
+                android:id="@+id/dingdan_tvqrcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dingdan_btn_p"
+                android:gravity="center"
+                android:visibility="gone"
+                android:paddingBottom="@dimen/pading_2"
+                android:paddingLeft="@dimen/pading_14"
+                android:paddingRight="@dimen/pading_14"
+                android:paddingTop="@dimen/pading_2"
+                android:text="@string/yanzhengma"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_13sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dingdan_tvnumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/red"
+                android:textSize="@dimen/text_size_13sp"
+                tools:text="数量：0" />
+
+            <TextView
+                android:id="@+id/dingdan_tvrefund"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/pading_10"
+                android:background="@drawable/dingdan_btnrefund_p"
+                android:gravity="center"
+                android:paddingBottom="@dimen/pading_2"
+                android:paddingLeft="@dimen/pading_4"
+                android:paddingRight="@dimen/pading_4"
+                android:paddingTop="@dimen/pading_2"
+                android:text="@string/shenqingtuikuan"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_13sp" />
+
+            <TextView
+                android:id="@+id/dingdan_tvbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dingdan_btn_p"
+                android:gravity="center"
+                android:paddingBottom="@dimen/pading_2"
+                android:paddingLeft="@dimen/pading_14"
+                android:paddingRight="@dimen/pading_14"
+                android:paddingTop="@dimen/pading_2"
+                android:text="@string/daihzifu"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_13sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

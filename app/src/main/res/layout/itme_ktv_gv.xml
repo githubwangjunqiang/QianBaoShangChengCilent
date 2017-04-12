@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/itme_ktv_gv_tvtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:paddingTop="@dimen/pading_8"
+        android:paddingBottom="@dimen/pading_4"
+        android:maxLines="2"
+        android:ellipsize="end"
+        tools:text="天天满减\n每天都有新优惠"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_13sp" />
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+        android:id="@+id/itme_ktv_gv_ivimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        tools:src="@mipmap/meishi" />
+</LinearLayout>

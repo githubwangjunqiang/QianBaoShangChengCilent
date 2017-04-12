@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/food_out_info_llbar"
+    android:background="@color/app_color"
+    android:layout_height="46dp">
+
+    <ImageView
+        android:id="@+id/food_top_ivback"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingRight="@dimen/pading_10"
+        android:src="@mipmap/fanhui" />
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/food_top_ivback"
+        android:id="@+id/food_top_tvtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_14sp"
+        android:textColor="@color/white"
+        />
+
+    <ImageView
+        android:id="@+id/iv_shoucang"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingRight="@dimen/pading_10"
+        android:src="@drawable/food_shoucang" />
+
+
+</RelativeLayout>

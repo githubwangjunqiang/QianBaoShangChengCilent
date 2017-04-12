@@ -1,0 +1,1 @@
+include ':app', ':calend', ':NRecyclerView', ':pingpp', ':libzxing-master', ':roundedimageview'

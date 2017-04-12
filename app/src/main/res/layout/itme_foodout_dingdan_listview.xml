@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/itme_foodout_ding_tvname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:padding="@dimen/pading_10"
+        android:text="@string/app_name"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size_13sp" />
+
+    <TextView
+        android:id="@+id/itme_foodout_ding_tvnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/pading_10"
+        android:text="数量：00个"
+        android:textColor="@color/text_color_alp"
+        android:textSize="@dimen/text_size_13sp" />
+
+    <TextView
+        android:id="@+id/itme_foodout_ding_tvprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/pading_10"
+        android:text="单价：￥00"
+        android:textColor="@color/blue_p"
+        android:textSize="@dimen/text_size_13sp" />
+
+</LinearLayout>

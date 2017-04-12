@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:orientation="vertical"
+    tools:context="com.yunyouzhiyuan.qianbaoshangchengclient.activity.PingstorActivity">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
+        android:id="@+id/poingjiastor_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/pading_100"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/poingjiastor_tvpingfen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/pingfen"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <RatingBar
+                    android:id="@+id/poingjiastor_bar"
+                    style="@style/roomRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:isIndicator="false"
+                    android:maxHeight="@dimen/pading_40"
+                    android:minHeight="@dimen/pading_40"
+                    android:rating="0.5"
+                    android:stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/poingjiastor_tvjiaochja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/pading_10"
+                    android:text="@string/qiaocha"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_13sp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/poingjiastor_edittexct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:gravity="top"
+                android:hint="@string/pingjiacontent"
+                android:inputType="textMultiLine"
+                android:minHeight="@dimen/pading_200"
+                android:padding="@dimen/pading_10"
+                android:imeOptions="actionDone"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_color_alp"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_10"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:padding="@dimen/pading_10"
+                    android:text="可以添加照片"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <TextView
+                    android:id="@+id/poingjiastor_tvdeletepahot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableLeft="@mipmap/deletecart"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/pading_10"
+                    android:text="  清空照片"
+                    android:textColor="@color/text_color_alp"
+                    android:textSize="@dimen/text_size_12sp" />
+            </LinearLayout>
+
+
+            <com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyGridView
+                android:id="@+id/poingjiastor_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pading_1"
+                android:background="@color/white"
+                android:horizontalSpacing="@dimen/pading_6"
+                android:numColumns="4"
+                android:padding="@dimen/pading_10"
+                android:verticalSpacing="@dimen/pading_6" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/poingjiastor_btnok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color"
+        android:minHeight="@dimen/pading_10"
+        android:padding="@dimen/pading_12"
+        android:text="@string/tijiao"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14sp" />
+</LinearLayout>

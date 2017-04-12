@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:padding="@dimen/pading_4"
+        android:id="@+id/itme_evaluate_list_c_recyle"
+        android:layout_height="wrap_content" />
+</LinearLayout>

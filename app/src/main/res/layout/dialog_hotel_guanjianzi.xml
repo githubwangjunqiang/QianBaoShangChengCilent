@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/pading_40"
+        android:background="@drawable/yuan_dialog"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/pading_30"
+        android:paddingLeft="@dimen/pading_30"
+        android:paddingRight="@dimen/pading_30">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/pading_10"
+            android:text="@string/shuruguanjianzi"
+            android:textColor="@color/text_color_alp"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <EditText
+            android:id="@+id/dialog_city_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_20"
+            android:background="@drawable/yuan_dialog_btn_p"
+            android:gravity="top"
+            android:minHeight="@dimen/pading_80"
+            android:hint="@string/qingshuruguanjianzi"
+            android:inputType="none"
+            android:maxLength="5"
+            android:padding="@dimen/pading_10"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color_alp"
+            android:textSize="@dimen/text_size_13sp" />
+        <TextView
+            android:id="@+id/dialog_city_tv0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_20"
+            android:background="@drawable/yuan_dialog_btn_p"
+            android:gravity="center"
+            android:padding="@dimen/pading_8"
+            android:text="@string/quxiao"
+            android:textColor="@color/text_write_color_p"
+            android:textSize="@dimen/text_size_13sp" />
+        <TextView
+            android:id="@+id/dialog_city_tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pading_20"
+            android:background="@drawable/yuan_dialog_btn_p_blue"
+            android:gravity="center"
+            android:padding="@dimen/pading_8"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_13sp" />
+    </LinearLayout>
+</LinearLayout>

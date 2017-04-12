@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/pading_4"
+    android:orientation="vertical">
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+        android:id="@+id/itme_evaluate_list_rec_itme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/meinv" />
+</LinearLayout>
