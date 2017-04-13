@@ -3,12 +3,12 @@ package com.yunyouzhiyuan.qianbaoshangchengclient.adapter;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Home_Bottom_list;
-import com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.glide_image.ToGlide;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class HomeMyListviewAdapter extends MyAdapter<Home_Bottom_list.DataBean> 
         if (view == null) {
             holder = new ViewHolder();
             view = getLayoutInflater().inflate(R.layout.itme_home_my_listview, null);
-            holder.iviamge = (AutoImageView) view.findViewById(R.id.itme_home_my_listview_invimage);
+            holder.iviamge = (ImageView) view.findViewById(R.id.itme_home_my_listview_invimage);
             holder.tvtitle = (TextView) view.findViewById(R.id.itme_home_my_listview_tvname);
             holder.tvtitle = (TextView) view.findViewById(R.id.itme_home_my_listview_tvname);
             holder.tvdist = (TextView) view.findViewById(R.id.itme_home_my_listview_tvdistance);
@@ -57,7 +57,7 @@ public class HomeMyListviewAdapter extends MyAdapter<Home_Bottom_list.DataBean> 
     }
 
     private class ViewHolder {
-        AutoImageView iviamge;
+        ImageView iviamge;
         TextView tvtitle, tvdist, tvcontent, tvprice, tvstors, tvNumber;
     }
 }

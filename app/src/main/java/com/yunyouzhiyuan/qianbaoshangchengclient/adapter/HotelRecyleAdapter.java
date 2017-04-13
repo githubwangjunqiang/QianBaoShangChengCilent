@@ -9,6 +9,7 @@ import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +17,6 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.activity.HotelStorInfoActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Food_Bottom;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
-import com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.glide_image.ToGlide;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class HotelRecyleAdapter extends RecyclerView.Adapter<HotelViewHolder> {
     @Override
     public void onBindViewHolder(HotelViewHolder holder, int position) {
         final Food_Bottom.DataBean data = list.get(position);
-        ToGlide.urlRound(context, HTTPURL.IMAGE + data.getStore_logo(), holder.imageView, 4);
+        ToGlide.url(context, HTTPURL.IMAGE + data.getStore_logo(), holder.imageView);
         String te = data.getStore_name() + "\t\t\t";
         setname(te, holder.tvname);
         holder.tvprice.setText(data.getSeo_description() + "");
@@ -69,8 +69,6 @@ public class HotelRecyleAdapter extends RecyclerView.Adapter<HotelViewHolder> {
         SpannableStringBuilder builder = new SpannableStringBuilder(te);
         ImageSpan imageSpan = new ImageSpan(context, R.mipmap.ding);
         builder.setSpan(imageSpan, te.length() - 3, te.length() - 2, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-        ImageSpan imageSpan1 = new ImageSpan(context, R.mipmap.zhong);
-        builder.setSpan(imageSpan1, te.length() - 1, te.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
         AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan((int) context.getResources().getDimension(R.dimen.text_size_13sp));
         builder.setSpan(absoluteSizeSpan, 0, te.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
         tv.setText(builder);
@@ -84,13 +82,13 @@ public class HotelRecyleAdapter extends RecyclerView.Adapter<HotelViewHolder> {
 }
 
 class HotelViewHolder extends RecyclerView.ViewHolder {
-    AutoImageView imageView;
+    ImageView imageView;
     TextView tvname, tvprice, tvstas, tvm;
     LinearLayout ll;
 
     public HotelViewHolder(View itemView) {
         super(itemView);
-        imageView = (AutoImageView) itemView.findViewById(R.id.itme_hotel_recyleview_image);
+        imageView = (ImageView) itemView.findViewById(R.id.itme_hotel_recyleview_image);
         ll = (LinearLayout) itemView.findViewById(R.id.itme_hotel_recyleview_ll);
         tvname = (TextView) itemView.findViewById(R.id.itme_hotel_recyleview_tvname);
         tvprice = (TextView) itemView.findViewById(R.id.itme_hotel_recyleview_tvprice);

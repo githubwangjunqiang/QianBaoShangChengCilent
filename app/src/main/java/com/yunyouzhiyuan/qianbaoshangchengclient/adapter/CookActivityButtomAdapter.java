@@ -42,8 +42,8 @@ public class CookActivityButtomAdapter extends RecyclerView.Adapter<CookActivity
     @Override
     public void onBindViewHolder(CookActivityButtomViewHolder holder, int position) {
         final Food_Bottom.DataBean data = list.get(position);
-        ToGlide.urlRound(context, HTTPURL.IMAGE + data.getStore_logo(), holder.ivimage, 8);
-        holder.tvname.setText(data.getStore_name()+"");
+        ToGlide.url(context, HTTPURL.IMAGE + data.getStore_logo(), holder.ivimage);
+        holder.tvname.setText(data.getStore_name() + "\n" + data.getSeo_description() + "\t" + data.getProm_name());
         if (data.getStore_desccredit() != null) {
             holder.ratingBar.setRating(Float.parseFloat(data.getStore_desccredit()));
             holder.tvfenshu.setText(data.getStore_desccredit());

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -13,10 +14,11 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.activity.ShopStorinfoActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Food_Bottom;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
-import com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.glide_image.ToGlide;
 
 import java.util.List;
+
+
 
 /**
  * Created by ${王俊强} on 2017/1/14.
@@ -44,7 +46,7 @@ public class HappyRecyleAdapter extends RecyclerView.Adapter<HappyViuewHolder> {
                 ShopStorinfoActivity.startShopStorinfoActivity(context,data.getStore_id());
             }
         });
-        ToGlide.urlRound(context, HTTPURL.IMAGE + data.getStore_logo(), holder.imageView, 4);
+        ToGlide.url(context, HTTPURL.IMAGE + data.getStore_logo(), holder.imageView);
         holder.bar.setRating(Float.parseFloat(data.getStore_desccredit() + ""));
         holder.tvfenshu.setText(data.getStore_desccredit() + "分");
         holder.tvname.setText(data.getStore_name());
@@ -60,7 +62,7 @@ public class HappyRecyleAdapter extends RecyclerView.Adapter<HappyViuewHolder> {
 }
 
 class HappyViuewHolder extends RecyclerView.ViewHolder {
-    AutoImageView imageView;
+    ImageView imageView;
     TextView tvname, tvprice, tvinfo, tvfenshu, tvm;
     RatingBar bar;
     LinearLayout ll;
@@ -73,7 +75,7 @@ class HappyViuewHolder extends RecyclerView.ViewHolder {
         tvinfo = (TextView) itemView.findViewById(R.id.itme_happy_recyle_tvinfo);
         tvfenshu = (TextView) itemView.findViewById(R.id.itme_happy_recyle_tvstas);
         tvm = (TextView) itemView.findViewById(R.id.itme_happy_recyle_tvm);
-        imageView = (AutoImageView) itemView.findViewById(R.id.itme_happy_recyle_image);
+        imageView = (ImageView) itemView.findViewById(R.id.itme_happy_recyle_image);
         bar = (RatingBar) itemView.findViewById(R.id.itme_happy_recyle_bar);
     }
 }

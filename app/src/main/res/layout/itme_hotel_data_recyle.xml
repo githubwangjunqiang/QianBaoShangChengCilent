@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_hotel_data_ll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:id="@+id/dialog_hotel_data_ll"
     android:padding="@dimen/pading_4">
 
-    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
-        android:layout_width="0dp"
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoRoundImageView
         android:id="@+id/hotel_data_ivimage"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
+        app:borderRadius="@dimen/pading_2"
+        app:type="round"
         tools:src="@mipmap/meinv" />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="3.5"
         android:orientation="vertical"
         android:paddingLeft="@dimen/pading_10">
@@ -25,25 +29,25 @@
         <TextView
             android:id="@+id/hotel_data_tvname"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size_13sp"
+            android:textSize="@dimen/text_size_14sp"
             tools:text="黔宝商城" />
 
         <TextView
             android:id="@+id/hotel_data_tvcontent"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
+            android:paddingBottom="@dimen/pading_4"
+            android:paddingTop="@dimen/pading_4"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size_12sp"
+            android:textSize="@dimen/text_size_13sp"
             tools:text="黔宝商城" />
 
         <TextView
@@ -55,9 +59,7 @@
             android:gravity="center_vertical"
             android:maxLines="1"
             android:textColor="@color/red"
-            android:textSize="@dimen/text_size_12sp"
+            android:textSize="@dimen/text_size_13sp"
             tools:text="起价￥：00，\t\t距离：00km" />
-
-
     </LinearLayout>
 </LinearLayout>

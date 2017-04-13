@@ -5,13 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Hotel;
-import com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.glide_image.ToGlide;
 
 import java.util.List;
@@ -62,13 +62,13 @@ public class HotelDataAdapter extends RecyclerView.Adapter<HotelDataViewHolder> 
 }
 
 class HotelDataViewHolder extends RecyclerView.ViewHolder {
-    AutoImageView ivIamge;
+    ImageView ivIamge;
     TextView tvName, tvContent, tvPrice;
     LinearLayout llView;
 
     public HotelDataViewHolder(View itemView) {
         super(itemView);
-        ivIamge = (AutoImageView) itemView.findViewById(R.id.hotel_data_ivimage);
+        ivIamge = (ImageView) itemView.findViewById(R.id.hotel_data_ivimage);
         tvName = (TextView) itemView.findViewById(R.id.hotel_data_tvname);
         tvContent = (TextView) itemView.findViewById(R.id.hotel_data_tvcontent);
         tvPrice = (TextView) itemView.findViewById(R.id.hotel_data_tvprice);

@@ -47,7 +47,8 @@ public class AFloatListView extends ListView {
         this.canScrollDistance = canScrollDistance;
     }
 
-    private int canScrollDistance;  //可以滚动的最大距离，此处规定为布局中的ImageView的高度，可以根据需要修改
+    private int canScrollDistance;  //可以滚动的最大距离，此处规定为布局中的ImageView的高度，
+    // 可以根据需要修改
     private View view;
 
     public void setView(ViewGroup view) {

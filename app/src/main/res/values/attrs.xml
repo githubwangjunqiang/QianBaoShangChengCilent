@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr format="dimension" name="borderRadius"/>
+    <attr name="type">
+        <enum name="circle" value="0"/>
+        <enum name="round" value="1"/>
+    </attr>
+
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius"/>
+        <attr name="type"/>
+    </declare-styleable>
     <declare-styleable name="PullToZoomView">
         <attr name="headerView" format="reference" />
         <attr name="contentView" format="reference" />

@@ -35,12 +35,13 @@ public class CookActivityTopTowAdapter extends RecyclerView.Adapter<CookActivity
     @Override
     public CookActivityTopTowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return new CookActivityTopTowViewHolder(LayoutInflater.from(context).inflate(R.layout.itme_cook_activity_top_tow, parent, false));
+        return new CookActivityTopTowViewHolder(LayoutInflater.from(context)
+                .inflate(R.layout.itme_cook_activity_top_tow, parent, false));
     }
 
     @Override
     public void onBindViewHolder(CookActivityTopTowViewHolder holder, final int position) {
-        ToGlide.urlRound(context, HTTPURL.IMAGE + list.get(position).getStore_logo(), holder.imageView, 10);
+        ToGlide.url(context, HTTPURL.IMAGE + list.get(position).getStore_logo(), holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
