@@ -232,7 +232,7 @@
         <!-- 百度地图开始 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="rLZfhMeG7YOD8Swy2G2wfTCbvXFnsHBg" />
+            android:value="RdN6VQKMk2OpupG10qAeo6SXnq18Em34" />
         <!-- // //key:开发者申请的Key -->
         <service
             android:name="com.baidu.location.f"

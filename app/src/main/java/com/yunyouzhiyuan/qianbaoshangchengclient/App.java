@@ -24,7 +24,7 @@ public class App extends Application {
         //注意该方法要再setContentView方法之前实现
         mLocationClient = new LocationClient(this);
         SDKInitializer.initialize(this);
-        JPushInterface.setDebugMode(true);
+        JPushInterface.setDebugMode(false);
         JPushInterface.init(this);
     }
 

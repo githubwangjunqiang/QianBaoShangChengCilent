@@ -39,6 +39,10 @@ public class Bean {
 
     public static final String APPPAKEGER = "com.yunyouzhiyuan.qianbaoshangcheng";//商家端的包名
     public static final String APPURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.liushao";//商家端微下载链接;
+    /**
+     * 微信的appid
+     */
+    public static final String WE_XIN_APPID = "wx8944d7288a4b0123";
 
 
     private static City_id city_id;//首页地址

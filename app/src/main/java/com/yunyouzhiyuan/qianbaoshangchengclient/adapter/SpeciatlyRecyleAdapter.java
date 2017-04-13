@@ -185,7 +185,7 @@ class SpiatlyViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setData(Nearby.DataBean data) {
-        ToGlide.urlRound(context, HTTPURL.IMAGE + data.getStore_logo(), ivimage, 4);
+        ToGlide.url(context, HTTPURL.IMAGE + data.getStore_logo(), ivimage);
         tvname.setText(data.getStore_name() + "");
         tvfenshu.setText(data.getStore_desccredit() + "分");
         ratingBar.setRating(Float.parseFloat(data.getStore_desccredit()));

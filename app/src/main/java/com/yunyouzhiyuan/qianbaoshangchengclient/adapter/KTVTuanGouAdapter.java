@@ -9,6 +9,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
@@ -18,6 +19,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.glide_image.ToGlide;
 
 import java.util.List;
+
 
 /**
  * Created by ${王俊强} on 2017/3/8.
@@ -42,7 +44,7 @@ public class KTVTuanGouAdapter extends MyAdapter<KTV.DataBean.GoodsListBean> {
     }
 
     private class ViewHolder {
-        AutoImageView ivimage;
+        ImageView ivimage;
         TextView tvName, tvPrice, tvYishou;
         private Context context;
 
@@ -55,7 +57,7 @@ public class KTVTuanGouAdapter extends MyAdapter<KTV.DataBean.GoodsListBean> {
         }
 
         public void setData(KTV.DataBean.GoodsListBean data) {
-            ToGlide.urlRound(context, HTTPURL.IMAGE + data.getOriginal_img(), ivimage, 4);
+            ToGlide.url(context, HTTPURL.IMAGE + data.getOriginal_img(), ivimage);
             tvName.setText(data.getGoods_name());
             tvYishou.setText("已售：" + data.getSales_sum());
             String price = "￥" + data.getShop_price() + "\t\t\t";

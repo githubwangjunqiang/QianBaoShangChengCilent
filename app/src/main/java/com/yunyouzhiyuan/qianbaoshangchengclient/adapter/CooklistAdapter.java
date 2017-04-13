@@ -44,8 +44,8 @@ public class CooklistAdapter extends RecyclerView.Adapter<CookListViewHolder> {
     @Override
     public void onBindViewHolder(CookListViewHolder holder, int position) {
         final Food_Bottom.DataBean data = list.get(position);
-        ToGlide.urlRound(context, HTTPURL.IMAGE + data.getStore_logo(), holder.ivimage, 8);
-        holder.tvname.setText(data.getStore_name() + "");
+        ToGlide.url(context, HTTPURL.IMAGE + data.getStore_logo(), holder.ivimage);
+        holder.tvname.setText(data.getStore_name() + "" + "\n" + data.getSeo_description());
         if (data.getStore_desccredit() != null) {
             holder.ratingBar.setRating(Float.parseFloat(data.getStore_desccredit()));
             holder.tvfenshu.setText(data.getStore_desccredit());
@@ -61,13 +61,13 @@ public class CooklistAdapter extends RecyclerView.Adapter<CookListViewHolder> {
                         CookStorinfoActivity.startCookStorinfoActivity(context, data.getStore_id());
                         break;
                     case "外卖":
-                        startFoodOutInfoActivity(context,data.getSeo_description(),data.getStore_id());
+                        startFoodOutInfoActivity(context, data.getSeo_description(), data.getStore_id());
                         break;
-                   case "休闲娱乐":
-                        ShopStorinfoActivity.startShopStorinfoActivity(context,data.getStore_id());
+                    case "休闲娱乐":
+                        ShopStorinfoActivity.startShopStorinfoActivity(context, data.getStore_id());
                         break;
                     default:
-                        ShopStorinfoActivity.startShopStorinfoActivity(context,data.getStore_id());
+                        ShopStorinfoActivity.startShopStorinfoActivity(context, data.getStore_id());
                         break;
                 }
             }
@@ -88,15 +88,6 @@ class CookListViewHolder extends RecyclerView.ViewHolder {
 
     public CookListViewHolder(View itemView) {
         super(itemView);
-//        ll = (LinearLayout) itemView.findViewById(R.id.itme_near_recyle_vioew_ll);
-//        ivimage = (ImageView) itemView.findViewById(R.id.itme_near_recyle_vioew_ivimage);
-//        tvname = (TextView) itemView.findViewById(R.id.itme_near_recyle_vioew_tvname);
-//        tvfenshu = (TextView) itemView.findViewById(R.id.itme_near_recyle_vioew_tvfenshu);
-//        tvjuli = (TextView) itemView.findViewById(R.id.itme_near_recyle_vioew_juli);
-//        tvnumber = (TextView) itemView.findViewById(R.id.itme_near_recyle_vioew_tvnumber);
-//        tvjiashao = (TextView) itemView.findViewById(R.id.itme_near_recyle_vioew_tvjieshao);
-//        ratingBar = (RatingBar) itemView.findViewById(R.id.itme_near_recyle_vioew_ratbar);
-
         ll = (LinearLayout) itemView.findViewById(R.id.itme__recyle_ll);
         ivimage = (ImageView) itemView.findViewById(R.id.itme_near_recyle_vioew_ivimage);
         tvname = (TextView) itemView.findViewById(R.id.itme_near_tvname);

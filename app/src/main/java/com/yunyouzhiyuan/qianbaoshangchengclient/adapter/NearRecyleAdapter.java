@@ -80,7 +80,7 @@ class NearViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setData(Specialty.DataBean data) {
-        ToGlide.urlRound(mContecxt, HTTPURL.IMAGE + data.getStore_logo(), ivimage, 4);
+        ToGlide.url(mContecxt, HTTPURL.IMAGE + data.getStore_logo(), ivimage);
         tvname.setText(data.getStore_name() == null ? "" : data.getStore_name());
         if (!TextUtils.isEmpty(data.getStore_desccredit())) {
             ratingBar.setRating(Float.parseFloat(data.getStore_desccredit()));

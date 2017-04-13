@@ -101,7 +101,6 @@
             custom:tickHeight="@dimen/pading_2"
             custom:tickInterval="1"
             custom:tickStart="0" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/pading_0.5"

@@ -20,12 +20,26 @@ import android.util.TypedValue;
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 
 /**
- * Created by ${王俊强} on 2017/4/13.
+ * Created by ${wang} on 2017/4/13.
  */
 public class RoundImageView extends android.support.v7.widget.AppCompatImageView {
     /**
      * 图片的类型，圆形or圆角
+     * TODO 自行在自己的values-attrs 文件夹下 添加如下代码
+          <attr format="dimension" name="borderRadius"/>
+             <attr name="type">
+                   <enum name="circle" value="0"/>
+                   <enum name="round" value="1"/>
+               </attr>
+
+
+               <declare-styleable name="RoundImageView">
+                   <attr name="borderRadius"/>
+                   <attr name="type"/>
+               </declare-styleable>
+     * TODO 添加完成即可使用
      */
+
     private int type;
     private static final int TYPE_CIRCLE = 0;
     private static final int TYPE_ROUND = 1;

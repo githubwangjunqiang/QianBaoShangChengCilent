@@ -36,6 +36,7 @@ android {
             minifyEnabled false//混淆
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
         }
         release {
             buildConfigField "boolean", "LOG_DEBUG", "false"
@@ -87,5 +88,6 @@ dependencies {
     compile 'com.github.lzyzsd:jsbridge:1.0.4'
     compile 'com.zhy:percent-support-extends:1.1.1'
     compile 'com.github.chrisbanes:PhotoView:1.3.1'
+    compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
     testCompile 'junit:junit:4.12'
 }

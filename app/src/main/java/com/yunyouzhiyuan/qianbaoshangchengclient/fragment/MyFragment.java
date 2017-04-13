@@ -35,6 +35,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.UserInfo;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.IModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.MyModel;
+import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.DialogShareSDK;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.LoadingDialog;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.scrllview.PullToZoomBase;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.scrllview.PullToZoomScrollViewEx;
@@ -82,6 +83,7 @@ public class MyFragment extends MainFragment {
     private Button btnRuzhu;
     private Button btnGuanyu;
     private Button btnOut;
+    private Button btnFenxiang;//分享
 
     public MyFragment() {
         // Required empty public constructor
@@ -302,6 +304,12 @@ public class MyFragment extends MainFragment {
                 builder.create().show();
             }
         });
+        btnFenxiang.setOnClickListener(new View.OnClickListener() {//分享
+            @Override
+            public void onClick(View v) {
+                new DialogShareSDK(getActivity()).show();
+            }
+        });
     }
 
     /**
@@ -467,6 +475,7 @@ public class MyFragment extends MainFragment {
         tvYuee = (Button) contentView.findViewById(R.id.fragment_my_content_tvyuee);
         btnyouhuiquan = (Button) contentView.findViewById(R.id.fragment_my_content_btnyouhuiquan);
         btnRuzhu = (Button) contentView.findViewById(R.id.btnruzhushanjgia);
+        btnFenxiang = (Button) contentView.findViewById(R.id.fragment_my_content_btnshare);
         btnGuanyu = (Button) contentView.findViewById(R.id.fragment_my_content_btnguanyu);
         btnOut = (Button) contentView.findViewById(R.id.fragment_my_content_btnout);
         btnkefu = (Button) contentView.findViewById(R.id.fragment_my_content_btnkefu);

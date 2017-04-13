@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingRight="@dimen/pading_10"
-    android:paddingTop="@dimen/pading_5"
     android:paddingBottom="@dimen/pading_5"
-    android:paddingLeft="@dimen/pading_10">
+    android:paddingLeft="@dimen/pading_10"
+    android:paddingRight="@dimen/pading_10"
+    android:paddingTop="@dimen/pading_5">
 
-    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoRoundImageView
         android:id="@+id/itme_cook_shop_ivimage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
+        app:borderRadius="@dimen/pading_2"
         tools:src="@mipmap/meinv" />
 
 
     <TextView
         android:id="@+id/itme_cook_shop_tvcontent"
         android:layout_width="0dp"
-        android:paddingLeft="@dimen/pading_10"
         android:layout_height="wrap_content"
         android:layout_weight="3.5"
         android:drawableRight="@mipmap/jinru"
         android:lineSpacingExtra="@dimen/pading_4"
+        android:paddingLeft="@dimen/pading_10"
         android:textColor="@color/text_color_alp"
         android:textSize="@dimen/text_size_12sp"
         tools:text="真爱双人套餐\n周一至周日|免预约\n￥000\t门市价：￥:000" />

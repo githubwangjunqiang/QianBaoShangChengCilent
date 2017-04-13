@@ -383,6 +383,7 @@ public class CookStorinfoActivity extends BaseActivity {
         tvfenshu.setText(data.getStore_desccredit() + "");
         tvaddress.setText(data.getLocation() + "");
         toolbarLayout.setTitle(data.getStore_name());
+        toolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, R.color.white));
     }
 
     @OnClick({cookstor_ivback, R.id.cookstor_tvaddress, R.id.cookstor_ivdinahua, R.id.fab})

@@ -33,7 +33,8 @@ public class CookStorInfoShopAdapter extends MyAdapter<CookStorInfoShop.DataBean
             view.setTag(holder);
         }
         holder = (ViewHolder) view.getTag();
-        ToGlide.urlRound(getContext(), HTTPURL.IMAGE + getData().get(position).getOriginal_img(), holder.ivImage, 6);
+        ToGlide.url(getContext(), HTTPURL.IMAGE + getData().get(position).getOriginal_img()
+                , holder.ivImage);
         String a = getData().get(position).getGoods_name() + "\n";
         String b = getData().get(position).getKeywords() + "\n";
         String c = "￥:" + getData().get(position).getShop_price();

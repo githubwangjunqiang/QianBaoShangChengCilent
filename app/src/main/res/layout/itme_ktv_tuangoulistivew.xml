@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_vertical"
     android:padding="@dimen/pading_10">
 
-    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoRoundImageView
         android:id="@+id/itme_ktv_tuan_iviamge"
         android:layout_width="0dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
+        app:borderRadius="@dimen/pading_2"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:src="@mipmap/meinv" />
