@@ -45,7 +45,8 @@ public class CookRecyleViewTopOneAdapter extends RecyclerView.Adapter<CookRecyle
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CookListActivity.startCookListActivity(context, scId,list.get(position).getId(), "美食");
+                CookListActivity.startCookListActivity(context,
+                        scId,list.get(position).getId(), "美食");
             }
         });
     }

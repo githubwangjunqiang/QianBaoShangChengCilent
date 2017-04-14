@@ -28,6 +28,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.activity.LoginActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.activity.SheZhiActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.activity.ShouCangActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.activity.WebViewActivity;
+import com.yunyouzhiyuan.qianbaoshangchengclient.activity.WeiBoShareActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.activity.YouhuiquanActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.activity.YueeActivity;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Bean;
@@ -35,7 +36,6 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.UserInfo;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.IModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.MyModel;
-import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.DialogShareSDK;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.LoadingDialog;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.scrllview.PullToZoomBase;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.scrllview.PullToZoomScrollViewEx;
@@ -307,7 +307,8 @@ public class MyFragment extends MainFragment {
         btnFenxiang.setOnClickListener(new View.OnClickListener() {//分享
             @Override
             public void onClick(View v) {
-                new DialogShareSDK(getActivity()).show();
+                startActivity(new Intent(getActivity(), WeiBoShareActivity.class));
+                getActivity().overridePendingTransition(R.anim.tr_in,0);
             }
         });
     }

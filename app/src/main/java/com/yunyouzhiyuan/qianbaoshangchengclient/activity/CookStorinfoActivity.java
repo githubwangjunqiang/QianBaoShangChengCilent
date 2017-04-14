@@ -32,6 +32,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.ToShopinfo;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.FoodModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.IModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.StorModel;
+import com.yunyouzhiyuan.qianbaoshangchengclient.ui.DelayedClickTextView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyListview;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.ListViewListener;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
@@ -64,7 +65,7 @@ public class CookStorinfoActivity extends BaseActivity {
     @Bind(R.id.cookstor_tvfenshu)
     TextView tvfenshu;
     @Bind(R.id.cookstor_tvaddress)
-    TextView tvaddress;
+    DelayedClickTextView tvaddress;
     @Bind(R.id.cookstor_gvshop)
     MyListview gvShop;
     @Bind(R.id.cookstor_tvpingjiafenshu)
@@ -382,8 +383,10 @@ public class CookStorinfoActivity extends BaseActivity {
         ratingBar.setRating(Float.parseFloat(data.getStore_desccredit() + ""));
         tvfenshu.setText(data.getStore_desccredit() + "");
         tvaddress.setText(data.getLocation() + "");
+        tvaddress.setTime(1000);
         toolbarLayout.setTitle(data.getStore_name());
         toolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, R.color.white));
+        toolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.app_color));
     }
 
     @OnClick({cookstor_ivback, R.id.cookstor_tvaddress, R.id.cookstor_ivdinahua, R.id.fab})

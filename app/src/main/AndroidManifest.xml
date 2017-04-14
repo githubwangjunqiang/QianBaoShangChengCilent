@@ -453,6 +453,11 @@
         <!--订单查看二维码-->
         <activity android:name=".activity.LookQRcodeActivity"
             android:screenOrientation="portrait" />
+        <!--微博分享界面-->
+        <activity android:name=".activity.WeiBoShareActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_fist"
+            />
     </application>
 
 </manifest> <!--  -->

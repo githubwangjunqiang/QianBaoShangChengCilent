@@ -3,88 +3,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
     android:padding="@dimen/pading_6">
-    <!--<TextView-->
-    <!--android:id="@+id/itme_shoucang_stor_tvstorname"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:textColor="@color/text_color"-->
-    <!--android:textSize="@dimen/text_size_13sp"-->
-    <!--android:text="@string/dianpumingcheng"-->
-    <!--android:padding="@dimen/pading_10"-->
-    <!--android:drawableRight="@mipmap/jinru"-->
-    <!--android:drawableLeft="@mipmap/stor"-->
-    <!--android:gravity="center_vertical"-->
-    <!--/>-->
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="@dimen/pading_1"-->
-    <!--android:background="@color/background"/>-->
+
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoRoundImageView
+        android:id="@+id/itme_shoucang_stor_ivimage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        app:borderRadius="@dimen/pading_2"
+        android:src="@mipmap/meinv" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_weight="3.3"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/pading_4"
+        android:paddingLeft="@dimen/pading_10"
+        android:paddingTop="@dimen/pading_4">
 
-
-        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
-            android:id="@+id/itme_shoucang_stor_ivimage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/itme_shoucang_stor_tvname"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:src="@mipmap/meinv" />
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/pading_4"
+            android:maxLines="2"
+            android:text="@string/app_name"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3.3"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/pading_4"
-            android:paddingLeft="@dimen/pading_10"
-            android:paddingTop="@dimen/pading_4">
+            android:paddingTop="@dimen/pading_4"
+            android:orientation="horizontal">
+
 
             <TextView
-                android:id="@+id/itme_shoucang_stor_tvname"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:lineSpacingExtra="@dimen/pading_4"
-                android:maxLines="2"
-                android:text="@string/app_name"
-                android:textColor="@color/text_color"
-                android:textSize="@dimen/text_size_13sp" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/itme_shoucang_stor_tvnumber"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:textColor="@color/text_color_alp"
+                android:textSize="@dimen/text_size_13sp"
+                tools:text="已有0000人收藏" />
 
-
-                <TextView
-                    android:id="@+id/itme_shoucang_stor_tvnumber"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/pading_10"
-                    android:textColor="@color/text_color_alp"
-                    android:textSize="@dimen/text_size_12sp"
-                    tools:text="已有0000人收藏" />
-
-                <TextView
-                    android:id="@+id/itme_shoucang_stor_tvinstor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/yuan_mai_p"
-                    android:padding="@dimen/pading_4"
-                    android:text="@string/jinruidianpu"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_13sp" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/itme_shoucang_stor_tvinstor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuan_mai_p"
+                android:padding="@dimen/pading_4"
+                android:text="@string/jinruidianpu"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_13sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

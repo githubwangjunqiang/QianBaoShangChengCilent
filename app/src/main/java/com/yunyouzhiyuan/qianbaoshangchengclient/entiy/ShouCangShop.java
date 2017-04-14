@@ -9,7 +9,9 @@ public class ShouCangShop {
     /**
      * retcode : 2000
      * msg : 获取成功
-     * data : [{"store_id":"2","store_name":"扣扣号逛街","store_logo":"/Uploads/Picture/2017-02-16/20170216131242209.jpg","collectsum":"1"}]
+     * data : [{"store_id":"2","store_name":"扣扣号逛街",
+     * "store_logo":"/Uploads/Picture/2017-02-16/20170216131242209.jpg",
+     * "collectsum":"1"}]
      */
 
     private int retcode;
@@ -46,12 +48,33 @@ public class ShouCangShop {
          * "goods_name": "商品名称",
          * "original_img": "商品图片",
          * "shop_price": "商品价格"
+         * "store_id": "6",
+         * "sc_id": "5"
          */
 
         private String goods_id;
         private String goods_name;
         private String original_img;
         private String shop_price;
+        private String store_id;
+
+        public String getStore_id() {
+            return store_id;
+        }
+
+        public void setStore_id(String store_id) {
+            this.store_id = store_id;
+        }
+
+        public String getSc_id() {
+            return sc_id;
+        }
+
+        public void setSc_id(String sc_id) {
+            this.sc_id = sc_id;
+        }
+
+        private String sc_id;
 
         public String getGoods_id() {
             return goods_id;

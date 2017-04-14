@@ -25,6 +25,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Hotel_storinfo;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.HotelModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.IModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.StorModel;
+import com.yunyouzhiyuan.qianbaoshangchengclient.ui.DelayedClickImageView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyListview;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.DialogHoteStorInfo;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.DialogHotelTime;
@@ -70,7 +71,7 @@ public class HotelStorInfoActivity extends BaseActivity {
     private Hotel_storinfo.DataBean data;
     private HotelFangjianAdapter adapter;
     private List<Hotel_Fagnjian.DataBean> list = new ArrayList<>();
-    private ImageView ivMap;
+    private DelayedClickImageView ivMap;
     private boolean isresehe = false;
     private TextView tvBottomPin;
     private LoadingDialog loadingDialog;
@@ -393,7 +394,8 @@ public class HotelStorInfoActivity extends BaseActivity {
         //初始化组件
         progressBar = (ProgressBar) headView.findViewById(R.id.hendview_pro);
 
-        ivMap = (ImageView) llcontent.findViewById(R.id.hotel_storinfo_mapview);
+        ivMap = (DelayedClickImageView) llcontent.findViewById(R.id.hotel_storinfo_mapview);
+        ivMap.setTime(1000);
         tvAddress = (TextView) llcontent.findViewById(R.id.hotel_storinfo_tvaddress);
         tvPingfen = (TextView) llcontent.findViewById(R.id.hotel_storinfo_pingfen);
         tvRuzhu = (TextView) llcontent.findViewById(R.id.hotel_storinfo_tvrutime);

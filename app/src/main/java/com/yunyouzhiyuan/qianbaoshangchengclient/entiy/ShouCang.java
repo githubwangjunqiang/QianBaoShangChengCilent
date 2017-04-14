@@ -53,6 +53,15 @@ public class ShouCang {
         private String store_name;
         private String store_logo;
         private String collectsum;
+        private String sc_id;
+
+        public String getSc_id() {
+            return sc_id;
+        }
+
+        public void setSc_id(String sc_id) {
+            this.sc_id = sc_id;
+        }
 
         public String getStore_id() {
             return store_id;

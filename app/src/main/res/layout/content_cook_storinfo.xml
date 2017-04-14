@@ -60,7 +60,7 @@
             android:padding="@dimen/pading_10"
             >
 
-            <TextView
+            <com.yunyouzhiyuan.qianbaoshangchengclient.ui.DelayedClickTextView
                 android:id="@+id/cookstor_tvaddress"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

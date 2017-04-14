@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.KTV;
-import com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.glide_image.ToGlide;
 
 import java.util.List;
@@ -49,7 +48,7 @@ public class KTVTuanGouAdapter extends MyAdapter<KTV.DataBean.GoodsListBean> {
         private Context context;
 
         public ViewHolder(View view, Context context) {
-            ivimage = (AutoImageView) view.findViewById(R.id.itme_ktv_tuan_iviamge);
+            ivimage = (ImageView) view.findViewById(R.id.itme_ktv_tuan_iviamge);
             tvName = (TextView) view.findViewById(R.id.itme_ktv_tuan_tvname);
             tvPrice = (TextView) view.findViewById(R.id.itme_ktv_tuan_tvprice);
             tvYishou = (TextView) view.findViewById(R.id.itme_ktv_tuan_tvyishou);

@@ -25,7 +25,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 public class RoundImageView extends android.support.v7.widget.AppCompatImageView {
     /**
      * 图片的类型，圆形or圆角
-     * TODO 自行在自己的values-attrs 文件夹下 添加如下代码
+     * TODO 自行在自己的values-attrs 文件夹下 添加如下代码   获取自定义属性
           <attr format="dimension" name="borderRadius"/>
              <attr name="type">
                    <enum name="circle" value="0"/>

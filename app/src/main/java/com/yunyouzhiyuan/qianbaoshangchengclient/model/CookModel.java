@@ -23,10 +23,10 @@ import okhttp3.Response;
 
 public class CookModel extends IModel {
     /**
-     * 获取附近店铺
-     * nearbyStore
-     * page    lat1 纬度  lng1 经度  id(二级分类)   city_id(首页所选城市id)
-     * （sc_id(一级分类)  获取二级分类下店铺参数     ）
+     * 27、获取店铺列表信息 (首页下边附近店铺)
+     get_store_list
+     传入：page    lat1 纬度  lng1 经度  id(二级分类)   city_id(首页所选城市id)  （sc_id(一级分类)  获取二级分类下店铺参数     ）
+     例如：get_store_list?id=2&lng=116.73245&lat=39.867184&page=0&city_id=2&sc_id=2
      */
     public Call nearByStore(String sc_id, String class_2, String lng, String lat, int page,
                             String city_id, final AsyncCallBack callBack) {

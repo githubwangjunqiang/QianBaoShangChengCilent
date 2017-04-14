@@ -18,7 +18,7 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <ImageView
+            <com.yunyouzhiyuan.qianbaoshangchengclient.ui.DelayedClickImageView
                 android:scaleType="fitXY"
                 android:id="@+id/hotel_storinfo_mapview"
                 android:layout_width="match_parent"
