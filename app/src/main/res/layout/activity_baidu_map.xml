@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
@@ -9,12 +10,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.baidu.mapapi.map.MapView
-        android:id="@+id/bmapView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clickable="true" />
+        android:layout_weight="1">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_map"
+            android:onClick="shangjia"
+            app:backgroundTint="#eeFD7200"
+            app:rippleColor="#FF4081"
+            app:borderWidth="0dp"
+            app:elevation="@dimen/pading_4"
+            app:pressedTranslationZ="@dimen/pading_8"
+            app:fabSize="mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@mipmap/shangdian"
+            />
+
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,40 +46,48 @@
         android:orientation="horizontal">
 
         <TextView
-            android:onClick="daohang"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
             android:drawableLeft="@mipmap/daohandaodian"
             android:gravity="center"
-            android:padding="@dimen/pading_10"
+            android:onClick="daohang"
+            android:paddingBottom="@dimen/pading_10"
+            android:paddingLeft="@dimen/pading_4"
+            android:paddingTop="@dimen/pading_10"
             android:text="@string/kaishidaohang"
             android:textColor="@color/text_color"
             android:textSize="@dimen/text_size_14sp" />
+
         <TextView
-            android:onClick="moni"
-            android:layout_marginLeft="@dimen/pading_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pading_1"
             android:layout_weight="1"
             android:background="@color/white"
             android:drawableLeft="@mipmap/monidaohang"
             android:gravity="center"
-            android:padding="@dimen/pading_10"
+            android:onClick="moni"
+            android:paddingBottom="@dimen/pading_10"
+            android:paddingLeft="@dimen/pading_4"
+            android:paddingTop="@dimen/pading_10"
             android:text="@string/monidaohang"
             android:textColor="@color/text_color"
             android:textSize="@dimen/text_size_14sp" />
+
         <TextView
-            android:onClick="wodeding"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pading_1"
             android:layout_weight="1"
             android:background="@color/white"
-            android:layout_marginLeft="@dimen/pading_1"
             android:drawableLeft="@mipmap/wodeweizhi"
             android:gravity="center"
-            android:padding="@dimen/pading_10"
+            android:onClick="wodeding"
+            android:paddingBottom="@dimen/pading_10"
+            android:paddingLeft="@dimen/pading_4"
+            android:paddingTop="@dimen/pading_10"
             android:text="@string/wodeweizhi"
             android:textColor="@color/text_color"
             android:textSize="@dimen/text_size_14sp" />

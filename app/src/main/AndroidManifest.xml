@@ -457,7 +457,12 @@
         <activity android:name=".activity.WeiBoShareActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme_fist"
-            />
+            >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest> <!--  -->

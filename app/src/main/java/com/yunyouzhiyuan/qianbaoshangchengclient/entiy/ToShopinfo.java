@@ -10,6 +10,19 @@ public class ToShopinfo implements Serializable {
     private String imageUrl;//图片地址
     private String shopNmae;//商品名称
     private String goodsId;//商品id
+    private float shopPingFen;//商品分数
+    private String shopPrice;//商品单价
+    private String salesSum;//已售出数量
+    private String storName;//所属店铺名称
+    private String storType;//所属店铺类型 是否 五大独立模块
+    private String storId;//所属店铺id
+    private String lat;
+
+
+    private String lng;
+
+    public ToShopinfo() {
+    }
 
     public String getGoodsId() {
         return goodsId;
@@ -19,17 +32,11 @@ public class ToShopinfo implements Serializable {
         this.goodsId = goodsId;
     }
 
-    private float shopPingFen;//商品分数
-    private String shopPrice;//商品单价
-    private String salesSum;//已售出数量
-    private String storName;//所属店铺名称
-    private String storType;//所属店铺类型 是否 五大独立模块
-    private String storId;//所属店铺id
-
-    public ToShopinfo() {
-    }
-
-    public ToShopinfo(String imageUrl, String shopNmae, String goodsId,float shopPingFen, String shopPrice, String salesSum, String storName, String storType, String storId) {
+    public ToShopinfo(String imageUrl, String shopNmae, String goodsId,
+                      float shopPingFen, String shopPrice,
+                      String salesSum, String storName,
+                      String storType, String storId, String lat, String lng
+    ) {
         this.imageUrl = imageUrl;
         this.shopNmae = shopNmae;
         this.goodsId = goodsId;
@@ -39,6 +46,8 @@ public class ToShopinfo implements Serializable {
         this.storName = storName;
         this.storType = storType;
         this.storId = storId;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public String getImageUrl() {
@@ -104,4 +113,21 @@ public class ToShopinfo implements Serializable {
     public void setStorId(String storId) {
         this.storId = storId;
     }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
 }

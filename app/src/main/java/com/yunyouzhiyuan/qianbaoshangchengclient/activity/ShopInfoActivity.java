@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.DisplayMetrics;
@@ -216,6 +217,19 @@ public class ShopInfoActivity extends BaseActivity {
                         shopinfo.getStorId());
             }
         });
+        tvStorName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String lat = shopinfo.getLat();
+                String lng = shopinfo.getLng();
+
+                if (TextUtils.isEmpty(lat) || TextUtils.isEmpty(lng)) {
+                    To.oo("店家经纬度缺失");
+                    return;
+                }
+                BaiduMapActivity.startBaiduMapActivity(ShopInfoActivity.this, lat, lng);
+            }
+        });
     }
 
     /**
@@ -233,23 +247,23 @@ public class ShopInfoActivity extends BaseActivity {
     private void getShoucang() {
         Call call = model.loadShopShou(shopinfo.getGoodsId(), App.getUserId(),
                 new IModel.AsyncCallBack() {
-            @Override
-            public void onSucceed(Object obj) {
-                if (isFinishing()) {
-                    return;
-                }
-                int data = (int) obj;
-                ivShouCang.setSelected(data == 1);
-            }
+                    @Override
+                    public void onSucceed(Object obj) {
+                        if (isFinishing()) {
+                            return;
+                        }
+                        int data = (int) obj;
+                        ivShouCang.setSelected(data == 1);
+                    }
 
-            @Override
-            public void onError(Object obj) {
-                if (isFinishing()) {
-                    return;
-                }
-                To.oo(obj);
-            }
-        });
+                    @Override
+                    public void onError(Object obj) {
+                        if (isFinishing()) {
+                            return;
+                        }
+                        To.oo(obj);
+                    }
+                });
         setCall(call);
     }
 
@@ -289,7 +303,7 @@ public class ShopInfoActivity extends BaseActivity {
         ratingBar.setRating(shopinfo.getShopPingFen());
         tvPrice.setText("￥" + shopinfo.getShopPrice());
         setnumberText("及时送\n已售" + shopinfo.getSalesSum(), tvYiShou);
-        tvStorName.setText("\t" + shopinfo.getStorName());
+        tvStorName.setText("\t" + shopinfo.getStorName()+"点击查看位置");
     }
 
 
@@ -312,9 +326,9 @@ public class ShopInfoActivity extends BaseActivity {
                 ToDingdanActivity.startToDingdanActivity(this,
                         shopinfo.getShopNmae(),
                         shopinfo.getStorId(),
-                        shopinfo.getGoodsId(),"1",
+                        shopinfo.getGoodsId(), "1",
                         shopinfo.getShopPrice()
-                        ,shopinfo.getShopPrice(),null);
+                        , shopinfo.getShopPrice(), null);
                 break;
             case R.id.ivback://返回
                 finish();
@@ -334,27 +348,27 @@ public class ShopInfoActivity extends BaseActivity {
         ivShouCang.setClickable(false);
         Call call = model.shouCangShop(App.getUserId(), shopinfo.getGoodsId(),
                 ivShouCang.isSelected() ? 1 : 0, new IModel.AsyncCallBack() {
-            @Override
-            public void onSucceed(Object obj) {
-                if (isFinishing()) {
-                    return;
-                }
-                To.dd(obj);
-                ivShouCang.setSelected(!ivShouCang.isSelected());
-                progressBar.setVisibility(View.GONE);
-                ivShouCang.setClickable(true);
-            }
+                    @Override
+                    public void onSucceed(Object obj) {
+                        if (isFinishing()) {
+                            return;
+                        }
+                        To.dd(obj);
+                        ivShouCang.setSelected(!ivShouCang.isSelected());
+                        progressBar.setVisibility(View.GONE);
+                        ivShouCang.setClickable(true);
+                    }
 
-            @Override
-            public void onError(Object obj) {
-                if (isFinishing()) {
-                    return;
-                }
-                To.oo(obj);
-                ivShouCang.setClickable(true);
-                progressBar.setVisibility(View.GONE);
-            }
-        });
+                    @Override
+                    public void onError(Object obj) {
+                        if (isFinishing()) {
+                            return;
+                        }
+                        To.oo(obj);
+                        ivShouCang.setClickable(true);
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
         setCall(call);
     }
 

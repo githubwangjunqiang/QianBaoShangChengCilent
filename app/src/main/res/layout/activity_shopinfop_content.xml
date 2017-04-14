@@ -75,7 +75,7 @@
             tools:text="及时送\n已售1000" />
     </LinearLayout>
 
-    <TextView
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.DelayedClickTextView
         android:id="@+id/shopinfo_tvstorname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

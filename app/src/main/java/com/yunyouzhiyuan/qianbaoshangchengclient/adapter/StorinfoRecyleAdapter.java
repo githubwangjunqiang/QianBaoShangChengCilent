@@ -57,6 +57,8 @@ public class StorinfoRecyleAdapter extends RecyclerView.Adapter<StorinfoViewHold
                 dat.setShopPrice(data.getPrice() + "");
                 dat.setStorName(DataStor.getData().getStore_name() + "");
                 dat.setStorType("");
+                dat.setLat(DataStor.getData().getLat());
+                dat.setLng(DataStor.getData().getLng());
                 ShopInfoActivity.startShopInfoActivity(context, dat);
             }
         });

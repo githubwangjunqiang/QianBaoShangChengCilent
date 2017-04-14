@@ -263,4 +263,6 @@
     <string name="weibosdk_demo_toast_share_canceled">取消分享</string>
     <string name="weibosdk_demo_toast_share_failed">分享失败</string>
     <string name="qushangjiadianpu">去商家店铺</string>
+    <string name="dianpuweizhi">店铺位置</string>
+    <string name="xuanzhongweizhi">选中位置</string>
 </resources>

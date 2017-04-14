@@ -10,7 +10,11 @@ public class StorInfoList {
     /**
      * retcode : 2000
      * msg : 获取成功！
-     * data : {"goods_list":[{"goods_id":"20","cat_id3":"63","goods_name":"仅售98元，价值168元单人洗浴 雲鼎足道，节假日通用，免费WiFi！","original_img":"/Public/upload/goods/2017/03-09/58c0f0be06638.jpg","shop_price":"168.00","comment_count":"0","sales_sum":"0","name":null,"commentsum":null,"price":"98.00"}]}
+     * data : {"goods_list":[{"goods_id":"20","cat_id3":"63","goods_name":
+     * "仅售98元，价值168元单人洗浴 雲鼎足道，节假日通用，免费WiFi！","
+     * original_img":"/Public/upload/goods/2017/03-09/58c0f0be06638.jpg",
+     * "shop_price":"168.00","comment_count":"0","sales_sum":"0","name":null,
+     * "commentsum":null,"price":"98.00"}]}
      */
 
     private int retcode;

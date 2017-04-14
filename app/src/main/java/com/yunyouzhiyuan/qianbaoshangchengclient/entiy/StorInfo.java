@@ -8,7 +8,18 @@ public class StorInfo {
     /**
      * retcode : 2000
      * msg : 获取成功！
-     * data : {"store_id":"3","store_name":"王老板通州","province_id":"1","city_id":"2","district":"188","store_address":"待完善","store_time":"1487571126","store_end_time":"0","store_logo":"/Public/upload/seller/2017/02-28/58b54940799e0.jpg","store_desccredit":"0.00","lat":"39.871068","lng":"116.729844","location":"北京市市辖区通州区","avgcomment":null,"collect":1}
+     * data : {"store_id":"3","store_name":"
+     * 王老板通州","province_id":"1","
+     * city_id":"2","district":"188"
+     * ,"store_address":"待完善",
+     * "store_time":"1487571126",
+     * "store_end_time":"0",
+     * "store_logo":"/Public/upload/seller/2017/02-28/58b54940799e0.jpg",
+     * "store_desccredit":"0.00",
+     * "lat":"39.871068",
+     * "lng":"116.729844",
+     * "location":"北京市市辖区通州区",
+     * "avgcomment":null,"collect":1}
      */
 
     private int retcode;

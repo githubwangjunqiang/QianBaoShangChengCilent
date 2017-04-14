@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
@@ -67,7 +66,6 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
     private LoadingDialog looding;
     private String title = "让我们互相伤害吧";
     private String content = "黔宝商城海量大甩卖！还在等什么？快来补刀吧......";
-    private AsyncTask<Void, Void, String> execute;
     /**
      * 微博微博分享接口实例
      */
@@ -93,9 +91,6 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
         looding.setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                if (execute != null && !execute.isCancelled()) {
-                    execute.cancel(true);
-                }
                 return false;
             }
         });
@@ -184,7 +179,7 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
         // 但该附件栏集成分享权限需要合作申请，详情请查看 Demo 提示
         // NOTE：请务必提前注册，即界面初始化的时候或是应用程序初始化时，进行注册
         mWeiboShareAPI.registerApp();
-      weiboAppInstalled = mWeiboShareAPI.isWeiboAppInstalled();
+        weiboAppInstalled = mWeiboShareAPI.isWeiboAppInstalled();
 
         // 当 Activity 被重新初始化时（该 Activity 处于后台时，可能会由于内存不足被杀掉了），
         // 需要调用 {@link IWeiboShareAPI#handleWeiboResponse} 来接收微博客户端返回的数据。
@@ -206,92 +201,7 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
      * 新浪微博
      */
     private void sinaShare() {
-//        execute = new AsyncTask<Void, Void, String>() {
-//            @Override
-//            protected void onPreExecute() {
-//                looding.show();
-//            }
-//
-//            @Override
-//            protected String doInBackground(Void... params) {
-//                File file = new File(App.getContext().getExternalCacheDir().getAbsolutePath(), "app.jpg");
-//                try {
-//                    if (file.exists()) {
-//                        file.delete();
-//                        file.createNewFile();
-//                    }
-//                    boolean qrCode = EncodingUtils.createQRCode(SHAREURL, 500, 500,
-//                            BitmapFactory.decodeResource(WeiBoShareActivity.this.getResources(),
-//                                    R.mipmap.ic_launcher), file.getPath());
-//                    if (qrCode && file.length() > 0) {
-//                        return file.getPath();
-//                    }
-//
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                return null;
-//            }
-//
-//            @Override
-//            protected void onPostExecute(String s) {
-//                if (TextUtils.isEmpty(s)) {
-//                    looding.dismiss();
-//                    To.ee("分享失败");
-//                    return;
-//                }
-//                // 获取微博客户端相关信息，如是否安装、支持 SDK 的版本
-//                boolean isInstalledWeibo = mWeiboShareAPI.isWeiboAppInstalled();
-//                int supportApiLevel = mWeiboShareAPI.getWeiboAppSupportAPI();
-//                // 1. 初始化微博的分享消息
-//                WeiboMultiMessage weiboMessage = new WeiboMultiMessage();
-//                weiboMessage.textObject = getTextObj();
-//                weiboMessage.imageObject = getImageObj(s);
-//                // 2. 初始化从第三方到微博的消息请求
-//                SendMultiMessageToWeiboRequest request = new SendMultiMessageToWeiboRequest();
-//                // 用transaction唯一标识一个请求
-//                request.transaction = String.valueOf(System.currentTimeMillis());
-//                request.multiMessage = weiboMessage;
-//                // 3. 发送请求消息到微博，唤起微博分享界面
-//                if (isInstalledWeibo) {
-//                    mWeiboShareAPI.sendRequest(WeiBoShareActivity.this, request);
-//                } else {
-//                    AuthInfo authInfo = new AuthInfo(WeiBoShareActivity.this,
-//                            Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
-//                    Oauth2AccessToken accessToken =
-//                            AccessTokenKeeper.readAccessToken(getApplicationContext());
-//                    String token = "";
-//                    if (accessToken != null) {
-//                        token = accessToken.getToken();
-//                    }
-//                    mWeiboShareAPI.sendRequest(WeiBoShareActivity.this,
-//                            request, authInfo, token, new WeiboAuthListener() {
-//
-//                                @Override
-//                                public void onWeiboException(WeiboException arg0) {
-//                                    To.oo("失败");
-//                                }
-//
-//                                @Override
-//                                public void onComplete(Bundle bundle) {
-//                                    // TODO Auto-generated method stub
-//                                    Oauth2AccessToken newToken =
-//                                            Oauth2AccessToken.parseAccessToken(bundle);
-//                                    AccessTokenKeeper.writeAccessToken(getApplicationContext(),
-//                                            newToken);
-//                                    Toast.makeText(getApplicationContext(),
-//                                            "onAuthorizeComplete token = " + newToken.getToken(),
-//                                            Toast.LENGTH_SHORT).show();
-//                                    callThisActivity();
-//                                }
-//
-//                                @Override
-//                                public void onCancel() {
-//                                }
-//                            });
-//                }
-//            }
-//        }.execute();
+        looding.show();
         // 1. 初始化微博的分享消息
         WeiboMultiMessage weiboMessage = new WeiboMultiMessage();
         weiboMessage.textObject = getTextObj();
@@ -304,7 +214,7 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
         // 3. 发送请求消息到微博，唤起微博分享界面
         if (weiboAppInstalled) {
             mWeiboShareAPI.sendRequest(WeiBoShareActivity.this, request);
-        } else{
+        } else {
             AuthInfo authInfo = new AuthInfo(this, Constants.APP_KEY,
                     Constants.REDIRECT_URL, Constants.SCOPE);
             Oauth2AccessToken accessToken = AccessTokenKeeper.readAccessToken(getApplicationContext());
@@ -316,6 +226,8 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
 
                 @Override
                 public void onWeiboException(WeiboException arg0) {
+                    looding.dismiss();
+                    To.oo("分享失败");
                 }
 
                 @Override
@@ -323,8 +235,11 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
                     // TODO Auto-generated method stub
                     Oauth2AccessToken newToken = Oauth2AccessToken.parseAccessToken(bundle);
                     AccessTokenKeeper.writeAccessToken(getApplicationContext(), newToken);
-                    Toast.makeText(getApplicationContext(), "onAuthorizeComplete token = "
-                            + newToken.getToken(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "onAuthorizeComplete token = "
+//                            + newToken.getToken(), Toast.LENGTH_SHORT).show();
+                    looding.dismiss();
+                    To.oo("分享成功");
+                    callThisActivity();
                 }
 
                 @Override
@@ -430,7 +345,6 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
 
     @Override
     public void onResponse(BaseResponse baseResp) {
-        To.oo("会滴哦啊");
         if (baseResp != null) {
             switch (baseResp.errCode) {
                 case WBConstants.ErrorCode.ERR_OK:

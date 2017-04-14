@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -55,15 +57,17 @@ public class BaiduMapActivity extends BaseActivity {
     MapView mMapView;
     private BaiduMap baiduMap;
     private BitmapDescriptor bitmapDescriptor;
-    private Overlay overlay;
+    private Overlay overlay, overlayStor;
     private LatLng ll;//当前位置
     private LatLng latLngnew;//新的位置
+    private LatLng latStor;//新的位置
     public static List<Activity> activityList = new LinkedList<Activity>();
     public static final String ROUTE_PLAN_NODE = "routePlanNode";
     private String mSDCardPath = null;
     private static final String APP_FOLDER_NAME = "黔宝商城客户端";
-//    private MyOrientationListener myOrientationListener;
+    //    private MyOrientationListener myOrientationListener;
     private float mCurrentX;
+
     public static void startBaiduMapActivity(Context context, String lat, String lng) {
         Intent intent = new Intent(context, BaiduMapActivity.class);
         intent.putExtra("lat", lat);
@@ -81,18 +85,21 @@ public class BaiduMapActivity extends BaseActivity {
             finish();
             return;
         }
-        ll = new LatLng(BaiduMapBean.getLocation().getLatitude(), BaiduMapBean.getLocation().getLongitude());
-        latLngnew = new LatLng(Double.parseDouble(getIntent().getStringExtra("lat")), Double.parseDouble(getIntent().getStringExtra("lng")));
+        ll = new LatLng(BaiduMapBean.getLocation().getLatitude(),
+                BaiduMapBean.getLocation().getLongitude());
+        latLngnew = new LatLng(Double.parseDouble(getIntent().getStringExtra("lat")),
+                Double.parseDouble(getIntent().getStringExtra("lng")));
         if (latLngnew == null) {
             To.ee("店家位置获取异常");
             finish();
             return;
         }
+        latStor = latLngnew;
         init();
         setlistener();
         getlocation();
         toMapAnition(latLngnew);
-        toBitmap(latLngnew);
+        toBitmapStor(latStor);
     }
 
     /**
@@ -113,7 +120,7 @@ public class BaiduMapActivity extends BaseActivity {
 
         mapTitle.setTitle("店家地址", true);
         mapTitle.showBianji("其他地图");
-        mapTitle.setCallback(new TitleLayout.Callback(this){
+        mapTitle.setCallback(new TitleLayout.Callback(this) {
             @Override
             public void bianjiClick() {
                 toOtherMap();
@@ -132,9 +139,9 @@ public class BaiduMapActivity extends BaseActivity {
      * 其他地图
      */
     private void toOtherMap() {
-        ToMapApp.toPushApp(this,BaiduMapBean.getLocation().getLatitude()+"",
-                BaiduMapBean.getLocation().getLongitude()+"",
-                "我的位置",latLngnew.latitude+"",latLngnew.longitude+"","目的地",1);
+        ToMapApp.toPushApp(this, BaiduMapBean.getLocation().getLatitude() + "",
+                BaiduMapBean.getLocation().getLongitude() + "",
+                "我的位置", latLngnew.latitude + "", latLngnew.longitude + "", "目的地", 1);
     }
 
     /**
@@ -200,10 +207,14 @@ public class BaiduMapActivity extends BaseActivity {
 
     //构建Marker图标
     private BitmapDescriptor bitmap = BitmapDescriptorFactory
+            .fromResource(R.drawable.dingweiweizhi);
+    //构建Marker图标
+    private BitmapDescriptor bitmapStor = BitmapDescriptorFactory
             .fromResource(R.drawable.mudidi);
 
     /**
      * 生成marker
+     * 用户点击
      *
      * @param latLng
      */
@@ -216,6 +227,23 @@ public class BaiduMapActivity extends BaseActivity {
         // 生长动画
         ooD.animateType(MarkerOptions.MarkerAnimateType.grow);
         overlay = baiduMap.addOverlay(ooD);
+    }
+
+    /**
+     * 生成marker
+     * 店家位置
+     *
+     * @param latLng
+     */
+    private void toBitmapStor(LatLng latLng) {
+        if (overlayStor != null) {
+            overlayStor.remove();
+        }
+        MarkerOptions ooD = new MarkerOptions().position(latLng).icon(bitmapStor)
+                .zIndex(0).period(10);
+        // 生长动画
+        ooD.animateType(MarkerOptions.MarkerAnimateType.grow);
+        overlayStor = baiduMap.addOverlay(ooD);
     }
 
 
@@ -263,8 +291,20 @@ public class BaiduMapActivity extends BaseActivity {
      */
     public void daohang(View v) {
         if (BaiduNaviManager.isNaviInited()) {
-            routeplanToNavi(true);
+            toShowMenuDapohang(v);
         }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getGroupId() == 0) {
+            if (item.getItemId() == 1) {//店铺位置
+                routeplanToNavi(true, latStor);
+            } else if (item.getItemId() == 2) {//选中位置
+                routeplanToNavi(true, latLngnew);
+            }
+        }
+        return super.onContextItemSelected(item);
     }
 
     /**
@@ -274,8 +314,25 @@ public class BaiduMapActivity extends BaseActivity {
      */
     public void moni(View v) {
         if (BaiduNaviManager.isNaviInited()) {
-            routeplanToNavi(false);
+            toShowMenuDapohang(v);
         }
+    }
+
+    /**
+     * 显示导航终点菜单
+     * @param v
+     */
+    private void toShowMenuDapohang(View v) {
+        v.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+            @Override
+            public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+                menu.add(0, 1, 0, R.string.dianpuweizhi);
+                if (latLngnew != latStor) {
+                    menu.add(0, 2, 0, R.string.xuanzhongweizhi);
+                }
+            }
+        });
+        v.showContextMenu();
     }
 
     /**
@@ -283,7 +340,7 @@ public class BaiduMapActivity extends BaseActivity {
      *
      * @param isMoni 模拟导航 true =真实导航  false=模拟
      */
-    private void routeplanToNavi(boolean isMoni) {
+    private void routeplanToNavi(boolean isMoni, LatLng latLng) {
         BNRoutePlanNode.CoordinateType type = BNRoutePlanNode.CoordinateType.GCJ02;
 
         BNRoutePlanNode sNode = null;//起点
@@ -293,8 +350,8 @@ public class BaiduMapActivity extends BaseActivity {
         BDLocation slocation = mLocationClient.getBDLocationInCoorType
                 (BaiduMapBean.getLocation(), BDLocation.BDLOCATION_BD09LL_TO_GCJ02);
         BDLocation loc = new BDLocation();
-        loc.setLatitude(latLngnew.latitude);
-        loc.setLongitude(latLngnew.longitude);
+        loc.setLatitude(latLng.latitude);
+        loc.setLongitude(latLng.longitude);
         BDLocation elocation = mLocationClient.getBDLocationInCoorType
                 (loc, BDLocation.BDLOCATION_BD09LL_TO_GCJ02);
         sNode = new BNRoutePlanNode(slocation.getLongitude(),
@@ -310,6 +367,15 @@ public class BaiduMapActivity extends BaseActivity {
             BaiduNaviManager.getInstance().launchNavigator(this,
                     list, 1, isMoni, new DemoRoutePlanListener(sNode));
         }
+    }
+
+    /**
+     * 店家商家
+     *
+     * @param view
+     */
+    public void shangjia(View view) {
+        toMapAnition(latStor);
     }
 
 
