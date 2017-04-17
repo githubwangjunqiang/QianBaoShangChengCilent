@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFF">
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="@dimen/pading_4"
+            android:padding="@dimen/pading_6"
             android:background="@drawable/jianhao"
             android:src="@mipmap/jianhao1" />
 
@@ -40,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="@dimen/pading_5"
+            android:padding="@dimen/pading_6"
             android:background="@drawable/addcart"
             android:src="@mipmap/jiaohao1" />
     </LinearLayout>
@@ -51,20 +52,21 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/pading_4"
-        android:paddingLeft="@dimen/pading_10"
-        android:paddingRight="@dimen/pading_10"
+        android:paddingLeft="@dimen/pading_6"
+        android:paddingRight="@dimen/pading_8"
         android:paddingTop="@dimen/pading_4"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
 
-        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+        <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoRoundImageView
             android:id="@+id/itme_list_iviamge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
+            app:borderRadius="@dimen/pading_2"
             tools:src="@mipmap/meishi" />
 
         <TextView

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
@@ -139,9 +140,35 @@ public class BaiduMapActivity extends BaseActivity {
      * 其他地图
      */
     private void toOtherMap() {
+        PopupMenu popupMenu = new PopupMenu(this, mapTitle.getBiji());
+        popupMenu.inflate(R.menu.mapmevm);
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (item.getGroupId() == R.id.map_menv) {
+                    switch (item.getItemId()) {
+                        case R.id.mapmenv_new://新位置
+                            toOtherMapModel(latLngnew);
+                            break;
+                        case R.id.mapmenv_stor://店铺位置
+                            toOtherMapModel(latStor);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
+        popupMenu.show();
+    }
+
+    /**
+     * 其他地图
+     */
+    private void toOtherMapModel(LatLng latLng) {
         ToMapApp.toPushApp(this, BaiduMapBean.getLocation().getLatitude() + "",
                 BaiduMapBean.getLocation().getLongitude() + "",
-                "我的位置", latLngnew.latitude + "", latLngnew.longitude + "", "目的地", 1);
+                "我的位置", latLng.latitude + "", latLng.longitude + "", "目的地", 1);
     }
 
     /**
@@ -320,6 +347,7 @@ public class BaiduMapActivity extends BaseActivity {
 
     /**
      * 显示导航终点菜单
+     *
      * @param v
      */
     private void toShowMenuDapohang(View v) {

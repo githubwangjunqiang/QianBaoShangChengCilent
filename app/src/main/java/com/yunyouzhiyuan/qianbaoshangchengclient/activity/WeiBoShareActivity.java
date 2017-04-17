@@ -315,7 +315,6 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
         req.scene = SendMessageToWX.Req.WXSceneSession;//好友
         if (api != null) {
             api.sendReq(req);
-            callThisActivity();
         } else {
             To.oo("微信初始化失败");
         }

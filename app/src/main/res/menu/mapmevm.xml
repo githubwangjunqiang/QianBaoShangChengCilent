@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/map_menv">
+        <item
+            android:id="@+id/mapmenv_new"
+            android:title="@string/xuanzhongweizhi" />
+        <item
+            android:id="@+id/mapmenv_stor"
+            android:title="@string/dianpuweizhi" />
+    </group>
+</menu>

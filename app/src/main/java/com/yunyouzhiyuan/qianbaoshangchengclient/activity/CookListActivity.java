@@ -4,14 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.hr.nipuream.NRecyclerView.view.NRecyclerView;
-import com.hr.nipuream.NRecyclerView.view.base.BaseLayout;
-import com.hr.nipuream.NRecyclerView.view.impl.RefreshView2;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.adapter.CooklistAdapter;
 import com.yunyouzhiyuan.qianbaoshangchengclient.baiduMap.BaiduMapBean;
@@ -35,7 +33,9 @@ public class CookListActivity extends BaseActivity {
     @Bind(R.id.cooklist_title)
     TitleLayout title;
     @Bind(R.id.cooklist_recyleview)
-    NRecyclerView recyclerView;
+    RecyclerView recyclerView;
+    @Bind(R.id.refresh)
+    MaterialRefreshLayout layout;
     private CookModel model;
     private LoadingDialog loadingDialog;
     private List<Food_Bottom.DataBean> list = new ArrayList<>();
@@ -64,7 +64,25 @@ public class CookListActivity extends BaseActivity {
             return;
         }
         init();
+        setListener();
         getData();
+    }
+
+    private void setListener() {
+        layout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(final MaterialRefreshLayout materialRefreshLayout) {
+                //下拉刷新...
+                page = 0;
+                getData();
+            }
+
+            @Override
+            public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+                //上拉刷新...
+                getData();
+            }
+        });
     }
 
     private void getData() {
@@ -89,9 +107,9 @@ public class CookListActivity extends BaseActivity {
                         recyclerView.setVisibility(View.VISIBLE);
                         if (page == 0) {
                             list.clear();
-                            recyclerView.endRefresh();
+                            layout.finishRefresh();
                         } else {
-                            recyclerView.endLoadingMore();
+                            layout.finishRefreshLoadMore();
                         }
                         list.addAll(((Food_Bottom) obj).getData());
                         page++;
@@ -110,13 +128,9 @@ public class CookListActivity extends BaseActivity {
                             To.ee(obj);
                             list.clear();
                             setAdapter();
-                            recyclerView.endRefresh();
-//                            recyclerView.setPullLoadEnable(false);
-//                            ViewGroup errorView = (ViewGroup) LayoutInflater.from(CookListActivity.this).inflate(R.layout.load_error,(ViewGroup) findViewById(android.R.id.content),false);
-//                            recyclerView.setErrorView(errorView,false);
-                            recyclerView.setVisibility(View.GONE);
+                            layout.finishRefresh();
                         } else {
-                            recyclerView.endLoadingMore();
+                            layout.finishRefreshLoadMore();
                         }
                         if (loadingDialog.isShowing()) {
                             loadingDialog.dismiss();
@@ -133,25 +147,11 @@ public class CookListActivity extends BaseActivity {
             adapter.notifyDataSetChanged();
         } else {
             adapter = new CooklistAdapter(this, list, type);
+            recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.addItemDecoration(new DividerItemDecoration(this,
-                    DividerItemDecoration.VERTICAL_LIST), 2);
-            ViewGroup bottomView = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.bottom_layout, (ViewGroup) findViewById(android.R.id.content), false);
-            recyclerView.setBottomView(bottomView);
-            recyclerView.setRefreshView(new RefreshView2(this));
-            recyclerView.setAdapter(adapter);
-            recyclerView.setOnRefreshAndLoadingListener(new BaseLayout.RefreshAndLoadingListener() {
-                @Override
-                public void refresh() {
-                    page = 0;
-                    getData();
-                }
+                    DividerItemDecoration.VERTICAL_LIST));
 
-                @Override
-                public void load() {
-                    getData();
-                }
-            });
         }
     }
 
@@ -165,6 +165,8 @@ public class CookListActivity extends BaseActivity {
         title.setTitle("列表详情", true);
         title.setCallback(new TitleLayout.Callback(this));
         type = getIntent().getStringExtra("type");
+        layout.setIsOverLay(true);
+        layout.setWaveShow(true);
     }
 
     @Override

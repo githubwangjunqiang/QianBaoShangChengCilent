@@ -81,8 +81,7 @@ public class TestSectionedAdapter extends SectionedBaseAdapter {
         String str3 = str1 + str2 +"\n市场价:" + data.getMarket_price() ;
 
         Text_Size.setSizeThress(mContext, holder.tvname, str3, 0, str1.length(), "#646464", 13, str1.length(), str1.length() + str2.length(), "#E96D5B", 11, str1.length() + str2.length(), str3.length(), "#aa646464", 11);
-        holder.iviamge.setImageResource(R.mipmap.meishi);
-        ToGlide.urlRound(mContext, HTTPURL.IMAGE + data.getOriginal_img(), holder.iviamge, 6);
+        ToGlide.url(mContext, HTTPURL.IMAGE + data.getOriginal_img(), holder.iviamge);
 
         if (data.getCount() > 0) {
             if(holder.ivjian.getVisibility() == View.GONE){

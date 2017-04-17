@@ -120,7 +120,7 @@ public class DianDanAdapter extends BaseExpandableListAdapter {
             view.setTag(holder);
         }
         holder = (ViewHolder_C) view.getTag();
-        ToGlide.urlRound(context, HTTPURL.IMAGE + data.getOriginal_img(), holder.image, 4);
+        ToGlide.url(context, HTTPURL.IMAGE + data.getOriginal_img(), holder.image);
         holder.tvshopname.setText(data.getGoods_name());
         setpeice(data, holder.tvprice);
         holder.tvnumber.setText("数量：" + data.getGoods_num());

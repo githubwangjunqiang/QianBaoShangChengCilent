@@ -3,6 +3,7 @@ package com.yunyouzhiyuan.qianbaoshangchengclient.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -148,7 +149,7 @@ public class StorListActivity extends BaseActivity {
     private void init(String title) {
         storlistTitle.setTitle(title, true);
         storlistTitle.setCallback(new TitleLayout.Callback(this));
-        storlistLayout.setColorSchemeColors(R.color.white);
+        storlistLayout.setColorSchemeColors(ContextCompat.getColor(this,R.color.white));
         storlistLayout.setProgressBackgroundColor(R.color.app_color);
         model = new FoodModel();
     }

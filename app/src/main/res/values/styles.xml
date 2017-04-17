@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/background</item>
         <item name="android:listDivider">@drawable/divider_bg</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
     </style>
 
     <style name="AppTheme_main" parent="AppTheme">
@@ -32,13 +33,13 @@
     </style>
 
     <!--<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
-    <style name="AppTheme.AppBarOverlay" parent="AppTheme" >
+    <style name="AppTheme.AppBarOverlay" parent="AppTheme">
         <item name="android:textColor">#ffffff</item>
         <item name="colorPrimary">@color/white</item>
 
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="AppTheme.PopupOverlay" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">#ffffff</item>
     </style>
 
@@ -105,5 +106,11 @@
         <item name="android:taskToFrontExitAnimation">@null</item>
         <item name="android:taskToBackEnterAnimation">@null</item>
         <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size_13sp</item>
+        <item name="android:background">@color/app_color</item>
     </style>
 </resources>
