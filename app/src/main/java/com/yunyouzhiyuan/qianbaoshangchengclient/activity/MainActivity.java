@@ -188,7 +188,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        inBaiDuMap();
     }
 
     /**
@@ -513,7 +512,7 @@ public class MainActivity extends BaseActivity {
         registerReceiver(receiver, filter);
     }
 
-    private int inCount = 3;
+    private int inCount = 2;
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

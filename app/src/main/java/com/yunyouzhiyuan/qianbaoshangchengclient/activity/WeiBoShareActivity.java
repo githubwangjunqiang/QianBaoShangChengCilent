@@ -18,8 +18,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
@@ -34,14 +34,19 @@ import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.AccessTokenKeeper;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
+import com.tencent.connect.share.QQShare;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Bean;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Constants;
+import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.QQ;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.LoadingDialog;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
 
@@ -62,10 +67,14 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
     @Bind(R.id.dialog_share_ll)
     LinearLayout view;
     private int GVNUMBER = 3;//分享三方的数量
-    private String SHAREURL = "http://t.cn/RX2fJI3";//分享链接
+    private final String SHAREURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.qianbaoshangchengclient";//分享链接
     private LoadingDialog looding;
-    private String title = "让我们互相伤害吧";
-    private String content = "黔宝商城海量大甩卖！还在等什么？快来补刀吧......";
+    private final String title = "好友在召唤你";
+    private final String content = "黔宝商城海量大优惠！还在等什么？快来补刀吧......";
+    private final String IMAGEURL = "http://www.bm37.com/item/4/220/TB1dTaIFVXXXXbLXVXXXXXXXXXX_!!0-item_pic.jpg";
+    private final String IMAGEURL2 = "http://img.taobaocdn.com/imgextra/i7/92795946/T2g1tiXgBdXXXXXXXX_!!92795946.gif";
+
+
     /**
      * 微博微博分享接口实例
      */
@@ -173,18 +182,9 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
         gvShare.setNumColumns(GVNUMBER > 3 ? 3 : GVNUMBER);
 
 
-        // 创建微博分享接口实例
         mWeiboShareAPI = WeiboShareSDK.createWeiboAPI(this, Constants.APP_KEY);
-        // 注册第三方应用到微博客户端中，注册成功后该应用将显示在微博的应用列表中。
-        // 但该附件栏集成分享权限需要合作申请，详情请查看 Demo 提示
-        // NOTE：请务必提前注册，即界面初始化的时候或是应用程序初始化时，进行注册
         mWeiboShareAPI.registerApp();
         weiboAppInstalled = mWeiboShareAPI.isWeiboAppInstalled();
-
-        // 当 Activity 被重新初始化时（该 Activity 处于后台时，可能会由于内存不足被杀掉了），
-        // 需要调用 {@link IWeiboShareAPI#handleWeiboResponse} 来接收微博客户端返回的数据。
-        // 执行成功，返回 true，并调用 {@link IWeiboHandler.Response#onResponse}；
-        // 失败返回 false，不调用上述回调
         if (savedInstanceState != null) {
             mWeiboShareAPI.handleWeiboResponse(getIntent(), this);
         }
@@ -194,7 +194,48 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
      * QQ分享
      */
     private void qqShare() {
+        qqListener = new QQListener();
+        Tencent mTencent = Tencent.createInstance(Bean.QQ_APPID, this.getApplicationContext());
+        final Bundle params = new Bundle();
+        params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
+        params.putString(QQShare.SHARE_TO_QQ_TITLE, title);//标题
+        params.putString(QQShare.SHARE_TO_QQ_SUMMARY, content);//内容
+        params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, SHAREURL);//点击跳转链接
+        params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, IMAGEURL);//图片 可以是gif 类型
+        params.putString(QQShare.SHARE_TO_QQ_APP_NAME, getString(R.string.app_name));//应用标志
+//                    params.putInt(QQShare.SHARE_TO_QQ_EXT_INT,  "其他附加功能");
+        mTencent.shareToQQ(WeiBoShareActivity.this, params, qqListener);
+    }
 
+    private QQListener qqListener;
+
+    private class QQListener implements IUiListener {
+
+        @Override
+        public void onComplete(Object o) {
+            QQ qq = new Gson().fromJson(o.toString(), QQ.class);
+            if ("sucess".equals(qq.getMsg())) {
+                To.dd("分享成功");
+            }
+            callThisActivity();
+        }
+
+        @Override
+        public void onError(UiError uiError) {
+            To.oo(uiError.errorMessage);
+        }
+
+        @Override
+        public void onCancel() {
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (qqListener != null) {
+            Tencent.onActivityResultData(requestCode, resultCode, data, qqListener);
+        }
     }
 
     /**
@@ -238,7 +279,7 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
 //                    Toast.makeText(getApplicationContext(), "onAuthorizeComplete token = "
 //                            + newToken.getToken(), Toast.LENGTH_SHORT).show();
                     looding.dismiss();
-                    To.oo("分享成功");
+                    To.dd("分享成功");
                     callThisActivity();
                 }
 
@@ -321,7 +362,7 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
     private String getSharedText() {
 //        int formatId = R.string.weibosdk_demo_share_text_template;
 //        String format = getString(formatId);
-        String text = "http://www.baidu.com";
+        String text = SHAREURL + content;
 //        if (mTextCheckbox.isChecked() || mImageCheckbox.isChecked()) {
 //            text = "@大屁老师，这是一个很漂亮的小狗，朕甚是喜欢-_-!!";
 //        }
@@ -348,22 +389,21 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
         if (baseResp != null) {
             switch (baseResp.errCode) {
                 case WBConstants.ErrorCode.ERR_OK:
-                    Toast.makeText(this, R.string.weibosdk_demo_toast_share_success, Toast.LENGTH_LONG).show();
+                    To.dd(getString(R.string.weibosdk_demo_toast_share_success));
                     if (looding != null && looding.isShowing()) {
                         looding.dismiss();
                     }
                     callThisActivity();
                     break;
                 case WBConstants.ErrorCode.ERR_CANCEL:
-                    Toast.makeText(this, R.string.weibosdk_demo_toast_share_canceled, Toast.LENGTH_LONG).show();
+                    To.ee(getString(R.string.weibosdk_demo_toast_share_canceled));
                     if (looding != null && looding.isShowing()) {
                         looding.dismiss();
                     }
                     break;
                 case WBConstants.ErrorCode.ERR_FAIL:
-                    Toast.makeText(this,
-                            this.getString(R.string.weibosdk_demo_toast_share_failed) + "Error Message: " + baseResp.errMsg,
-                            Toast.LENGTH_LONG).show();
+                    To.ee(getString(R.string.weibosdk_demo_toast_share_failed) +
+                            "Error Message: " + baseResp.errMsg);
                     if (looding != null && looding.isShowing()) {
                         looding.dismiss();
                     }

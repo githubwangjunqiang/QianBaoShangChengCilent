@@ -23,7 +23,7 @@ public class NetworkConnectChangedReceiver extends BroadcastReceiver {
             switch (wifiState) {
                 case WifiManager.WIFI_STATE_DISABLED:
 //                        APP.getInstance().setEnablaWifi(false);
-//                    To.oo("亲 ，您已经关闭了wifi");
+                    To.oo("亲 ，您已经关闭了wifi");
                     break;
                 case WifiManager.WIFI_STATE_DISABLING:
 
@@ -32,7 +32,7 @@ public class NetworkConnectChangedReceiver extends BroadcastReceiver {
                     break;
                 case WifiManager.WIFI_STATE_ENABLED:
 //                        APP.getInstance().setEnablaWifi(true);
-//                    To.oo("亲 ，您开启关闭了wifi");
+                    To.oo("亲 ，您开启了wifi");
                     break;
                 case WifiManager.WIFI_STATE_UNKNOWN:
                     break;
@@ -56,9 +56,9 @@ public class NetworkConnectChangedReceiver extends BroadcastReceiver {
 //                    Log.e(TAG1, "isConnected" + isConnected);
                 if (isConnected) {
 //                        APP.getInstance().setWifi(true);
-//                    To.oo("亲 您的wifi可用");
+                    To.oo("亲 您的wifi可用");
                 } else {
-//                    To.oo("亲 您的wifi不可用");
+                    To.oo("亲 您的wifi不可用");
 //                        APP.getInstance().setWifi(false);
                 }
             }

@@ -36,13 +36,22 @@ public class Bean {
      */
     public static final String JPush_Appkey = "c02eb34328ef2f7e4f05204f";
 
-
-    public static final String APPPAKEGER = "com.yunyouzhiyuan.qianbaoshangcheng";//商家端的包名
-    public static final String APPURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.liushao";//商家端微下载链接;
+    /**
+     * 商家端的包名
+     */
+    public static final String APPPAKEGER = "com.yunyouzhiyuan.qianbaoshangcheng";
+    /**
+     * 微下载链接
+     */
+    public static final String APPURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.qianbaoshangchengclient";//商家端微下载链接;
     /**
      * 微信的appid
      */
     public static final String WE_XIN_APPID = "wx8944d7288a4b0123";
+    /**
+     * QQ 的appid
+     */
+    public static final String QQ_APPID = "1106048014";
 
 
     private static City_id city_id;//首页地址

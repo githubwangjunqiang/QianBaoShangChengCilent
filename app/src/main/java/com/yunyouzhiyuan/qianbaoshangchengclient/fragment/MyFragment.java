@@ -318,7 +318,8 @@ public class MyFragment extends MainFragment {
      */
     public void startAPP(String appPackageName) {
         try {
-            Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage(appPackageName);
+            Intent intent = getActivity().getPackageManager()
+                    .getLaunchIntentForPackage(appPackageName);
             startActivity(intent);
         } catch (Exception e) {
             WebViewActivity.startWebViewActivity(getActivity(), Bean.APPURL, "商家端");

@@ -218,3 +218,13 @@
     @android.webkit.JavascriptInterface <methods>;
 }
 #ping++结束
+-keep class com.tencent.mm.opensdk.** {
+   *;
+}
+-keep class com.tencent.wxop.** {
+   *;
+}
+-keep class com.tencent.mm.sdk.** {
+   *;
+}
+

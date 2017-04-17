@@ -3,17 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="@dimen/pading_6">
 
-    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoRoundImageView
         android:id="@+id/dingdan_ivimage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:scaleType="fitXY"
+        app:borderRadius="@dimen/pading_2"
+        android:scaleType="centerCrop"
         tools:src="@mipmap/meinv" />
 
     <LinearLayout

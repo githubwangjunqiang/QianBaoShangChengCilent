@@ -3,10 +3,13 @@ package com.yunyouzhiyuan.qianbaoshangchengclient.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.DownloadListener;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -56,13 +59,56 @@ public class WebViewActivity extends BaseActivity {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//关闭webview中缓存
         mView.loadUrl(url);
-        mView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mView.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                    Log.e("12345", "分享: " + request.getUrl().toString());
+                    if (!request.getUrl().toString().startsWith("http")) {
+                        Log.e("12345", "处理自定义scheme");
+                        try {
+                            // 以下固定写法
+                            final Intent intent = new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse(request.getUrl().toString()));
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                                    | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            WebViewActivity.this.startActivity(intent);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return false;
+                        }
+                        return true;
+                    }
+                    return super.shouldOverrideUrlLoading(view, request);
+                }
+            });
+
+        } else {
+            mView.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    Log.e("12345", "分享: " + url);
+                    if (!url.startsWith("http")) {
+                        Log.e("12345", "处理自定义scheme");
+                        try {
+                            // 以下固定写法
+                            final Intent intent = new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse(url));
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                                    | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            WebViewActivity.this.startActivity(intent);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return false;
+                        }
+                        return true;
+                    }
+                    return super.shouldOverrideUrlLoading(view, url);
+                }
+
+            });
+        }
+
 
         setlistener();
 
@@ -89,6 +135,7 @@ public class WebViewActivity extends BaseActivity {
         mView.setDownloadListener(new MyWebViewDownLoadListener());
 
     }
+
     /**
      * 点击超链接 进行下载任务
      */

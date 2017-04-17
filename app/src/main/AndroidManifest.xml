@@ -83,14 +83,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- 友盟开始 -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="58ca5694c62dca726a0002ee" />
+        <!--&lt;!&ndash; 友盟开始 &ndash;&gt;-->
+        <!--<meta-data-->
+        <!--android:name="UMENG_APPKEY"-->
+        <!--android:value="58ca5694c62dca726a0002ee" />-->
 
-        <!-- 友盟结束 -->
+        <!--&lt;!&ndash; 友盟结束 &ndash;&gt;-->
 
+        <!--QQ开始-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106048014" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--QQ结束-->
         <!-- 极光开始 -->
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
@@ -451,18 +469,25 @@
             android:name=".activity.ToHUoDongDingdanActivity"
             android:screenOrientation="portrait" />
         <!--订单查看二维码-->
-        <activity android:name=".activity.LookQRcodeActivity"
+        <activity
+            android:name=".activity.LookQRcodeActivity"
             android:screenOrientation="portrait" />
         <!--微博分享界面-->
-        <activity android:name=".activity.WeiBoShareActivity"
+        <activity
+            android:name=".activity.WeiBoShareActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme_fist"
-            >
+            android:theme="@style/AppTheme_fist">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <!--微信分享 的回调activity-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"
+            android:exported="true"/>
     </application>
 
 </manifest> <!--  -->
