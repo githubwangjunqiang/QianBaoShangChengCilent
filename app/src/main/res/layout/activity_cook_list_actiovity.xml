@@ -10,14 +10,16 @@
     <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
         android:id="@+id/cooklist_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
     <com.cjj.MaterialRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/refresh"
         app:isLoadMore="true"
-        app:wave_color="#88FD7200"
-        app:progress_size_type="normal"
+        app:overlay="false"
+        app:progress_show_arrow="true"
+        app:wave_show="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

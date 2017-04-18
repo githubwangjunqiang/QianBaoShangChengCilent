@@ -265,4 +265,5 @@
     <string name="qushangjiadianpu">去商家店铺</string>
     <string name="dianpuweizhi">店铺位置</string>
     <string name="xuanzhongweizhi">选中位置</string>
+    <string name="zhengzaijiazai">正在加载</string>
 </resources>

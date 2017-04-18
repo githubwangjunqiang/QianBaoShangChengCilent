@@ -165,8 +165,6 @@ public class CookListActivity extends BaseActivity {
         title.setTitle("列表详情", true);
         title.setCallback(new TitleLayout.Callback(this));
         type = getIntent().getStringExtra("type");
-        layout.setIsOverLay(true);
-        layout.setWaveShow(true);
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Dingdan;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.SpService;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.Utils;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.glide_image.ToGlide;
 
 import java.util.List;
@@ -33,9 +35,27 @@ public class DianDanAdapter extends BaseExpandableListAdapter {
     private List<Dingdan.DataBean.OrderListBean> list;
     private LayoutInflater inflater;
     private Callback callback;
+    private String loodmore;
+
+    public void setLoodmore(String loodmore) {
+        this.loodmore = loodmore;
+    }
 
     public void setCallback(Callback callback) {
         this.callback = callback;
+    }
+
+    @Override
+    public int getGroupTypeCount() {
+        return super.getGroupTypeCount() + 1;
+    }
+
+    @Override
+    public int getGroupType(int groupPosition) {
+        if (groupPosition == list.size()) {
+            return 1;
+        }
+        return super.getGroupType(groupPosition);
     }
 
     public interface Callback {
@@ -54,21 +74,30 @@ public class DianDanAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-        return list.size();
+        return list.size() + 1;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
+        if (groupPosition == list.size()) {
+            return 0;
+        }
         return list.get(groupPosition).getGoods_list().size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
+        if (getGroupType(groupPosition) == 1) {
+            return null;
+        }
         return list.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
+        if (getGroupType(groupPosition) == 1) {
+            return null;
+        }
         return list.get(groupPosition).getGoods_list().get(childPosition);
     }
 
@@ -90,16 +119,39 @@ public class DianDanAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View view, ViewGroup parent) {
         ViewHolder_G holder;
+        TextView textView;
         if (view == null) {
-            holder = new ViewHolder_G();
-            view = inflater.inflate(R.layout.itme_fragment_diandan_listview_g, null);
-            holder.tvstorname = (TextView) view.findViewById(R.id.itme_dingdan_tvstorname);
-            holder.tvTime = (TextView) view.findViewById(R.id.itme_dingdan_tvtime);
-            view.setTag(holder);
+            if (getGroupType(groupPosition) == 0) {
+                holder = new ViewHolder_G();
+                view = inflater.inflate(R.layout.itme_fragment_diandan_listview_g, null);
+                holder.tvstorname = (TextView) view.findViewById(R.id.itme_dingdan_tvstorname);
+                holder.tvTime = (TextView) view.findViewById(R.id.itme_dingdan_tvtime);
+                view.setTag(holder);
+            } else if (getGroupType(groupPosition) == 1) {
+                textView = new TextView(context);
+                int dimension = Utils.dip2px(context,
+                        10);
+                textView.setGravity(Gravity.CENTER);
+                textView.setPadding(dimension, dimension, dimension, dimension);
+                textView.setTextSize(13);
+                textView.setTextColor(ContextCompat.getColor(context, R.color.text_color));
+                textView.setBackgroundResource(R.color.background);
+                view = textView;
+            }
         }
-        holder = (ViewHolder_G) view.getTag();
-        holder.tvstorname.setText(list.get(groupPosition).getStore_name());
-        holder.tvTime.setText(list.get(groupPosition).getAdd_time());
+
+
+        if (getGroupType(groupPosition) == 0) {
+            holder = (ViewHolder_G) view.getTag();
+            holder.tvstorname.setText(list.get(groupPosition).getStore_name());
+            holder.tvTime.setText(list.get(groupPosition).getAdd_time());
+        } else {
+            textView = (TextView) view;
+            textView.setText(R.string.zhengzaijiazai);
+            textView.setTag("textview");
+        }
+
+
         return view;
     }
 

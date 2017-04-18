@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import com.pingplusplus.android.Pingpp;
 import com.yunyouzhiyuan.qianbaoshangchengclient.App;
@@ -92,8 +93,7 @@ public class AllFragment extends BaseFragment {
         dingdanLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                page = 0;
-                getData();
+                getData(true);
             }
         });
         dingdanElistview.setOnScrollListener(new ListViewListener() {
@@ -101,7 +101,7 @@ public class AllFragment extends BaseFragment {
             public void bottom() {
                 if (loading) {
                     loading = false;
-                    getData();
+                    getData(false);
                 }
             }
         });
@@ -111,6 +111,8 @@ public class AllFragment extends BaseFragment {
                 return true;
             }
         });
+
+
     }
 
     /**
@@ -130,22 +132,21 @@ public class AllFragment extends BaseFragment {
         if (!dingdanLayout.isRefreshing()) {
             dingdanLayout.setRefreshing(true);
         }
-        page = 0;
-        getData();
+        getData(true);
     }
 
     /**
      * 获取数据
      */
-    private void getData() {
-        if (dingdanLayout.isRefreshing()) {
-            dingdanLayout.setRefreshing(true);
+    private void getData(final boolean isTop) {
+        if (isTop) {
+            page = 0;
         }
         Call date = model.getDate(App.getUserId(), page, type, new IModel.AsyncCallBack() {
             @Override
             public void onSucceed(Object obj) {
-                if(getContext() != null){
-                    if (page == 0) {
+                if (getContext() != null) {
+                    if (isTop) {
                         list.clear();
                     }
                     list.addAll(((Dingdan) obj).getData().getOrder_list());
@@ -160,9 +161,14 @@ public class AllFragment extends BaseFragment {
             public void onError(Object obj) {
                 if (getContext() != null) {
                     To.oo(obj);
-                    if (page == 0 && list != null) {
+                    if (isTop && list != null) {
                         list.clear();
                         setadapter();
+                    } else {
+                        TextView textview = (TextView) dingdanElistview.findViewWithTag("textview");
+                        if (textview != null) {
+                            textview.setText("已经到底了");
+                        }
                     }
                     dingdanLayout.setRefreshing(false);
                 }

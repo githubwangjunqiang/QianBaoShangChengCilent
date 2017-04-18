@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import com.yunyouzhiyuan.qianbaoshangchengclient.App;
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
@@ -142,6 +143,10 @@ public class ReFundFragment extends BaseFragment {
                     if (page == 0 && list != null && dingdanLayout != null) {
                         list.clear();
                         setadapter();
+                    }
+                    TextView textview = (TextView) dingdanElistview.findViewWithTag("textview");
+                    if (textview != null) {
+                        textview.setText("已经到底了");
                     }
                     dingdanLayout.setRefreshing(false);
                 }
