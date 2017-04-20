@@ -254,9 +254,10 @@ public class KTVStorInfoActivity extends BaseActivity {
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         } else {
-            final List<KTV.DataBean.GoodsListBean> list = (List<KTV.DataBean.GoodsListBean>)
+            final List<KTV.DataBean.GoodsListBean> list =
+                    (List<KTV.DataBean.GoodsListBean>)
                     getIntent().getSerializableExtra("list");
-            if (list.size() > 0) {
+            if (list.size() > 1) {
                 list.remove(0);
             }
             adapter = new KTVTuanGouAdapter(this, list);

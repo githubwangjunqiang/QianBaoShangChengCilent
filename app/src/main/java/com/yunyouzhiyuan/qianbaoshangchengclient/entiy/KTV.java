@@ -11,7 +11,43 @@ public class KTV implements Serializable{
     /**
      * retcode : 2000
      * msg : 获取成功！
-     * data : [{"sc_id":"4","store_id":"5","user_id":"7","store_name":"王KTV","store_desccredit":"0.00","store_logo":"/Public/upload/seller/2017/02-24/58af948daf5b2.jpg","seo_description":"","gprice":"110.00","district":"通州区","goods_list":[{"shop_price":"38.00","market_price":"38.00","goods_name":"KTV","store_cat_id1":"9","goods_id":"12","sales_sum":"0","prom_type":"0","original_img":""},{"shop_price":"80.00","market_price":"178.00","goods_name":"周一至周日王KTV团小房欢唱","store_cat_id1":"10","goods_id":"13","sales_sum":"0","prom_type":"2","original_img":"/Public/upload/goods/2017/02-24/58afcf5d337d8.jpg"}],"distance":0.5}]
+     * data : [
+     * {"
+     * sc_id":"4",
+     * "store_id":"5",
+     * "user_id":"7",
+     * "store_name":"王KTV",
+     * "store_desccredit":"0.00",
+     * "store_logo":"/Public/upload/seller/2017/02-24/58af948daf5b2.jpg",
+     * "seo_description":"",
+     * "gprice":"110.00",
+     * "district":"通州区"
+     * ,"goods_list":
+     * [
+     * {
+     * "shop_price":"38.00",
+     * "market_price":"38.00",
+     * "goods_name":"KTV",
+     * "store_cat_id1":"9",
+     * "goods_id":"12",
+     * "sales_sum":"0",
+     * "prom_type":"0",
+     * "original_img":""}
+     * ,{
+     * "shop_price":"80.00",
+     * "market_price":"178.00",
+     * "goods_name":"周一至周日王KTV团小房欢唱",
+     * "store_cat_id1":"10",
+     * "goods_id":"13",
+     * "sales_sum":"0",
+     * "prom_type":"2",
+     * "original_img":"/Public/upload/goods/2017/02-24/58afcf5d337d8.jpg"
+     * }
+     * ]
+     * ,
+     * "distance":0.5
+     * }
+     * ]
      */
 
     private int retcode;

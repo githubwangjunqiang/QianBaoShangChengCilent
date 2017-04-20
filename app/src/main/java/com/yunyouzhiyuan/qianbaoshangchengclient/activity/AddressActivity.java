@@ -47,7 +47,7 @@ public class AddressActivity extends BaseActivity {
         if (!list.isEmpty()) {
             for (int i = 0; i < list.size(); i++) {
                 if ("1".equals(list.get(i).getIs_default())) {
-                    Bean.saveAdress(list.get(i));
+                    Bean.saveAdress(list.get(i),App.getUserId());
                 }
             }
         }

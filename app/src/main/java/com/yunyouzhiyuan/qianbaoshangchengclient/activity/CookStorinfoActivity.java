@@ -337,7 +337,7 @@ public class CookStorinfoActivity extends BaseActivity {
                     toShopinfo.setSalesSum(dataBean.getSales_sum());
                     toShopinfo.setShopNmae(dataBean.getGoods_name());
                     toShopinfo.setShopPingFen(dataBean.getCommentsum());
-                    toShopinfo.setShopPrice(dataBean.getShop_price());
+                    toShopinfo.setShopPrice(dataBean.getPrice() == null ? "0" : dataBean.getPrice());
                     toShopinfo.setStorType("美食");
                     toShopinfo.setStorId(data.getStore_id());
                     toShopinfo.setStorName(data.getStore_name());

@@ -51,7 +51,6 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import okhttp3.Call;
 
 /**
@@ -418,7 +417,8 @@ public class HomeFragment extends MainFragment {
                     return;
                 }
                 KTVStorInfoActivity.startKTVStorInfoActivity(getActivity(),
-                        listBottom.get(position).getStore_id(), data.getYuding().getGoods_id(),
+                        listBottom.get(position).getStore_id(),
+                        data.getYuding().getGoods_id(),
                         list);
                 layout.setRefreshing(false);
             }
@@ -503,19 +503,6 @@ public class HomeFragment extends MainFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.fragment_home_lltiantian, R.id.fragment_home_ivhuodong0, R.id.fragment_home_ivhuodong1})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.fragment_home_lltiantian://点击天天美食查看更多
-//                startActivity(new Intent(getActivity(), TianTianActivity.class));
-                break;
-            case R.id.fragment_home_ivhuodong0://点击活动0
-
-                break;
-            case R.id.fragment_home_ivhuodong1://点击活动1
-                break;
-        }
-    }
 
     @Override
     public void upLocation(BDLocation location) {

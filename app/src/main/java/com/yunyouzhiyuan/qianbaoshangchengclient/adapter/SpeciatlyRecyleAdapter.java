@@ -128,24 +128,27 @@ public class SpeciatlyRecyleAdapter extends RecyclerView.Adapter<SpiatlyViewHold
         hotelData = model.getHotelData(dataBean.getStore_id(), new IModel.AsyncCallBack() {
             @Override
             public void onSucceed(Object obj) {
-                KTV_list_data.DataBean data = (KTV_list_data.DataBean) obj;
-                List<KTV.DataBean.GoodsListBean> list = new ArrayList<KTV.DataBean.GoodsListBean>();
-                KTV.DataBean.GoodsListBean dataData = new KTV.DataBean.GoodsListBean();
-                for (KTV_list_data.DataBean.TuangouBean ddata : data.getTuangou()) {
-                    dataData.setGoods_id(ddata.getGoods_id());
-                    dataData.setGoods_name(ddata.getGoods_name());
-                    dataData.setMarket_price(ddata.getMarket_price());
-                    dataData.setSales_sum(ddata.getSales_sum());
-                    dataData.setShop_price(ddata.getShop_price());
-                    dataData.setStore_cat_id1(ddata.getStore_cat_id1());
-                    dataData.setOriginal_img(ddata.getOriginal_img());
-                    dataData.setProm_type(ddata.getProm_type());
-                    list.add(dataData);
+                try {
+                    KTV_list_data.DataBean data = (KTV_list_data.DataBean) obj;
+                    List<KTV.DataBean.GoodsListBean> list = new ArrayList<KTV.DataBean.GoodsListBean>();
+                    KTV.DataBean.GoodsListBean dataData = new KTV.DataBean.GoodsListBean();
+                    for (KTV_list_data.DataBean.TuangouBean ddata : data.getTuangou()) {
+                        dataData.setGoods_id(ddata.getGoods_id());
+                        dataData.setGoods_name(ddata.getGoods_name());
+                        dataData.setMarket_price(ddata.getMarket_price());
+                        dataData.setSales_sum(ddata.getSales_sum());
+                        dataData.setShop_price(ddata.getShop_price());
+                        dataData.setStore_cat_id1(ddata.getStore_cat_id1());
+                        dataData.setOriginal_img(ddata.getOriginal_img());
+                        dataData.setProm_type(ddata.getProm_type());
+                        list.add(dataData);
+                    }
+                    KTVStorInfoActivity.startKTVStorInfoActivity(context,
+                            dataBean.getStore_id(), data.getYuding().getGoods_id(),
+                            list);
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
                 }
-
-                KTVStorInfoActivity.startKTVStorInfoActivity(context,
-                        dataBean.getStore_id(), data.getYuding().getGoods_id(),
-                        list);
                 loadingDialog.dismiss();
             }
 

@@ -37,8 +37,8 @@ public class CookStorInfoShopAdapter extends MyAdapter<CookStorInfoShop.DataBean
                 , holder.ivImage);
         String a = getData().get(position).getGoods_name() + "\n";
         String b = getData().get(position).getKeywords() + "\n";
-        String c = "￥:" + getData().get(position).getShop_price();
-        String string = a+b+c+ "\t\t门市价:￥" + getData().get(position).getPrice();
+        String c = "￥:" + getData().get(position).getPrice();
+        String string = a+b+c+ "\t\t门市价:￥" + getData().get(position).getShop_price();
         Text_Size.setSizeThress(App.getContext(),holder.tvContent,string,0,a.length(),
                 "#646464",14,a.length(),a.length()+b.length(),"#aa646464",12,
                 a.length()+b.length(),a.length()+b.length()+c.length(),"#4BCEAE",13);

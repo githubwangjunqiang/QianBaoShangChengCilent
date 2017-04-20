@@ -68,10 +68,10 @@ public class Bean {
     /**
      * 持久化到文件中 下次地址依然存在
      */
-    public static boolean saveAdress(Address.DataBean data) {
+    public static boolean saveAdress(Address.DataBean data, String uid) {
 
         try {
-            File file = new File(App.getContext().getExternalFilesDir(ADDRESS_TYPE), ADDRESS_SAVE);
+            File file = new File(App.getContext().getExternalFilesDir(ADDRESS_TYPE), uid + ADDRESS_SAVE);
             if (file.exists()) {
                 file.delete();
                 file.createNewFile();
@@ -114,9 +114,9 @@ public class Bean {
      *
      * @return
      */
-    public static Address.DataBean readAdress() {
+    public static Address.DataBean readAdress(String uid) {
         try {
-            File file = new File(App.getContext().getExternalFilesDir(ADDRESS_TYPE), ADDRESS_SAVE);
+            File file = new File(App.getContext().getExternalFilesDir(ADDRESS_TYPE), uid + ADDRESS_SAVE);
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             Address.DataBean data = (Address.DataBean) ois.readObject();
             if (data == null) {

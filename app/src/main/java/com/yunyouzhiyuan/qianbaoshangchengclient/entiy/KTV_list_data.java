@@ -11,7 +11,21 @@ public class KTV_list_data {
     /**
      * retcode : 2000
      * msg : 获取成功！
-     * data : {"yuding":{"goods_id":"12"},"tuangou":[{"goods_id":"13","goods_name":"周一至周日王KTV团小房欢唱","store_cat_id1":"10","shop_price":"80.00","market_price":"178.00","sales_sum":"0","original_img":"/Public/upload/goods/2017/02-24/58afcf5d337d8.jpg","prom_type":"0"}]}
+     * data : {"yuding":{
+     * "goods_id":"12"
+     * },
+     * "tuangou":
+     * [
+     * {
+     * "goods_id":"13","goods_name":"周一至周日王KTV团小房欢唱",
+     * "store_cat_id1":"10",
+     * "shop_price":"80.00",
+     * "market_price":"178.00",
+     * "sales_sum":"0",
+     * "original_img":"/Public/upload/goods/2017/02-24/58afcf5d337d8.jpg",
+     * "prom_type":"0"}
+     * ]
+     * }
      */
 
     private int retcode;

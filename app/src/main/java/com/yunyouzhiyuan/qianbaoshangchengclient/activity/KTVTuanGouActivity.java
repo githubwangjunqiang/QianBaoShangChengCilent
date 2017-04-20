@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -150,6 +151,8 @@ public class KTVTuanGouActivity extends BaseActivity {
         ratingBar.setRating(Float.parseFloat(getIntent().getStringExtra("fen")));
         tvfenshu.setText(getIntent().getStringExtra("fen") + "分");
         collapsingToolbarLayout.setTitle("团购详情");
+        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.white));
+
     }
 
     /**

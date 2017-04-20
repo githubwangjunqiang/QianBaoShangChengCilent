@@ -162,7 +162,7 @@ public class FoodOutDingdanActivity extends BaseActivity {
         }
         adapter = new FoodOutDingdanAdapter(this, datass);
         listview.setAdapter(adapter);
-        Address.DataBean dataBean = Bean.readAdress();
+        Address.DataBean dataBean = Bean.readAdress(App.getUserId());
         if (null != dataBean) {
             setAddress(dataBean);
         }
