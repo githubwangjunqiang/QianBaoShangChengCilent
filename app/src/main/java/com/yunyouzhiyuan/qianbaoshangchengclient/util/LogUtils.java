@@ -19,6 +19,8 @@ public class LogUtils {
     private LogUtils() {
     }
 
+    //可以全局控制是否打印log日志
+    private static boolean isPrintLog = true;
     public static boolean allowD = true;
     public static boolean allowE = true;
     public static boolean allowI = true;
@@ -235,7 +237,49 @@ public class LogUtils {
             Log.wtf(tag, tr);
         }
     }
+
     public static StackTraceElement getCallerStackTraceElement() {
         return Thread.currentThread().getStackTrace()[4];
+    }
+
+    private static int LOG_MAXLENGTH = 2000;
+
+    public static void LongShitou(String msg) {
+        if (isPrintLog) {
+
+            int strLength = msg.length();
+            int start = 0;
+            int end = LOG_MAXLENGTH;
+            for (int i = 0; i < 100; i++) {
+                if (strLength > end) {
+                    Log.i("12345超长日志" + i, msg.substring(start, end));
+                    start = end;
+                    end = end + LOG_MAXLENGTH;
+                } else {
+                    Log.i("12345超长日志" + i, msg.substring(start, strLength));
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void LongShitou(String type, String msg) {
+
+        if (isPrintLog) {
+
+            int strLength = msg.length();
+            int start = 0;
+            int end = LOG_MAXLENGTH;
+            for (int i = 0; i < 100; i++) {
+                if (strLength > end) {
+                    Log.e(type + "___" + i, msg.substring(start, end));
+                    start = end;
+                    end = end + LOG_MAXLENGTH;
+                } else {
+                    Log.e(type + "___" + i, msg.substring(start, strLength));
+                    break;
+                }
+            }
+        }
     }
 }

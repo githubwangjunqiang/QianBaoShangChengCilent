@@ -67,7 +67,10 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
     @Bind(R.id.dialog_share_ll)
     LinearLayout view;
     private int GVNUMBER = 3;//分享三方的数量
-    private final String SHAREURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.qianbaoshangchengclient";//分享链接
+    /**
+     * 分享链接
+     */
+    private final String SHAREURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.qianbaoshangchengclient";
     private LoadingDialog looding;
     private final String title = "好友在召唤你";
     private final String content = "黔宝商城海量大优惠！还在等什么？快来补刀吧......";

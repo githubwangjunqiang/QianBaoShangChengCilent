@@ -2,6 +2,7 @@ package com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Window;
@@ -62,7 +63,8 @@ public class DialogHoteData extends Dialog {
         this.price = price;
         setContentView(R.layout.dialog_hotel_data);
     }
-    public interface Callback{
+
+    public interface Callback {
         void callback(String storid);
     }
 
@@ -103,7 +105,7 @@ public class DialogHoteData extends Dialog {
             adapter = new HotelDataAdapter(getContext(), list, new HotelDataAdapter.Callback() {
                 @Override
                 public void onItmeClick(String storId) {
-                    if(callback!= null){
+                    if (callback != null) {
                         callback.callback(storId);
                     }
                 }
@@ -167,7 +169,7 @@ public class DialogHoteData extends Dialog {
         layout = (SwipyRefreshLayout) findViewById(R.id.hotel_data_layout);
         recyclerView = (RecyclerView) findViewById(R.id.hotel_data_recyle);
         layout.setProgressBackgroundColor(R.color.app_color);
-        layout.setColorSchemeColors(R.color.white);
+        layout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.white));
 
         titleLayout.setTitle("酒店列表", true);
         titleLayout.setCallback(new TitleLayout.Callback(null) {

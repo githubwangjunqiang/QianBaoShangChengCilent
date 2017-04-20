@@ -52,6 +52,11 @@ public class HomeModel extends IModel {
 
             @Override
             public void onResponse(final Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取首页店铺分类" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -104,6 +109,11 @@ public class HomeModel extends IModel {
 
             @Override
             public void onResponse(final Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取店铺列表信息=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -150,6 +160,11 @@ public class HomeModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取首页banner" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -189,6 +204,11 @@ public class HomeModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取开通店铺地址列表" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -223,6 +243,11 @@ public class HomeModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取首页店铺列表中酒店信息" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -254,6 +279,11 @@ public class HomeModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取首页活动接口=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {

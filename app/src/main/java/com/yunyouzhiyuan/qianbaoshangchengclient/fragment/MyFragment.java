@@ -253,7 +253,7 @@ public class MyFragment extends MainFragment {
             public void onClick(View v) {
                 startAPP(Bean.APPPAKEGER);
             }
-        });
+        });//商家入驻
         scrollViewEx.setOnPullZoomListener(new PullToZoomBase.OnPullZoomListener() {
             @Override
             public void onPullZooming(int newScrollValue) {
@@ -306,7 +306,7 @@ public class MyFragment extends MainFragment {
         });
         btnFenxiang.setOnClickListener(new View.OnClickListener() {//分享
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//分享
                 startActivity(new Intent(getActivity(), WeiBoShareActivity.class));
                 getActivity().overridePendingTransition(R.anim.tr_in,0);
             }

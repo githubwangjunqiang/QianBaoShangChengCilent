@@ -39,6 +39,10 @@ public class SpecialtyModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
                 String string = response.body().string();
                 LogUtils.d("获取特产子分类" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -70,6 +74,11 @@ public class SpecialtyModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取特产分类下店铺" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {

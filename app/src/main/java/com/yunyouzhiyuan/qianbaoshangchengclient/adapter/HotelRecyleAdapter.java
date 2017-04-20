@@ -46,7 +46,7 @@ public class HotelRecyleAdapter extends RecyclerView.Adapter<HotelViewHolder> {
         ToGlide.url(context, HTTPURL.IMAGE + data.getStore_logo(), holder.imageView);
         String te = data.getStore_name() + "\t\t\t";
         setname(te, holder.tvname);
-        holder.tvprice.setText(data.getSeo_description() + "");
+        holder.tvprice.setText("人均消费：￥"+data.getProm_name());
         holder.tvstas.setText("已售：" + data.getConsump_count());
         holder.tvm.setText("距离：" + data.getDistance());
 

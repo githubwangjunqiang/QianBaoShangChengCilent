@@ -52,6 +52,11 @@ public class LoginModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 final String re = response.body().string();
                 if (GetJsonRetcode.getRetcode(re) == 2000) {
                     callBack.onSucceed(GetJsonRetcode.getmsg(re));
@@ -85,6 +90,11 @@ public class LoginModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String re = response.body().string();
                 LogUtils.d(re);
                 if (GetJsonRetcode.getRetcode(re) == 2000) {
@@ -119,6 +129,11 @@ public class LoginModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String re = response.body().string();
                 LogUtils.d(re);
                 if (GetJsonRetcode.getRetcode(re) == 2000) {
@@ -151,6 +166,11 @@ public class LoginModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("忘记密码发送验证码" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -192,6 +212,11 @@ public class LoginModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 String getmsg = GetJsonRetcode.getmsg(string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {

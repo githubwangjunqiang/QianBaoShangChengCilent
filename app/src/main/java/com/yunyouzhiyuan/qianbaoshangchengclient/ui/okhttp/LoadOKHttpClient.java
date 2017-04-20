@@ -1,5 +1,7 @@
 package com.yunyouzhiyuan.qianbaoshangchengclient.ui.okhttp;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 
 /**
@@ -11,7 +13,11 @@ public class LoadOKHttpClient {
 
     public static OkHttpClient loadClient() {
         if (client == null) {
-            client = new OkHttpClient();
+            client = new OkHttpClient.Builder()
+                    .writeTimeout(10 * 1000, TimeUnit.MILLISECONDS)
+                    .readTimeout(10 * 1000, TimeUnit.MILLISECONDS)
+                    .connectTimeout(10 * 1000, TimeUnit.MILLISECONDS)
+                    .build();
 
 
 //            OkHttpClient.Builder builder = new OkHttpClient.Builder();

@@ -63,6 +63,11 @@ public class FoodModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取附近店铺" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -107,6 +112,11 @@ public class FoodModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取外卖轮播图=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -155,6 +165,11 @@ public class FoodModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取店铺外卖列表=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -224,6 +239,11 @@ public class FoodModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("外卖购物车下单" + string);
                 try {
@@ -277,6 +297,11 @@ public class FoodModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取店铺是否收藏" + string);
                 try {
@@ -320,6 +345,11 @@ public class FoodModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response re) throws IOException {
+                if (!re.isSuccessful()) {
+                    runUiOnError(re.message(), callBack);
+                    return;
+                }
+
                 String response = re.body().string();
                 LogUtils.d("获取店铺评价" + response);
                 if (GetJsonRetcode.getRetcode(response) == 2000) {
@@ -350,6 +380,11 @@ public class FoodModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取外卖活动接口=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {

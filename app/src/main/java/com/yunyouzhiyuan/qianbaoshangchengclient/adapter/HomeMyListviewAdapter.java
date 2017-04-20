@@ -1,6 +1,7 @@
 package com.yunyouzhiyuan.qianbaoshangchengclient.adapter;
 
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -36,7 +37,6 @@ public class HomeMyListviewAdapter extends MyAdapter<Home_Bottom_list.DataBean> 
             view = getLayoutInflater().inflate(R.layout.itme_home_my_listview, null);
             holder.iviamge = (ImageView) view.findViewById(R.id.itme_home_my_listview_invimage);
             holder.tvtitle = (TextView) view.findViewById(R.id.itme_home_my_listview_tvname);
-            holder.tvtitle = (TextView) view.findViewById(R.id.itme_home_my_listview_tvname);
             holder.tvdist = (TextView) view.findViewById(R.id.itme_home_my_listview_tvdistance);
             holder.tvcontent = (TextView) view.findViewById(R.id.itme_home_my_listview_tvcontent);
             holder.tvprice = (TextView) view.findViewById(R.id.itme_home_my_listview_tvprice);
@@ -48,9 +48,10 @@ public class HomeMyListviewAdapter extends MyAdapter<Home_Bottom_list.DataBean> 
         ToGlide.url(getContext(), HTTPURL.IMAGE + data.getStore_logo(), holder.iviamge);
         holder.tvtitle.setText(data.getStore_name() + "");
         holder.tvdist.setText("<" + data.getDistance() + "km");
-        holder.tvcontent.setText(data.getCoupon_name() + "");
+        holder.tvcontent.setText(TextUtils.isEmpty(data.getCoupon_name())
+                ? "店家简介" : data.getCoupon_name());
         holder.tvstors.setText(data.getStore_desccredit() + "分");
-        holder.tvprice.setText("新用户专享" + data.getProm_name());
+        holder.tvprice.setText("人均消费￥：" + data.getProm_name());
         holder.tvNumber.setText("销量：" + data.getConsump_count());
 
         return view;

@@ -251,14 +251,23 @@ public class ToDingdanActivity extends BaseActivity {
      */
     private void zhiFu(String master_order_sn) {
         loadingDialog.show();
-        PaymentRequest request = new PaymentRequest(channel,
-                Double.parseDouble(getIntent().getStringExtra("price")), master_order_sn);
-        String json = new Gson().toJson(request);
-        if (TextUtils.isEmpty(json)) {
+        String json = "";
+        try {
+            PaymentRequest request = new PaymentRequest(channel,
+                    Double.parseDouble(getIntent().getStringExtra("price")), master_order_sn);
+            json = new Gson().toJson(request);
+            if (TextUtils.isEmpty(json)) {
+                To.ee("解析channel错误请重试");
+                loadingDialog.dismiss();
+                return;
+            }
+        } catch (RuntimeException e) {
             To.ee("解析channel错误请重试");
+            e.printStackTrace();
             loadingDialog.dismiss();
             return;
         }
+
         setCall(new PingModel().getJson(json, new IModel.AsyncCallBack() {
             @Override
             public void onSucceed(Object obj) {

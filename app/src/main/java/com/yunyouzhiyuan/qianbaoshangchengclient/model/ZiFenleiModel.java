@@ -44,6 +44,11 @@ public class ZiFenleiModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取子分类"+string);
                 if(GetJsonRetcode.getRetcode(string) == 2000){

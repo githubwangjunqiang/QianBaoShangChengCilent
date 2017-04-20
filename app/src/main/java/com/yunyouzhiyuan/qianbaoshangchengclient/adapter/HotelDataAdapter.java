@@ -63,14 +63,14 @@ public class HotelDataAdapter extends RecyclerView.Adapter<HotelDataViewHolder> 
 
 class HotelDataViewHolder extends RecyclerView.ViewHolder {
     ImageView ivIamge;
-    TextView tvName, tvContent, tvPrice;
+    TextView tvName,  tvPrice;
     LinearLayout llView;
 
     public HotelDataViewHolder(View itemView) {
         super(itemView);
         ivIamge = (ImageView) itemView.findViewById(R.id.hotel_data_ivimage);
         tvName = (TextView) itemView.findViewById(R.id.hotel_data_tvname);
-        tvContent = (TextView) itemView.findViewById(R.id.hotel_data_tvcontent);
+//        tvContent = (TextView) itemView.findViewById(R.id.hotel_data_tvcontent);
         tvPrice = (TextView) itemView.findViewById(R.id.hotel_data_tvprice);
         llView = (LinearLayout) itemView.findViewById(R.id.dialog_hotel_data_ll);
     }
@@ -78,7 +78,7 @@ class HotelDataViewHolder extends RecyclerView.ViewHolder {
     public void setData(Context context, Hotel.DataBean data) {
         ToGlide.urlRound(context, HTTPURL.IMAGE + data.getStore_logo(), ivIamge, 4);
         tvName.setText(data.getStore_name() + "");
-        tvContent.setText(data.getSeo_description() + "");
-        tvPrice.setText("价格：￥" + data.getGprice() + "\t\t\t\t距离：" + data.getDistance() + "km");
+//        tvContent.setText(data.getSeo_description() + "");
+        tvPrice.setText("人均价格：￥" + data.getGprice() + "\n距离：" + data.getDistance() + "km");
     }
 }

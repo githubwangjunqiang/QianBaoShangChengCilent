@@ -38,6 +38,11 @@ public class ShopModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("收藏商品" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -69,6 +74,11 @@ public class ShopModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取商品是否收藏"+string);
                 if(GetJsonRetcode.getRetcode(string) == 2000){

@@ -144,6 +144,7 @@ public class CookActivity extends BaseActivity {
     private void setdata() {
         layout.setRefreshing(true);
         count = 3;
+        page = 0;
         getTopOne();
         getTopTow();
         getBottomData();
@@ -169,7 +170,7 @@ public class CookActivity extends BaseActivity {
 
             @Override
             public void onError(Object obj) {
-                if (isFinishing()) {
+                if (!isFinishing()) {
                     To.oo(obj);
                     hideLayout();
                 }

@@ -40,6 +40,11 @@ public class EvaluateModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取我的评论" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {

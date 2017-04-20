@@ -37,18 +37,18 @@
             android:textSize="@dimen/text_size_14sp"
             tools:text="黔宝商城" />
 
-        <TextView
-            android:id="@+id/hotel_data_tvcontent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:paddingBottom="@dimen/pading_4"
-            android:paddingTop="@dimen/pading_4"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size_13sp"
-            tools:text="黔宝商城" />
+        <!--<TextView-->
+        <!--android:id="@+id/hotel_data_tvcontent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:ellipsize="end"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:maxLines="1"-->
+        <!--android:paddingBottom="@dimen/pading_4"-->
+        <!--android:paddingTop="@dimen/pading_4"-->
+        <!--android:textColor="@color/text_color"-->
+        <!--android:textSize="@dimen/text_size_13sp"-->
+        <!--tools:text="黔宝商城" />-->
 
         <TextView
             android:id="@+id/hotel_data_tvprice"
@@ -56,10 +56,12 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:ellipsize="end"
+            android:maxLines="2"
             android:gravity="center_vertical"
-            android:maxLines="1"
+            android:lineSpacingExtra="@dimen/pading_4"
+            android:paddingTop="@dimen/pading_4"
             android:textColor="@color/red"
             android:textSize="@dimen/text_size_13sp"
-            tools:text="起价￥：00，\t\t距离：00km" />
+            tools:text="起价￥：00，\n距离：00km" />
     </LinearLayout>
 </LinearLayout>

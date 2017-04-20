@@ -49,6 +49,11 @@ public class HotelModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取酒店三个分类" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -85,6 +90,11 @@ public class HotelModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取附近店铺" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -118,6 +128,11 @@ public class HotelModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取全国地址列表" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -165,6 +180,11 @@ public class HotelModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取搜索条件下的酒店列表" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -195,6 +215,11 @@ public class HotelModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取酒店店铺信息=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -225,6 +250,11 @@ public class HotelModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取酒店房间信息=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -254,6 +284,11 @@ public class HotelModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
                     Bann bann = new Gson().fromJson(string, Bann.class);

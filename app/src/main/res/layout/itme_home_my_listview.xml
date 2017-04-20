@@ -49,13 +49,13 @@
         <TextView
             android:id="@+id/itme_home_my_listview_tvcontent"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center_vertical"
-            android:maxLines="1"
-            android:paddingBottom="@dimen/pading_4"
-            android:paddingTop="@dimen/pading_4"
+            android:lineSpacingExtra="@dimen/pading_2"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/pading_2"
+            android:paddingTop="@dimen/pading_2"
             android:text="@string/daijinquan"
             android:textColor="@color/text_color_alp"
             android:textSize="@dimen/text_size_12sp" />
@@ -63,12 +63,11 @@
         <TextView
             android:id="@+id/itme_home_my_listview_tvprice"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/jiage"
             android:textColor="@color/red"
-            android:textSize="@dimen/text_size_13sp" />
+            android:textSize="@dimen/text_size_12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,32 +78,33 @@
 
         <TextView
             android:id="@+id/itme_home_my_listview_tvdistance"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/wubaim"
+            android:maxLines="1"
+            android:gravity="right"
             android:textColor="@color/text_color_alp"
             android:textSize="@dimen/text_size_13sp" />
 
         <TextView
+            android:maxLines="1"
             android:id="@+id/itme_home_my_listview_tvbumber"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:paddingBottom="@dimen/pading_4"
+            android:gravity="right"
             android:paddingTop="@dimen/pading_4"
             android:textColor="@color/text_color_alp"
             android:textSize="@dimen/text_size_12sp"
             tools:text="销量：00" />
 
         <TextView
+            android:maxLines="1"
             android:id="@+id/itme_home_my_listview_tvstors"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:gravity="bottom|right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/wubaim"
+            android:gravity="right"
             android:textColor="@color/red"
             android:textSize="@dimen/text_size_13sp" />
     </LinearLayout>

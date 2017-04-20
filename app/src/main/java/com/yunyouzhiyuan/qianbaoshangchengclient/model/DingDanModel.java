@@ -51,6 +51,11 @@ public class DingDanModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 final String string = response.body().string();
                 LogUtils.d("获取用户订单=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -100,6 +105,11 @@ public class DingDanModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("添加评论=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -154,6 +164,11 @@ public class DingDanModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("立即购提交订单" + string);
                 if (GetJsonRetcode.getRetcode(string) == 3000) {

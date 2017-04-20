@@ -138,7 +138,7 @@ public class FoodOutInfoActivity extends BaseActivity {
                     return;
                 }
                 List<Freight.DataBean> obj1 = (List<Freight.DataBean>) obj;
-                send_price = Double.parseDouble(obj1.get(0).getSend_price());
+                send_price = Double.parseDouble(obj1.get(0).getSend_price()==null?"0":obj1.get(0).getSend_price());
                 String shipping_price = obj1.get(0).getShipping_price();
                 if (!TextUtils.isEmpty(shipping_price)) {
                     tvFreight.setText("配送费：￥：" + shipping_price);

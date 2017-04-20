@@ -52,6 +52,11 @@ public class KTVModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取KTV列表" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -85,6 +90,11 @@ public class KTVModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取ktv属性（预订）" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -130,6 +140,11 @@ public class KTVModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("通过属性获取ktv房间信息（预订）" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -161,6 +176,11 @@ public class KTVModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取KTV团购属性列表" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -198,6 +218,11 @@ public class KTVModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取ktv团购房间列表" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -226,6 +251,11 @@ public class KTVModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取KTV活动接口=" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {

@@ -47,6 +47,11 @@ public class YueModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("获取用户余额和消费记录" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -97,6 +102,11 @@ public class YueModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.d("申请提现" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -129,6 +139,11 @@ public class YueModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 LogUtils.v("获取银行名称" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {

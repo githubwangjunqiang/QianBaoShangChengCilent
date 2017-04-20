@@ -41,9 +41,9 @@ public class Bean {
      */
     public static final String APPPAKEGER = "com.yunyouzhiyuan.qianbaoshangcheng";
     /**
-     * 微下载链接
+     * 商家端的微下载链接
      */
-    public static final String APPURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.qianbaoshangchengclient";//商家端微下载链接;
+    public static final String APPURL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.yunyouzhiyuan.qianbaoshangcheng";
     /**
      * 微信的appid
      */

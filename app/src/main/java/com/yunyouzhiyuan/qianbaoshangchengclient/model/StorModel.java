@@ -1,26 +1,23 @@
 package com.yunyouzhiyuan.qianbaoshangchengclient.model;
 
-import com.google.gson.Gson;
-import com.yunyouzhiyuan.qianbaoshangchengclient.App;
-import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.CookStorInfoShop;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.StorInfo;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.StorInfoList;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.TuiJian;
+import com.yunyouzhiyuan.qianbaoshangchengclient.okhttp.BaseCallback;
+import com.yunyouzhiyuan.qianbaoshangchengclient.okhttp.MyOkHttpClent;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.GetJsonRetcode;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.LogUtils;
 
 import java.io.IOException;
-import java.util.List;
 
 import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.Response;
 
+import static com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL.collectStoreOrNo;
+import static com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL.get_meishi_goods;
 import static com.yunyouzhiyuan.qianbaoshangchengclient.entiy.HTTPURL.get_three_recommend;
+import static com.yunyouzhiyuan.qianbaoshangchengclient.okhttp.MyOkHttpClent.newBuilder;
 
 /**
  * Created by ${王俊强} on 2017/2/14.
@@ -34,45 +31,24 @@ public class StorModel extends IModel {
      * user_id  yonghu
      */
     public Call getStorInfo(String store_id, String user_id, final AsyncCallBack callBack) {
-        FormBody body = new FormBody.Builder().add("store_id", store_id).add("user_id", user_id).build();
-        final Request request = new Request.Builder().url(HTTPURL.about_store).post(body).build();
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                instance.post(new Runnable() {
+        return MyOkHttpClent.newBuilder().url(HTTPURL.about_store).post().addParam("store_id", store_id)
+                .addParam("user_id", user_id).build().enqueue(new BaseCallback.ComonCallback<StorInfo>() {
                     @Override
-                    public void run() {
-                        callBack.onError(App.getContext().getString(R.string.qingqiushibai));
+                    protected void onSuccess(StorInfo storInfo) {
+                        callBack.onSucceed(storInfo);
+                    }
+
+                    @Override
+                    protected void onError(int code, String msg) {
+                        callBack.onError(msg);
+                    }
+
+                    @Override
+                    protected void onFailure(Call call, IOException e) {
+                        callBack.onError("网络错误");
                     }
                 });
-            }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String string = response.body().string();
-                LogUtils.d("获取店铺基本信息" + string);
-                if (GetJsonRetcode.getRetcode(string) == 2000) {
-                    final StorInfo storInfo = new Gson().fromJson(string, StorInfo.class);
-                    instance.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            callBack.onSucceed(storInfo);
-                        }
-                    });
-                } else {
-                    final String s = GetJsonRetcode.getmsg(string);
-                    instance.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            callBack.onError(s);
-                        }
-                    });
-
-                }
-            }
-        });
-        return call;
     }
 
     /**
@@ -82,45 +58,25 @@ public class StorModel extends IModel {
      * cat_id（商品分类id）
      */
 
-    public Call storeGoods(String store_id, int page, final AsyncCallBack callBack) {
-        FormBody body = new FormBody.Builder().add("store_id", store_id).add("page", page + "").build();
-        Request request = new Request.Builder().url(HTTPURL.storeGoods).post(body).build();
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                instance.post(new Runnable() {
+    public Call storeGoods(final String store_id, int page, final AsyncCallBack callBack) {
+        return MyOkHttpClent.newBuilder().url(HTTPURL.storeGoods).post().addParam("store_id", store_id)
+                .addParam("page", page).build().enqueue(new BaseCallback.ComonCallback<StorInfoList>() {
                     @Override
-                    public void run() {
-                        callBack.onError(App.getContext().getString(R.string.qingqiushibai));
+                    protected void onSuccess(StorInfoList storInfoList) {
+                        callBack.onSucceed(storInfoList);
+                    }
+
+                    @Override
+                    protected void onError(int code, String msg) {
+                        callBack.onError(msg);
+                    }
+
+                    @Override
+                    protected void onFailure(Call call, IOException e) {
+                        callBack.onError("网络错误");
                     }
                 });
-            }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String string = response.body().string();
-                LogUtils.d("店铺详情底部商品列表  " + string);
-                if (GetJsonRetcode.getRetcode(string) == 2000) {
-                    final StorInfoList storInfoList = new Gson().fromJson(string, StorInfoList.class);
-                    instance.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            callBack.onSucceed(storInfoList.getData().getGoods_list());
-                        }
-                    });
-                } else {
-                    final String s = GetJsonRetcode.getmsg(string);
-                    instance.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            callBack.onError(s);
-                        }
-                    });
-                }
-            }
-        });
-        return call;
     }
 
     /**
@@ -131,41 +87,29 @@ public class StorModel extends IModel {
      * @return
      */
     public Call toShoCang(String user_id, String store_id, final AsyncCallBack callBack) {
-        FormBody body = new FormBody.Builder().add("user_id", user_id).add("store_id", store_id).build();
-        Request request = new Request.Builder().url(HTTPURL.collectStoreOrNo).post(body).build();
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                instance.post(new Runnable() {
+        return MyOkHttpClent.newBuilder().url(collectStoreOrNo).post().addParam("user_id", user_id).addParam("store_id", store_id)
+                .build().enqueue(new BaseCallback.ComonCallback<String>() {
                     @Override
-                    public void run() {
-                        callBack.onError(App.getContext().getString(R.string.qingqiushibai));
+                    protected void onSuccess(String s) {
+                        if (GetJsonRetcode.getRetcode(s) == 2000) {
+                            callBack.onSucceed(GetJsonRetcode.getmsg(s));
+                        } else {
+                            callBack.onError(GetJsonRetcode.getmsg(s));
+                        }
+                    }
+
+                    @Override
+                    protected void onError(int code, String msg) {
+                        callBack.onError(msg);
+                    }
+
+                    @Override
+                    protected void onFailure(Call call, IOException e) {
+                        callBack.onError("网络错误");
                     }
                 });
-            }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                final String string = response.body().string();
-                if (GetJsonRetcode.getRetcode(string) == 2000) {
-                    instance.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            callBack.onSucceed(GetJsonRetcode.getmsg(string));
-                        }
-                    });
-                } else {
-                    instance.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            callBack.onError(GetJsonRetcode.getmsg(string));
-                        }
-                    });
-                }
-            }
-        });
-        return call;
+
     }
 
     /**
@@ -176,28 +120,24 @@ public class StorModel extends IModel {
      * @return
      */
     public Call getCookBottom(String store_id, final AsyncCallBack callBack) {
-        FormBody body = new FormBody.Builder().add("store_id", store_id).build();
-        Request request = new Request.Builder().url(HTTPURL.get_meishi_goods).post(body).build();
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runUiOnError(null, callBack);
-            }
+        return MyOkHttpClent.newBuilder().url(get_meishi_goods).post().addParam("store_id", store_id).build()
+                .enqueue(new BaseCallback.ComonCallback<CookStorInfoShop>() {
+                    @Override
+                    protected void onSuccess(CookStorInfoShop cookStorInfoShop) {
+                        callBack.onSucceed(cookStorInfoShop.getData());
+                    }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String string = response.body().string();
-                LogUtils.d("获取美食模块商品列表" + string);
-                if (GetJsonRetcode.getRetcode(string) == 2000) {
-                    List<CookStorInfoShop.DataBean> list = new Gson().fromJson(string, CookStorInfoShop.class).getData();
-                    runUiOnSuccess(list, callBack);
-                } else {
-                    runUiOnError(GetJsonRetcode.getmsg(string), callBack);
-                }
-            }
-        });
-        return call;
+                    @Override
+                    protected void onError(int code, String msg) {
+                        callBack.onError(msg);
+                    }
+
+                    @Override
+                    protected void onFailure(Call call, IOException e) {
+                        callBack.onError("网络错误");
+                    }
+                });
+
     }
 
     /**
@@ -208,28 +148,25 @@ public class StorModel extends IModel {
      * @return
      */
     public Call getTuiJian(String sc_id, String city_id, final AsyncCallBack callBack) {
-        LogUtils.d("获取分类页面推荐的三个店铺参数="+sc_id+"/"+city_id);
-        FormBody body = new FormBody.Builder().add("sc_id", sc_id).add("city_id", city_id).build();
-        Request request = new Request.Builder().url(get_three_recommend).post(body).build();
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runUiOnError(null, callBack);
-            }
+        LogUtils.d("获取分类页面推荐的三个店铺参数=" + sc_id + "/" + city_id);
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String string = response.body().string();
-                LogUtils.d("获取分类页面推荐的三个店铺" + string);
-                if (GetJsonRetcode.getRetcode(string) == 2000) {
-                    List<TuiJian.DataBean> data = new Gson().fromJson(string, TuiJian.class).getData();
-                    runUiOnSuccess(data, callBack);
-                } else {
-                    runUiOnError(GetJsonRetcode.getmsg(string), callBack);
-                }
-            }
-        });
-        return call;
+        return newBuilder().url(get_three_recommend).post()
+                .addParam("sc_id", sc_id).addParam("city_id", city_id).build()
+                .enqueue(new BaseCallback.ComonCallback<TuiJian>() {
+                    @Override
+                    protected void onSuccess(TuiJian tuiJian) {
+                        callBack.onSucceed(tuiJian.getData());
+                    }
+
+                    @Override
+                    protected void onError(int code, String msg) {
+                        callBack.onError(msg);
+                    }
+
+                    @Override
+                    protected void onFailure(Call call, IOException e) {
+                        callBack.onError("网络错误");
+                    }
+                });
     }
 }

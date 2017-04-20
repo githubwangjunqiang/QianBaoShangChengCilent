@@ -49,6 +49,13 @@ public class AddressModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
+
+
                 String string = response.body().string();
                 LogUtils.d("获取用户地址" + string);
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
@@ -101,6 +108,11 @@ public class AddressModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 if (GetJsonRetcode.getRetcode(string) == 2000) {
                     final City city = new Gson().fromJson(string, City.class);
@@ -164,6 +176,11 @@ public class AddressModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 final String req = response.body().string();
                 LogUtils.d("添加和编辑收货地址"+req);
                 if (GetJsonRetcode.getRetcode(req) == 2000) {
@@ -210,6 +227,11 @@ public class AddressModel extends IModel {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runUiOnError(response.message(), callBack);
+                    return;
+                }
+
                 String string = response.body().string();
                 if(GetJsonRetcode.getRetcode(string) == 2000){
                     final String s = GetJsonRetcode.getmsg(string);
