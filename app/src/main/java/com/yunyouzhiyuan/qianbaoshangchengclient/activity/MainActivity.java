@@ -29,6 +29,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.SDKInitializer;
 import com.yunyouzhiyuan.qianbaoshangchengclient.App;
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.baiduMap.BaiduMapBean;
@@ -159,6 +160,33 @@ public class MainActivity extends BaseActivity {
      * 自动登录
      */
     private void toLogin() {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                JPushInterface.setDebugMode(false);
+                JPushInterface.init(App.getContext());
+                try {
+                    sleep(3000);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            SDKInitializer.initialize(App.getContext());
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            SDKInitializer.initialize(App.getContext());
+                        }
+                    });
+                }
+            }
+        }.start();
+
+
         String getphone = SpService.getSP().getphone();
         String pas = SpService.getSP().getpas();
         if (TextUtils.isEmpty(pas) || TextUtils.isEmpty(getphone)) {

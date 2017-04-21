@@ -77,7 +77,10 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
-
+    <style mce_bogus="1" name="popupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/top_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/top_bottom_out</item>
+    </style>
     <style name="dialogTime" mce_bogus="1" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/left2right_in_time</item>
         <item name="android:windowExitAnimation">@anim/left2right_out_time</item>

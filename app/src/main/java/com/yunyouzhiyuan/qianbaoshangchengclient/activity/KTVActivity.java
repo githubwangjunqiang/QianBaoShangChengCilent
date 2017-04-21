@@ -269,7 +269,7 @@ public class KTVActivity extends BaseActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     WebViewHuoDongActivity.startWebViewHuoDongActivity(KTVActivity.this,
-                            listHuoDong.get(position).getAd_code());
+                            listHuoDong.get(position).getAd_link());
                 }
             });
         }

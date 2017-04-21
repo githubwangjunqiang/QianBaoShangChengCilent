@@ -2,12 +2,15 @@ package com.yunyouzhiyuan.qianbaoshangchengclient.fragment;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import com.baidu.location.BDLocation;
+import com.yunyouzhiyuan.qianbaoshangchengclient.App;
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.adapter.MyArrayAdapter;
 import com.yunyouzhiyuan.qianbaoshangchengclient.adapter.SpeciatlyRecyleAdapter;
@@ -29,8 +33,10 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Nearby_Fenlei;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.IModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.NearbyModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.DividerItemDecoration;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.LogUtils;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.RecyleViewButtom;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +60,8 @@ public class SpecialtyFragment extends MainFragment {
     CheckBox ck1;
     @Bind(R.id.checkBox3)
     CheckBox ck2;
+    @Bind(R.id.sp_linlayout)
+    LinearLayout linearLayout;
     private View view;
     private SpeciatlyRecyleAdapter speciatlyRecyleAdapter;
     private NearbyModel model;
@@ -340,13 +348,13 @@ public class SpecialtyFragment extends MainFragment {
     @Override
     public void upLocation(BDLocation location) {
         if (speciatlyRecyleAdapter == null && view != null) {
-           getBottomData();
+            getBottomData();
         }
     }
 
     @Override
     public void upCity() {
-        if(view != null){
+        if (view != null) {
             page = 0;
             getBottomData();
         }
@@ -394,8 +402,34 @@ public class SpecialtyFragment extends MainFragment {
 //        WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
 //        params.alpha = 0.7f;
 //        getActivity().getWindow().setAttributes(params);
-        popupWindow.showAsDropDown(v);
+        popupWindow.setAnimationStyle(R.style.popupAnimation);
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                popupWindow.showAsDropDown(v);
+                LogUtils.d("<<"+24);
+            } else {
+                int[] loaction = new int[2];
+                linearLayout.getLocationOnScreen(loaction);
+                int y = loaction[1];
+                LogUtils.d("pupowindow 的高度y="+y+"/"+getStatusBarHeight());
+
+                Log.e("12345", "showPopuWindow: "+ y);
+                popupWindow.showAtLocation(linearLayout,Gravity.NO_GRAVITY, 0, linearLayout.getHeight()+ Utils.dip2px(App.getContext(),46) + getStatusBarHeight());
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            LogUtils.d(""+e.getMessage());
+        }
+
     }
 
+    protected int getStatusBarHeight() {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
 
 }

@@ -151,7 +151,13 @@ public class HttpManager {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callback.onSuccess(object);
+                try {
+                    callback.onSuccess(object);
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    senOnErrorMsg(callback, 0, e.getMessage());
+                }
+
             }
         });
     }

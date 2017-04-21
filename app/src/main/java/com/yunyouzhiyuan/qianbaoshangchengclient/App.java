@@ -4,9 +4,6 @@ import android.app.Application;
 import android.content.Context;
 
 import com.baidu.location.LocationClient;
-import com.baidu.mapapi.SDKInitializer;
-
-import cn.jpush.android.api.JPushInterface;
 
 
 /**
@@ -23,9 +20,6 @@ public class App extends Application {
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         //注意该方法要再setContentView方法之前实现
         mLocationClient = new LocationClient(this);
-        SDKInitializer.initialize(this);
-        JPushInterface.setDebugMode(false);
-        JPushInterface.init(this);
     }
 
     public static String getUserId() {

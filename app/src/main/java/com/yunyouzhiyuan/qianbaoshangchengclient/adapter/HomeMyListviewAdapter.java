@@ -1,6 +1,6 @@
 package com.yunyouzhiyuan.qianbaoshangchengclient.adapter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +19,7 @@ import java.util.List;
  * Created by ${王俊强} on 2017/1/9.
  */
 public class HomeMyListviewAdapter extends MyAdapter<Home_Bottom_list.DataBean> {
-    public HomeMyListviewAdapter(Activity context, List<Home_Bottom_list.DataBean> data) {
+    public HomeMyListviewAdapter(Context context, List<Home_Bottom_list.DataBean> data) {
         super(context, data);
     }
 

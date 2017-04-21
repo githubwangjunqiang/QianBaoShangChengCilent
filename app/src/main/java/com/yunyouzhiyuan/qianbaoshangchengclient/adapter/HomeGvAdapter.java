@@ -1,6 +1,6 @@
 package com.yunyouzhiyuan.qianbaoshangchengclient.adapter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,7 +16,7 @@ import java.util.List;
  * Created by ${王俊强} on 2017/1/9.
  */
 public class HomeGvAdapter extends MyAdapter<Home_HuoDong.DataBean> {
-    public HomeGvAdapter(Activity context, List<Home_HuoDong.DataBean> data) {
+    public HomeGvAdapter(Context context, List<Home_HuoDong.DataBean> data) {
         super(context, data);
 
     }

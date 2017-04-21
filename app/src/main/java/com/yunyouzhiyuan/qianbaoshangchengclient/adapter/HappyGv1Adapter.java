@@ -42,7 +42,7 @@ public class HappyGv1Adapter extends MyAdapter<ZiFenlei.DataBean> {
 
         if (position == getCount() - 1) {
             tvname.setText(R.string.biaoba);
-            ToGlide.url(getContext(), R.mipmap.biaoba, imageView);
+            imageView.setImageResource(R.mipmap.biaoba);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -55,8 +55,12 @@ public class HappyGv1Adapter extends MyAdapter<ZiFenlei.DataBean> {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    String type = "ktv";
+                    if (position != 0) {
+                        type = "dosmxing";
+                    }
                     CookListActivity.startCookListActivity(getContext(),
-                            scid, getData().get(position+4).getId(), "休闲娱乐");
+                            scid, getData().get(position + 4).getId(),type);
                 }
             });
         }

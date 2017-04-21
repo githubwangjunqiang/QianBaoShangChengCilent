@@ -31,8 +31,9 @@ public class StorModel extends IModel {
      * user_id  yonghu
      */
     public Call getStorInfo(String store_id, String user_id, final AsyncCallBack callBack) {
-        return MyOkHttpClent.newBuilder().url(HTTPURL.about_store).post().addParam("store_id", store_id)
-                .addParam("user_id", user_id).build().enqueue(new BaseCallback.ComonCallback<StorInfo>() {
+        return MyOkHttpClent.newBuilder().url(HTTPURL.about_store).post()
+                .addParam("store_id", store_id) .addParam("user_id", user_id)
+                .build().enqueue(new BaseCallback.ComonCallback<StorInfo>() {
                     @Override
                     protected void onSuccess(StorInfo storInfo) {
                         callBack.onSucceed(storInfo);

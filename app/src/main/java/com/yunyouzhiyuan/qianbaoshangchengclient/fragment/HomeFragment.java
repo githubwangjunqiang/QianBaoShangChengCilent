@@ -344,7 +344,7 @@ public class HomeFragment extends MainFragment {
         if (homeMyListviewAdapter != null) {
             homeMyListviewAdapter.notifyDataSetChanged();
         } else {
-            homeMyListviewAdapter = new HomeMyListviewAdapter(getActivity(), listBottom);
+            homeMyListviewAdapter = new HomeMyListviewAdapter(getContext(), listBottom);
             mainMyListview.setAdapter(homeMyListviewAdapter);
             mainMyListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -441,7 +441,7 @@ public class HomeFragment extends MainFragment {
         if (homeGvAdapter != null) {
             homeGvAdapter.notifyDataSetChanged();
         } else {
-            homeGvAdapter = new HomeGvAdapter(getActivity(), listHuoDong);
+            homeGvAdapter = new HomeGvAdapter(getContext(), listHuoDong);
             mainGvMeishi.setAdapter(homeGvAdapter);
             mainGvMeishi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -460,7 +460,7 @@ public class HomeFragment extends MainFragment {
         if (recyleViewCaidanAdapter != null) {
             recyleViewCaidanAdapter.notifyDataSetChanged();
         } else {
-            recyleViewCaidanAdapter = new recyleViewCaidanAdapter(getActivity(), list);
+            recyleViewCaidanAdapter = new recyleViewCaidanAdapter(getContext(), list);
             mainRecview.setLayoutManager(new GridLayoutManager(getActivity(), 2, LinearLayoutManager.HORIZONTAL, false));
             mainRecview.setAdapter(recyleViewCaidanAdapter);
         }
@@ -489,7 +489,7 @@ public class HomeFragment extends MainFragment {
                 list.add(bans.get(i).getAd_code());
             }
         }
-        bannerer = new Bannerer(list, vapager, getActivity(), rrrrrrlllll, HTTPURL.IMAGE, R.drawable.banner_c, new Bannerer.CallBack() {
+        bannerer = new Bannerer(list, vapager, getContext(), rrrrrrlllll, HTTPURL.IMAGE, R.drawable.banner_c, new Bannerer.CallBack() {
             @Override
             public void onClickListener(int position) {
                 WebViewActivity.startWebViewActivity(getActivity(), bans.get(position).getAd_link(), "网页");

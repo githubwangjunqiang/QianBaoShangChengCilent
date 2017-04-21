@@ -41,7 +41,7 @@
                         android:paddingTop="@dimen/pading_10"
                         android:text="@string/fenlei"
                         android:textColor="@color/near_top_te_app_c"
-                        android:textSize="@dimen/text_size_14sp" />
+                        android:textSize="@dimen/text_size_13sp" />
 
                     <RadioButton
                         android:id="@+id/fragment_nearby_rb1"
@@ -57,7 +57,7 @@
                         android:paddingTop="@dimen/pading_10"
                         android:text="@string/fenlei"
                         android:textColor="@color/near_top_te_app_c"
-                        android:textSize="@dimen/text_size_14sp" />
+                        android:textSize="@dimen/text_size_13sp" />
 
                     <RadioButton
                         android:id="@+id/fragment_nearby_rb2"
@@ -72,7 +72,7 @@
                         android:paddingTop="@dimen/pading_10"
                         android:text="@string/fenlei"
                         android:textColor="@color/near_top_te_app_c"
-                        android:textSize="@dimen/text_size_14sp" />
+                        android:textSize="@dimen/text_size_13sp" />
 
                     <RadioButton
                         android:id="@+id/fragment_nearby_rb3"
@@ -86,7 +86,7 @@
                         android:paddingTop="@dimen/pading_10"
                         android:text="@string/fenlei"
                         android:textColor="@color/near_top_te_app_c"
-                        android:textSize="@dimen/text_size_14sp" />
+                        android:textSize="@dimen/text_size_13sp" />
                 </RadioGroup>
 
 

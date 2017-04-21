@@ -325,8 +325,7 @@ public class FoodModel extends IModel {
     }
 
     /**
-     * 获取店铺评价
-     * get_store_comment
+     * 47 获取店铺评价
      * get_store_comment
      * 传入：store_id
      */

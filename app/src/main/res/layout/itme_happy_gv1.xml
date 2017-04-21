@@ -8,9 +8,10 @@
 
     <com.yunyouzhiyuan.qianbaoshangchengclient.ui.AutoImageView
         android:id="@+id/itme_happy_gv1_ivimage"
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/pading_10"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="@dimen/pading_10"
         android:layout_gravity="center_horizontal"
         android:src="@mipmap/kege" />
 
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/app_name"
+        android:paddingTop="@dimen/pading_6"
         android:textColor="@color/text_color"
         android:textSize="@dimen/text_size_13sp" />
 </LinearLayout>

@@ -128,6 +128,7 @@ public class CookStorinfoActivity extends BaseActivity {
                 layoutParams.height = (int) (getResources().getDimension(R.dimen.pading_46) + boorhight);
                 toolbar.setLayoutParams(layoutParams);
                 toolbar.setPadding(Utils.dip2px(App.getContext(), 10), boorhight, Utils.dip2px(App.getContext(), 10), 0);
+                int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.pading_10);
             }
         }
     }

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.View;
 
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
@@ -85,6 +84,9 @@ public class CookListActivity extends BaseActivity {
         });
     }
 
+    /**
+     * 获取数据
+     */
     private void getData() {
         if (BaiduMapBean.getLocation() == null) {
             To.ee("亲你的手机尚未定位成功");
@@ -104,7 +106,6 @@ public class CookListActivity extends BaseActivity {
                         if (isFinishing()) {
                             return;
                         }
-                        recyclerView.setVisibility(View.VISIBLE);
                         if (page == 0) {
                             list.clear();
                             layout.finishRefresh();

@@ -1,13 +1,10 @@
 package com.yunyouzhiyuan.qianbaoshangchengclient.okhttp;
 
-import android.os.Build;
+import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.FormBody;
@@ -70,15 +67,7 @@ public class MyOkHttpClent {
             mBuilder.arrayMap.clear();
             mBuilder.arrayMap = null;
         }
-        if (mBuilder.hashMap != null) {
-            builder.append("?");
-            for (ArrayMap.Entry<String, Object> entry : mBuilder.hashMap.entrySet()) {
-                builder.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
-            }
-            builder.deleteCharAt(builder.length() - 1);
-            mBuilder.hashMap.clear();
-            mBuilder.hashMap = null;
-        }
+
         return builder.toString();
     }
 
@@ -97,12 +86,6 @@ public class MyOkHttpClent {
                     }
                     mBuilder.arrayMap.clear();
                     mBuilder.arrayMap = null;
-                } else if (mBuilder.hashMap != null) {
-                    for (ArrayMap.Entry<String, Object> entry : mBuilder.hashMap.entrySet()) {
-                        jsonObject.put(entry.getKey(), entry.getValue());
-                    }
-                    mBuilder.hashMap.clear();
-                    mBuilder.hashMap = null;
                 }
                 return RequestBody.create(MediaType.parse("application/json;charset=utf-8"), jsonObject.toString());
 
@@ -119,12 +102,6 @@ public class MyOkHttpClent {
                 }
                 mBuilder.arrayMap.clear();
                 mBuilder.arrayMap = null;
-            } else if (mBuilder.hashMap != null) {
-                for (ArrayMap.Entry<String, Object> entry : mBuilder.hashMap.entrySet()) {
-                    builder.add(entry.getKey(), entry.getValue().toString());
-                }
-                mBuilder.hashMap.clear();
-                mBuilder.hashMap = null;
             }
             return builder.build();
         }
@@ -163,7 +140,6 @@ public class MyOkHttpClent {
         private boolean isJsonParams;//是否是 传递json 字符串
 
         private ArrayMap<String, Object> arrayMap;
-        private HashMap<String, Object> hashMap;
 
         private Builder() {
             methob = "GET";
@@ -229,17 +205,10 @@ public class MyOkHttpClent {
             } else if (vaLue == null) {
                 return this;
             } else {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    if (arrayMap == null) {
-                        arrayMap = new ArrayMap<>();
-                    }
-                    arrayMap.put(key, vaLue);
-                } else {
-                    if (hashMap == null) {
-                        hashMap = new HashMap<>();
-                    }
-                    hashMap.put(key, vaLue);
+                if (arrayMap == null) {
+                    arrayMap = new ArrayMap<>();
                 }
+                arrayMap.put(key, vaLue);
                 return this;
             }
         }

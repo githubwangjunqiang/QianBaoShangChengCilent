@@ -67,7 +67,11 @@ public class BaiduMapActivity extends BaseActivity {
     private String mSDCardPath = null;
     private static final String APP_FOLDER_NAME = "黔宝商城客户端";
     //    private MyOrientationListener myOrientationListener;
-    private float mCurrentX;
+
+    //构建Marker图标
+    private BitmapDescriptor bitmap;
+    //构建Marker图标
+    private BitmapDescriptor bitmapStor;
 
     public static void startBaiduMapActivity(Context context, String lat, String lng) {
         Intent intent = new Intent(context, BaiduMapActivity.class);
@@ -86,6 +90,7 @@ public class BaiduMapActivity extends BaseActivity {
             finish();
             return;
         }
+
         ll = new LatLng(BaiduMapBean.getLocation().getLatitude(),
                 BaiduMapBean.getLocation().getLongitude());
         latLngnew = new LatLng(Double.parseDouble(getIntent().getStringExtra("lat")),
@@ -107,6 +112,11 @@ public class BaiduMapActivity extends BaseActivity {
      * 初始化组件信息
      */
     private void init() {
+        bitmap = BitmapDescriptorFactory
+                .fromResource(R.drawable.dingweiweizhi);
+        bitmapStor = BitmapDescriptorFactory
+                .fromResource(R.drawable.mudidi);
+
 //        myOrientationListener = new MyOrientationListener(this);
 
         baiduMap = mMapView.getMap();
@@ -231,13 +241,6 @@ public class BaiduMapActivity extends BaseActivity {
             }
         });
     }
-
-    //构建Marker图标
-    private BitmapDescriptor bitmap = BitmapDescriptorFactory
-            .fromResource(R.drawable.dingweiweizhi);
-    //构建Marker图标
-    private BitmapDescriptor bitmapStor = BitmapDescriptorFactory
-            .fromResource(R.drawable.mudidi);
 
     /**
      * 生成marker

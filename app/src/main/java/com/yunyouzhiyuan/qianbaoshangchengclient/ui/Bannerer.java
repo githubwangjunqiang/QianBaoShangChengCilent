@@ -1,6 +1,5 @@
 package com.yunyouzhiyuan.qianbaoshangchengclient.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -32,7 +31,7 @@ public class Bannerer implements ViewPager.OnPageChangeListener {
     private List<ImageView> mImageViews;
     private List<String> list;
     private ViewPager viewPager;
-    private Activity context;
+    private Context context;
     private LinearLayout indicator;
     private CallBack callBack;
     private PagerAdapter pagerAdapter;
@@ -44,7 +43,7 @@ public class Bannerer implements ViewPager.OnPageChangeListener {
     private Handler handler;
     private MyFixedSpeedScroller scroller;
 
-    public Bannerer(List<String> list, final ViewPager viewPager, Activity context, LinearLayout indicator, String imageurl, int RID, CallBack callBack) {
+    public Bannerer(List<String> list, final ViewPager viewPager, Context context, LinearLayout indicator, String imageurl, int RID, CallBack callBack) {
         this.list = list;
         this.viewPager = viewPager;
         this.context = context;
@@ -134,7 +133,7 @@ public class Bannerer implements ViewPager.OnPageChangeListener {
         }
     }
 
-    private void addView(Activity context, LinearLayout indicator, int i) {
+    private void addView(Context context, LinearLayout indicator, int i) {
         ImageView imageView = new ImageView(context);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         getImage(imageView, i);
