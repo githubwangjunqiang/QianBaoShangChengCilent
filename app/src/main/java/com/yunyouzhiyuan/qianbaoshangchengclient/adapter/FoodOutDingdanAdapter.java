@@ -25,7 +25,7 @@ public class FoodOutDingdanAdapter extends MyAdapter<FoodInfo.DataBean.InfoBean>
         FoodInfo.DataBean.InfoBean data = getData().get(position);
         ViewHolder holder;
         if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.itme_foodout_dingdan_listview, null);
+            view = getLayoutInflater().inflate(R.layout.itme_foodout_dingdan_listview, parent,false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         }

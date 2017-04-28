@@ -19,6 +19,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.PaymentRequest;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.IModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.PingModel;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.DecimalCalculate;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.LogUtils;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
 
@@ -77,7 +78,12 @@ public class PingDialog extends Dialog {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                zhiFu();
+                try {
+                    zhiFu();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    To.oo(e.getMessage());
+                }
             }
         });
         loadingDialog.setOnKeyListener(new OnKeyListener() {
@@ -136,9 +142,9 @@ public class PingDialog extends Dialog {
     private void zhiFu() {
         loadingDialog.show();
         PaymentRequest request = new PaymentRequest(channel,
-                Double.parseDouble(order_amount), order_sn);
+                DecimalCalculate.mul(Double.parseDouble(order_amount), 100.0), order_sn);
         String json = new Gson().toJson(request);
-        LogUtils.d("支付json串"+json);
+        LogUtils.d("支付json串" + json);
         if (TextUtils.isEmpty(json)) {
             To.ee("解析channel错误请重试");
             loadingDialog.dismiss();

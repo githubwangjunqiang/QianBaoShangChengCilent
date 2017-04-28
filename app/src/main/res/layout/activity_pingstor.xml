@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -91,7 +91,7 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:padding="@dimen/pading_10"
-                    android:text="可以添加照片"
+                    android:text="@string/tianjiazhaopian"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/text_size_13sp" />
 
@@ -103,7 +103,7 @@
                     android:drawableLeft="@mipmap/deletecart"
                     android:gravity="center_vertical"
                     android:padding="@dimen/pading_10"
-                    android:text="  清空照片"
+                    android:text="@string/qingkongzhaopian"
                     android:textColor="@color/text_color_alp"
                     android:textSize="@dimen/text_size_12sp" />
             </LinearLayout>

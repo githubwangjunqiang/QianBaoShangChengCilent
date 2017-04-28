@@ -1,61 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/dialog_cart_food_ll"
-    android:minHeight="@dimen/pading_200"
-    android:orientation="vertical">
+              android:id="@+id/dialog_cart_food_ll"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/pading_200"
+              android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:id="@+id/fooddialog_cartrl"
         android:gravity="center_vertical"
         >
 
-        <TextView
+        <ImageView
+            android:id="@+id/fooddialog_ivback"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/pading_10"
+            android:paddingRight="@dimen/pading_10"
+            android:src="@mipmap/fanhui_hei"/>
+
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:padding="@dimen/pading_10"
             android:text="@string/cart"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size_14sp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/dialogxiala"/>
-
+            android:textSize="@dimen/text_size_14sp"/>
 
         <TextView
             android:id="@+id/dialog_cart_food_tvclear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/pading_10"
-            android:text="@string/clearcart"
             android:layout_alignParentRight="true"
             android:drawableLeft="@mipmap/deletecart"
+            android:padding="@dimen/pading_10"
+            android:text="@string/clearcart"
             android:textColor="@color/text_color_alp"
-            android:textSize="@dimen/text_size_12sp" />
-    </RelativeLayout>
+            android:textSize="@dimen/text_size_12sp"/>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/dialog_cart_food_listview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginTop="@dimen/pading_1"
+        android:layout_weight="1"
         android:background="@color/white"
         android:divider="@color/background"
-        android:dividerHeight="@dimen/pading_0.5" />
+        android:dividerHeight="@dimen/pading_0.5"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_13sp"
+        android:layout_marginTop="@dimen/pading_0.5"
         android:background="@color/white"
         android:padding="@dimen/pading_8"
-        android:layout_marginTop="@dimen/pading_0.5"
+        android:text="我的购物车"
         android:textColor="@color/text_color"
-        android:text="我的购物车"/>
+        android:textSize="@dimen/text_size_13sp"/>
 </LinearLayout>

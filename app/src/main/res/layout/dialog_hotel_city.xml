@@ -5,15 +5,30 @@
     android:orientation="vertical">
 
     <com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout
-        android:layout_width="match_parent"
         android:id="@+id/diapog_hotel_city_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.xlistview.XListView
+    <!--<com.yunyouzhiyuan.qianbaoshangchengclient.ui.xlistview.XListView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:dividerHeight="@dimen/pading_1"-->
+    <!--android:divider="@color/background"-->
+    <!--android:background="@color/white"-->
+    <!--android:id="@+id/diapog_hotel_city_listview"-->
+    <!--android:layout_height="match_parent" />-->
+
+
+    <com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout
+        android:id="@+id/hotel_city_layout"
         android:layout_width="match_parent"
-        android:dividerHeight="@dimen/pading_1"
-        android:divider="@color/background"
-        android:background="@color/white"
-        android:id="@+id/diapog_hotel_city_listview"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/hotel_city_recyleview"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout>
+
+
 </LinearLayout>

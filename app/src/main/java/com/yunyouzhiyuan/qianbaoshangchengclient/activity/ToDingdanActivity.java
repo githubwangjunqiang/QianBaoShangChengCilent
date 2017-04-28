@@ -31,6 +31,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.model.PingModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.DiaLogDingdanOk;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.LoadingDialog;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.DecimalCalculate;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.LogUtils;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
 
@@ -254,7 +255,10 @@ public class ToDingdanActivity extends BaseActivity {
         String json = "";
         try {
             PaymentRequest request = new PaymentRequest(channel,
-                    Double.parseDouble(getIntent().getStringExtra("price")), master_order_sn);
+                    DecimalCalculate.mul(
+                            Double.parseDouble(getIntent().getStringExtra("price")),
+                            100.0),
+                    master_order_sn);
             json = new Gson().toJson(request);
             if (TextUtils.isEmpty(json)) {
                 To.ee("解析channel错误请重试");

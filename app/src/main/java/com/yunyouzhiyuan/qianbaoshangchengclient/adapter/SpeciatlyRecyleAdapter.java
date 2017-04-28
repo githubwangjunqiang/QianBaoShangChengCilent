@@ -78,12 +78,13 @@ public class SpeciatlyRecyleAdapter extends RecyclerView.Adapter<SpiatlyViewHold
     }
 
     @Override
-    public void onBindViewHolder(SpiatlyViewHolder holder, final int position) {
+    public void onBindViewHolder(SpiatlyViewHolder holder,  int position) {
+        final int posi = position;
         holder.setData(list.get(position));
         holder.llBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toStartInfoActviity(list.get(position));
+                toStartInfoActviity(list.get(posi));
             }
         });
     }

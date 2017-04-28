@@ -13,16 +13,15 @@ public class LoadOKHttpClient {
 
     public static OkHttpClient loadClient() {
         if (client == null) {
-            client = new OkHttpClient.Builder()
-                    .writeTimeout(10 * 1000, TimeUnit.MILLISECONDS)
-                    .readTimeout(10 * 1000, TimeUnit.MILLISECONDS)
-                    .connectTimeout(10 * 1000, TimeUnit.MILLISECONDS)
-                    .build();
-
-
-//            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-//            builder.addInterceptor
-//            client = builder.build();
+            synchronized (LoadOKHttpClient.class) {
+                if (client == null) {
+                    client = new OkHttpClient.Builder()
+                            .writeTimeout(10 * 1000, TimeUnit.MILLISECONDS)
+                            .readTimeout(10 * 1000, TimeUnit.MILLISECONDS)
+                            .connectTimeout(10 * 1000, TimeUnit.MILLISECONDS)
+                            .build();
+                }
+            }
         }
         return client;
     }

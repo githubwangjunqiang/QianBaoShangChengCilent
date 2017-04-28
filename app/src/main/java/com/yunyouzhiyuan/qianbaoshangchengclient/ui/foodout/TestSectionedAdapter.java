@@ -78,46 +78,76 @@ public class TestSectionedAdapter extends SectionedBaseAdapter {
         }
         String str1 = data.getGoods_name() + "\n";
         String str2 = "店铺价:" + data.getShop_price();
-        String str3 = str1 + str2 +"\n市场价:" + data.getMarket_price() ;
+        String str3 = str1 + str2 + "\n市场价:" + data.getMarket_price();
 
         Text_Size.setSizeThress(mContext, holder.tvname, str3, 0, str1.length(), "#646464", 13, str1.length(), str1.length() + str2.length(), "#E96D5B", 11, str1.length() + str2.length(), str3.length(), "#aa646464", 11);
         ToGlide.url(mContext, HTTPURL.IMAGE + data.getOriginal_img(), holder.iviamge);
 
         if (data.getCount() > 0) {
-            if(holder.ivjian.getVisibility() == View.GONE){
-                show(true, holder.ivjian, holder.tvnumber);
-            }
+            holder.ivjian.setVisibility(View.VISIBLE);
+            holder.tvnumber.setVisibility(View.VISIBLE);
             holder.tvnumber.setText(data.getCount() + "");
         } else {
-            if(holder.ivjian.getVisibility() == View.VISIBLE){
-                show(false, holder.ivjian, holder.tvnumber);
-            }
+            holder.ivjian.setVisibility(View.GONE);
+            holder.tvnumber.setVisibility(View.GONE);
             holder.tvnumber.setText(data.getCount() + "");
         }
 
-        holder.ivjia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.addCart(v, section, position);
-            }
-        });
-        holder.ivjian.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.deleteCart(v, section, position);
-            }
-        });
+        addCart(data, section, position, holder.ivjia, holder.ivjian, holder.tvnumber);
+        deleteCart(data, section, position, holder.ivjian, holder.tvnumber);
 
         holder.iviamge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,FoodOutShopInfoActivity.class);
-                intent.putExtra("data",data);
+                Intent intent = new Intent(mContext, FoodOutShopInfoActivity.class);
+                intent.putExtra("data", data);
                 mContext.startActivity(intent);
             }
         });
 
         return convertView;
+    }
+
+    /**
+     * 点击添加
+     *
+     * @param data
+     * @param section
+     * @param position
+     */
+    private void addCart(final FoodInfo.DataBean.InfoBean data, final int section,
+                         final int position, ImageView ivJia,
+                         final ImageView ivjian, final TextView tvNumber) {
+        ivJia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (data.getCount() < 1) {
+                    show(true, ivjian, tvNumber);
+                }
+                callback.addCart(v, section, position);
+            }
+        });
+    }
+
+    /**
+     * 点击减少
+     *
+     * @param data
+     * @param section
+     * @param position
+     */
+    private void deleteCart(final FoodInfo.DataBean.InfoBean data, final int section,
+                            final int position,
+                            final ImageView ivjian, final TextView tvNumber) {
+        ivjian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (data.getCount() == 1) {
+                    show(false, ivjian, tvNumber);
+                }
+                callback.deleteCart(v, section, position);
+            }
+        });
     }
 
     private class ViewHolder {
@@ -134,24 +164,23 @@ public class TestSectionedAdapter extends SectionedBaseAdapter {
         TranslateAnimation animation = null;
         TranslateAnimation animation2 = null;
         AnimationSet set = new AnimationSet(true);
-        float translationX = ivjian.getTranslationX();
         if (show) {
-            animation = new TranslateAnimation(ivjian.getWidth() +tvnumber.getWidth(), 0, 0, 0);
-            animation.setFillAfter(true);
-            animation.setDuration(200);
+            animation = new TranslateAnimation(ivjian.getWidth() + tvnumber.getWidth(),
+                    0, 0, 0);
+            animation.setDuration(300);
             ivjian.setAnimation(animation);
             animation2 = new TranslateAnimation(tvnumber.getWidth(), 0, 0, 0);
-            animation2.setDuration(200);
+            animation2.setDuration(300);
             tvnumber.setAnimation(animation2);
             ivjian.setVisibility(View.VISIBLE);
             tvnumber.setVisibility(View.VISIBLE);
         } else {
-            animation = new TranslateAnimation(translationX,  ivjian.getWidth()+tvnumber.getWidth(), 0, 0);
-            animation.setFillAfter(true);
-            animation.setDuration(100);
+            animation = new TranslateAnimation(0,
+                    ivjian.getWidth() + tvnumber.getWidth(), 0, 0);
+            animation.setDuration(200);
             ivjian.setAnimation(animation);
             animation2 = new TranslateAnimation(0, tvnumber.getWidth(), 0, 0);
-            animation2.setDuration(100);
+            animation2.setDuration(200);
             tvnumber.setAnimation(animation2);
             animation.setAnimationListener(new Animation.AnimationListener() {
                 @Override
@@ -171,7 +200,6 @@ public class TestSectionedAdapter extends SectionedBaseAdapter {
                 }
             });
         }
-        set.setStartOffset(1000);
         set.addAnimation(animation);
         set.addAnimation(animation2);
         set.start();

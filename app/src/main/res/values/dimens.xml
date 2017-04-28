@@ -53,6 +53,8 @@
     <dimen name="pading_5">5dp</dimen>
     <dimen name="text_size_15sp">15sp</dimen>
     <dimen name="pading_3">3dp</dimen>
+    <dimen name="aa12dp">10dp</dimen>
+    <dimen name="sectioned_alignBottom">5dp</dimen>
 
 
 </resources>

@@ -120,7 +120,7 @@ public class XListViewHeader extends LinearLayout {
                 mArrowImageView.setImageResource(R.mipmap.xlistview_success);
                 SharedPreferences.Editor editor = preferences.edit();//获取编辑器
                 editor.putLong(UPDATED_AT + mId, System.currentTimeMillis());
-                editor.commit();//提交修改
+                editor.apply();//提交修改
                 break;
             case STATE_FRESH_FAILT:
                 mProgressBar.stopLoad();
@@ -128,7 +128,7 @@ public class XListViewHeader extends LinearLayout {
                 mArrowImageView.setImageResource(R.mipmap.xlistview_error);
                 SharedPreferences.Editor editor1 = preferences.edit();//获取编辑器
                 editor1.putLong(UPDATED_AT + mId, System.currentTimeMillis());
-                editor1.commit();//提交修改
+                editor1.apply();//提交修改
                 break;
             default:
         }

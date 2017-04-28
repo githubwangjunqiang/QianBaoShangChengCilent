@@ -18,11 +18,16 @@ public class IModel {
         instance.post(new Runnable() {
             @Override
             public void run() {
-                if (obj == null) {
-                    callBack.onSucceed("");
-                    return;
+                try {
+                    if (obj == null) {
+                        callBack.onSucceed("");
+                        return;
+                    }
+                    callBack.onSucceed(obj);
+                } catch (RuntimeException r) {
+                    r.printStackTrace();
                 }
-                callBack.onSucceed(obj);
+
             }
         });
     }
@@ -31,11 +36,15 @@ public class IModel {
         instance.post(new Runnable() {
             @Override
             public void run() {
-                if (obj == null) {
-                    callBack.onError(App.getContext().getString(R.string.qingqiushibai));
-                    return;
+                try {
+                    if (obj == null) {
+                        callBack.onError(App.getContext().getString(R.string.qingqiushibai));
+                        return;
+                    }
+                    callBack.onError(obj);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                callBack.onError(obj);
             }
         });
     }

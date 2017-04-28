@@ -52,6 +52,15 @@ public class CityHotel {
         private String id;
         private String name;
         private String level;
+        private String biaoji;
+
+        public String getBiaoji() {
+            return biaoji;
+        }
+
+        public void setBiaoji(String biaoji) {
+            this.biaoji = biaoji;
+        }
 
         public String getId() {
             return id;

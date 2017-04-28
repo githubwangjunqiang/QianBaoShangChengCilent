@@ -2,18 +2,23 @@ package com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.view.View;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
 import com.yunyouzhiyuan.qianbaoshangchengclient.adapter.DialogCityAdapter;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.CityHotel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.HotelModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.model.IModel;
+import com.yunyouzhiyuan.qianbaoshangchengclient.ui.SectionDecoration;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout;
-import com.yunyouzhiyuan.qianbaoshangchengclient.ui.xlistview.XListView;
+import com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayout;
+import com.yunyouzhiyuan.qianbaoshangchengclient.ui.swlayout.SwipyRefreshLayoutDirection;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.LogUtils;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
 
 import java.util.ArrayList;
@@ -28,12 +33,13 @@ import okhttp3.Call;
 public class DialogHoteCity extends Dialog {
     private CallBack callBack;
     private TitleLayout titleLayout;
-    private XListView listView;
+    private RecyclerView listView;
     private int page = 0;
     private HotelModel model;
     private List<Call> calls = new ArrayList<>();
     private DialogCityAdapter adapter;
     private List<CityHotel.DataBean> list = new ArrayList<>();
+    private SwipyRefreshLayout layout;
 
     public DialogHoteCity(Context context, HotelModel model, CallBack callBack) {
         super(context, R.style.dialogWindowAnim);
@@ -43,7 +49,7 @@ public class DialogHoteCity extends Dialog {
     }
 
     public interface CallBack {
-        void callBack(String city_id, String level,String name);
+        void callBack(String city_id, String level, String name);
     }
 
     @Override
@@ -52,7 +58,6 @@ public class DialogHoteCity extends Dialog {
         init();
         setListener();
         setadapter();
-        listView.startRefresh();
     }
 
     /**
@@ -62,8 +67,36 @@ public class DialogHoteCity extends Dialog {
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         } else {
-            adapter = new DialogCityAdapter(getContext(), list);
+            adapter = new DialogCityAdapter(getContext(), list, new DialogCityAdapter.Callback() {
+                @Override
+                public void callBack(String city_id, String level, String name) {
+                    callBack.callBack(city_id, level, name);
+                    dismiss();
+                }
+            });
+            listView.setLayoutManager(new LinearLayoutManager(getContext()));
             listView.setAdapter(adapter);
+            listView.addItemDecoration(new SectionDecoration(getContext(), new SectionDecoration.DecorationCallback() {
+                @Override
+                public String getGroupId(int position) {
+                    String name = list.get(position).getBiaoji();
+                    if (!TextUtils.isEmpty(name)) {
+                        LogUtils.d(name);
+                        return name;
+                    }
+                    return "-1";
+                }
+
+                @Override
+                public String getGroupFirstLine(int position) {
+                    String name = list.get(position).getBiaoji();
+                    if (!TextUtils.isEmpty(name)) {
+                        LogUtils.d(name);
+                        return name;
+                    }
+                    return "";
+                }
+            }));
         }
     }
 
@@ -71,26 +104,18 @@ public class DialogHoteCity extends Dialog {
      * 监听器
      */
     private void setListener() {
-        listView.setXListViewListener(new XListView.IXListViewListener() {
+        layout.setDirection(SwipyRefreshLayoutDirection.BOTH);
+        layout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh() {
-                page = 0;
-                getData();
-            }
-
-            @Override
-            public void onLoadMore() {
-                getData();
-            }
-        });
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                callBack.callBack(list.get(position-1).getId(), list.get(position-1).getLevel(),list.get(position-1).getName());
-                dismiss();
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                if (direction == SwipyRefreshLayoutDirection.TOP) {
+                    page = 0;
+                    getData();
+                } else {
+                    getData();
+                }
             }
         });
-
     }
 
     /**
@@ -106,8 +131,7 @@ public class DialogHoteCity extends Dialog {
                 list.addAll((List<CityHotel.DataBean>) obj);
                 setadapter();
                 page++;
-                listView.stopLoadMore();
-                listView.stopRefresh(true);
+                layout.setRefreshing(false);
             }
 
             @Override
@@ -117,8 +141,7 @@ public class DialogHoteCity extends Dialog {
                     setadapter();
                 }
                 To.oo(obj);
-                listView.stopLoadMore();
-                listView.stopRefresh(false);
+                layout.setRefreshing(false);
             }
         });
         calls.add(li);
@@ -129,7 +152,10 @@ public class DialogHoteCity extends Dialog {
      */
     private void init() {
         titleLayout = (TitleLayout) findViewById(R.id.diapog_hotel_city_title);
-        listView = (XListView) findViewById(R.id.diapog_hotel_city_listview);
+        listView = (RecyclerView) findViewById(R.id.hotel_city_recyleview);
+        layout = (SwipyRefreshLayout) findViewById(R.id.hotel_city_layout);
+        layout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.white));
+        layout.setProgressBackgroundColor(R.color.app_color);
         titleLayout.setTitle("选择酒店目的地", true);
         titleLayout.setCallback(new TitleLayout.Callback(null) {
             @Override
@@ -137,13 +163,13 @@ public class DialogHoteCity extends Dialog {
                 dismiss();
             }
         });
-        listView.setPullLoadEnable(true);
-        listView.setPullRefreshEnable(true);
     }
 
     @Override
     public void show() {
         super.show();
+        layout.setRefreshing(true);
+        getData();
         Window window = getWindow();
         WindowManager.LayoutParams wlp = window.getAttributes();
         wlp.width = WindowManager.LayoutParams.MATCH_PARENT;

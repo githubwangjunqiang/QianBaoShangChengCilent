@@ -15,6 +15,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Hotel_Fenlei;
 import com.yunyouzhiyuan.qianbaoshangchengclient.entiy.Hotel_storinfo;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.GetJsonRetcode;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.LogUtils;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.PinyinUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -117,29 +118,39 @@ public class HotelModel extends IModel {
      * @return
      */
     public Call getList(int page, final AsyncCallBack callBack) {
-        FormBody bod = new FormBody.Builder().add("page", page + "").build();
-        Request request = new Request.Builder().url(HTTPURL.get_country_area).post(bod).build();
+        FormBody formBody = new FormBody.Builder().add("page", page + "").build();
+        Request request = new Request.Builder().url(HTTPURL.get_country_area).post(formBody)
+                .build();
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                runUiOnError(null, callBack);
+                try {
+                    callBack.onError(e.getMessage());
+
+                } catch (RuntimeException ee) {
+                    ee.printStackTrace();
+                }
+
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()) {
-                    runUiOnError(response.message(), callBack);
-                    return;
-                }
-
-                String string = response.body().string();
-                LogUtils.d("获取全国地址列表" + string);
-                if (GetJsonRetcode.getRetcode(string) == 2000) {
-                    List<CityHotel.DataBean> list = new Gson().fromJson(string, CityHotel.class).getData();
-                    runUiOnSuccess(list, callBack);
+                if (response.isSuccessful()) {
+                    String string = response.body().string();
+                    if (GetJsonRetcode.getRetcode(string) == 2000) {
+                        List<CityHotel.DataBean> data = new Gson().fromJson(string, CityHotel.class).getData();
+                        for (int i = 0; i < data.size(); i++) {
+                            CityHotel.DataBean dataBean = data.get(i);
+                            String firstLetter = PinyinUtils.getFirstLetter(String.valueOf(dataBean.getName().charAt(0)));
+                            dataBean.setBiaoji(firstLetter);
+                        }
+                        runUiOnSuccess(data, callBack);
+                    } else {
+                        runUiOnError(GetJsonRetcode.getmsg(string), callBack);
+                    }
                 } else {
-                    runUiOnError(GetJsonRetcode.getmsg(string), callBack);
+                    runUiOnError("没有找到", callBack);
                 }
             }
         });

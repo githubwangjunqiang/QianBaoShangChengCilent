@@ -39,11 +39,13 @@ public class StorListAdapter extends RecyclerView.Adapter<ListViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ListViewHolder holder, final int position) {
+    public void onBindViewHolder(ListViewHolder holder,  int position) {
+        final int posi = position;
         holder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShopStorinfoActivity.startShopStorinfoActivity(context, list.get(position).getStore_id());
+                ShopStorinfoActivity.startShopStorinfoActivity(context,
+                        list.get(posi).getStore_id());
             }
         });
         ToGlide.urlRound(context, HTTPURL.IMAGE + list.get(position).getStore_logo(),

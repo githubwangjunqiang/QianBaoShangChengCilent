@@ -27,10 +27,7 @@ public class PingModel extends IModel {
     public Call getJson(String json, final AsyncCallBack callBack) {
         MediaType type = MediaType.parse("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(type, json);
-        Request request = new Request.Builder().url(
-                HTTPURL.ping
-//                "http://120.26.225.230:803/index.php/api/ping/charge"
-        ).post(body).build();
+        Request request = new Request.Builder().url(HTTPURL.ping).post(body).build();
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override

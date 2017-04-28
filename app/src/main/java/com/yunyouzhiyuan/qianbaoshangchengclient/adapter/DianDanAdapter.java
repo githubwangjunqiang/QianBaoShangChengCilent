@@ -123,7 +123,7 @@ public class DianDanAdapter extends BaseExpandableListAdapter {
         if (view == null) {
             if (getGroupType(groupPosition) == 0) {
                 holder = new ViewHolder_G();
-                view = inflater.inflate(R.layout.itme_fragment_diandan_listview_g, null);
+                view = inflater.inflate(R.layout.itme_fragment_diandan_listview_g, parent,false);
                 holder.tvstorname = (TextView) view.findViewById(R.id.itme_dingdan_tvstorname);
                 holder.tvTime = (TextView) view.findViewById(R.id.itme_dingdan_tvtime);
                 view.setTag(holder);
@@ -161,7 +161,7 @@ public class DianDanAdapter extends BaseExpandableListAdapter {
         Dingdan.DataBean.OrderListBean.GoodsListBean data = list.get(groupPosition).getGoods_list().get(childPosition);
         if (view == null) {
             holder = new ViewHolder_C();
-            view = inflater.inflate(R.layout.itme_fragment_dingdan_listview_c, null);
+            view = inflater.inflate(R.layout.itme_fragment_dingdan_listview_c, parent,false);
             holder.image = (ImageView) view.findViewById(R.id.dingdan_ivimage);
             holder.tvshopname = (TextView) view.findViewById(R.id.dingdan_tvshopname);
             holder.tvprice = (TextView) view.findViewById(R.id.dingdan_tvprice);

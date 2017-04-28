@@ -51,7 +51,8 @@ public class CooklistAdapter extends RecyclerView.Adapter<CookListViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(CookListViewHolder holder, final int position) {
+    public void onBindViewHolder(CookListViewHolder holder, int position) {
+        final int pos = position;
         final Food_Bottom.DataBean data = list.get(position);
         ToGlide.url(context, HTTPURL.IMAGE + data.getStore_logo(), holder.ivimage);
         holder.tvname.setText(data.getStore_name() + "" + "\n人均消费￥" + data.getProm_name());
@@ -61,7 +62,6 @@ public class CooklistAdapter extends RecyclerView.Adapter<CookListViewHolder> {
         }
         holder.tvjuli.setText("距离：" + data.getDistance());
         holder.tvnumber.setText(data.getConsump_count() + "人消费");
-
         holder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +72,7 @@ public class CooklistAdapter extends RecyclerView.Adapter<CookListViewHolder> {
                     case "外卖":
                         startFoodOutInfoActivity(context, data.getSeo_description(), data.getStore_id());
                     case "ktv":
-                        toKtv(position);
+                        toKtv(pos);
                         break;
                     default:
                         ShopStorinfoActivity.startShopStorinfoActivity(context, data.getStore_id());

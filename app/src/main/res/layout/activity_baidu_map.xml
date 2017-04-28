@@ -22,7 +22,6 @@
             android:clickable="true" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_map"
             android:onClick="shangjia"
             app:backgroundTint="#eeFD7200"
             app:rippleColor="#FF4081"

@@ -38,7 +38,8 @@ public class KTVTimeRecyAdapter extends RecyclerView.Adapter<KTVTimeHolder> {
     }
 
     @Override
-    public void onBindViewHolder(KTVTimeHolder holder, final int position) {
+    public void onBindViewHolder(KTVTimeHolder holder,  int position) {
+        final  int poi = position;
         LogUtils.d("日期对象=" + list.get(position).getDate());
         holder.textView.setText(list.get(position).getWeek() + "\n" + list.get(position).getDate());
         holder.textView.setSelected(list.get(position).isIdSechked());
@@ -46,8 +47,8 @@ public class KTVTimeRecyAdapter extends RecyclerView.Adapter<KTVTimeHolder> {
             @Override
             public void onClick(View v) {
                 if (!v.isSelected()) {
-                    callback.onClick(position);
-                    notyfData(position);
+                    callback.onClick(poi);
+                    notyfData(poi);
                 }
             }
         });

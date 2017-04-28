@@ -39,15 +39,16 @@ public class KTVBiaoqianAdapter extends RecyclerView.Adapter<KTVBiaoqianHolder> 
     }
 
     @Override
-    public void onBindViewHolder(KTVBiaoqianHolder holder, final int position) {
+    public void onBindViewHolder(KTVBiaoqianHolder holder,  int position) {
+        final int posi = position;
         holder.textView.setText(list.get(position).getItem());
         holder.textView.setSelected(list.get(position).isSekd());
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!v.isSelected()) {
-                    callback.onClick(position);
-                    notfData(position);
+                    callback.onClick(posi);
+                    notfData(posi);
                 }
             }
         });

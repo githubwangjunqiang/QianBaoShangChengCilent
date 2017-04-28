@@ -52,7 +52,7 @@ public class AddressAdapter extends MyAdapter<Address.DataBean> {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = getLayoutInflater().inflate(R.layout.itme_address_listview, null);
+            convertView = getLayoutInflater().inflate(R.layout.itme_address_listview, parent,false);
             holder.tvname = (TextView) convertView.findViewById(R.id.itme_address_tvname);
             holder.tvdelete = (TextView) convertView.findViewById(R.id.itme_address_tvdelete);
             holder.tvMoren = (TextView) convertView.findViewById(R.id.itme_address_tvmoren);

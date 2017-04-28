@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
@@ -13,8 +14,6 @@ import android.widget.ListView;
  */
 
 public class AFloatListView extends ListView {
-    private float myDownPosX = 0;
-    private float myDownPosY = 0;
 
     public AFloatListView(Context context) {
         super(context);
@@ -60,28 +59,34 @@ public class AFloatListView extends ListView {
         return super.dispatchHoverEvent(event);
     }
 
+    private boolean mScrolling;
+    private float touchDownX;
+
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        final float x = ev.getX();
-        final float y = ev.getY();
-        final int action = ev.getAction();
-        switch (action) {
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN://按下
-                myDownPosX = x;
-                myDownPosY = y;
+                touchDownX = event.getX();
+                mScrolling = false;
                 break;
             case MotionEvent.ACTION_MOVE://拖动
-                final float deleteX = Math.abs(x - myDownPosX);
-                final float deleteY = Math.abs(y - myDownPosY);
-                if (deleteX != deleteY) {
-                    return true;
+                if (Math.abs(touchDownX - event.getX()) >= ViewConfiguration.get(
+                        getContext()).getScaledTouchSlop()) {
+                    mScrolling = true;
                 } else {
-                    return false;
+                    mScrolling = false;
                 }
+                break;
+//                final float deleteX = Math.abs(x - myDownPosX);
+//                final float deleteY = Math.abs(y - myDownPosY);
+//                if (deleteX != deleteY) {
+//                    return true;
+//                }
             case MotionEvent.ACTION_UP://抬起
+                mScrolling = false;
                 break;
         }
-        return super.onInterceptTouchEvent(ev);
+        return mScrolling;
     }
 
 

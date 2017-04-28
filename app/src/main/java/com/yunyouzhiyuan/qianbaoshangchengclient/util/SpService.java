@@ -40,6 +40,7 @@ public class SpService {
         editor.putString("pas", pas);
         return editor.commit();
     }
+
     /**
      * 存入ctid
      */
@@ -66,13 +67,16 @@ public class SpService {
 
     /**
      * 获取uid
+     *
      * @return
      */
     public String getUserid() {
         return getStringName("uid", "qianbaoclient_app");
     }
+
     /**
      * 获取cityid
+     *
      * @return
      */
     public String getCityid() {
@@ -123,7 +127,10 @@ public class SpService {
      */
     public void clearUser() {
         SharedPreferences preferences = context.getSharedPreferences("qianbaoclient_app", Context.MODE_PRIVATE);
-        preferences.edit().clear();
+        Editor edit = preferences.edit();
+        edit.clear();
+        edit.commit();
+
     }
 
 }

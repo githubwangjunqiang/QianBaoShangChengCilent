@@ -266,4 +266,9 @@
     <string name="dianpuweizhi">店铺位置</string>
     <string name="xuanzhongweizhi">选中位置</string>
     <string name="zhengzaijiazai">正在加载</string>
+    <string name="wangjimima">忘记密码</string>
+    <string name="mianfeizhuce">免费注册</string>
+    <string name="tianjiazhaopian">添加照片</string>
+    <string name="qingkongzhaopian">清空照片</string>
+    <string name="shurushoujihao">输入手机号</string>
 </resources>

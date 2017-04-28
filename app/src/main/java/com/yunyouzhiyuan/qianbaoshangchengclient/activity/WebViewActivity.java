@@ -57,7 +57,7 @@ public class WebViewActivity extends BaseActivity {
         //自适应屏幕
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webSettings.setLoadWithOverviewMode(true);
-        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//关闭webview中缓存
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);//关闭webview中缓存
         mView.loadUrl(url);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mView.setWebViewClient(new WebViewClient() {

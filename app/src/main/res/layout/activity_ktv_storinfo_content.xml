@@ -62,7 +62,7 @@
             android:drawableLeft="@mipmap/wodeweizhi"
             android:gravity="center_vertical"
             android:lineSpacingExtra="@dimen/pading_4"
-            android:text="东城区建国门内大街甲18号王府井代销店家（北京站）"
+            tools:text="东城区建国门内大街甲18号王府井代销店家（北京站）"
             android:textColor="@color/text_color"
             android:textSize="@dimen/text_size_13sp" />
 

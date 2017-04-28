@@ -36,7 +36,7 @@ public class HappyGv1Adapter extends MyAdapter<ZiFenlei.DataBean> {
 
     @Override
     public View getView(final int position, View view, ViewGroup parent) {
-        view = getLayoutInflater().inflate(R.layout.itme_happy_gv1, null);
+        view = getLayoutInflater().inflate(R.layout.itme_happy_gv1, parent,false);
         final AutoImageView imageView = (AutoImageView) view.findViewById(R.id.itme_happy_gv1_ivimage);
         TextView tvname = (TextView) view.findViewById(R.id.itme_happy_gv1_tvnamne);
 

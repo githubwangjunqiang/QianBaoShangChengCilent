@@ -7,6 +7,7 @@ public class HTTPURL {
 
     /**
      * 域名
+     * "http://120.26.225.230:813/index.php/Api/api/";
      */
     public static final String URL = "http://120.26.225.230:813/index.php/Api/api/";
     /**

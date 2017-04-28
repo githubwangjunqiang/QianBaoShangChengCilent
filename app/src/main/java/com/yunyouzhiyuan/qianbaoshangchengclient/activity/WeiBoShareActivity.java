@@ -75,7 +75,6 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
     private final String title = "好友在召唤你";
     private final String content = "黔宝商城海量大优惠！还在等什么？快来补刀吧......";
     private final String IMAGEURL = "http://www.bm37.com/item/4/220/TB1dTaIFVXXXXbLXVXXXXXXXXXX_!!0-item_pic.jpg";
-    private final String IMAGEURL2 = "http://img.taobaocdn.com/imgextra/i7/92795946/T2g1tiXgBdXXXXXXXX_!!92795946.gif";
 
 
     /**
@@ -83,6 +82,7 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
      */
     private IWeiboShareAPI mWeiboShareAPI = null;
     private boolean weiboAppInstalled;
+    private boolean isWeixin = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -293,12 +293,20 @@ public class WeiBoShareActivity extends BaseActivity implements IWeiboHandler.Re
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (looding != null && looding.isShowing() && isWeixin) {
+            looding.dismiss();
+        }
+    }
 
     /**
      * 微信分享
      */
     private void weixinShare(String url) {
         looding.show();
+        isWeixin = true;
         IWXAPI api = WXAPIFactory.createWXAPI(this, Bean.WE_XIN_APPID);
         api.registerApp(Bean.WE_XIN_APPID);
         WXWebpageObject wxWebpageObject = new WXWebpageObject();

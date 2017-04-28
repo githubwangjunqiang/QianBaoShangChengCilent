@@ -49,6 +49,7 @@ public class ShouCangshopAdapter extends RecyclerView.Adapter<ShopViewHolder> {
 
     @Override
     public void onBindViewHolder(ShopViewHolder holder, final int position) {
+        final int posi = position;
         ShouCangShop.DataBean data = list.get(position);
         ToGlide.urlRound(context, HTTPURL.IMAGE + data.getOriginal_img(), holder.ivimage, 8);
         holder.tvname.setText(data.getGoods_name() == null ? "" : data.getGoods_name());
@@ -57,7 +58,7 @@ public class ShouCangshopAdapter extends RecyclerView.Adapter<ShopViewHolder> {
         holder.tvbuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toStartInfoActviity(position);
+                toStartInfoActviity(posi);
             }
         });
     }

@@ -31,7 +31,7 @@ public class HappyGv0Adapter extends MyAdapter<ZiFenlei.DataBean> {
 
     @Override
     public View getView(final int position, View view, ViewGroup parent) {
-        view = getLayoutInflater().inflate(R.layout.itme_happy_gv0, null);
+        view = getLayoutInflater().inflate(R.layout.itme_happy_gv0, parent,false);
         AutoImageView imageView = (AutoImageView) view.findViewById(R.id.itme_happy_gv0_ivimage);
         TextView tvname = (TextView) view.findViewById(R.id.itme_happy_gv0_tvname);
         ToGlide.url(getContext(), HTTPURL.IMAGE + getData().get(position).getImage(), imageView);

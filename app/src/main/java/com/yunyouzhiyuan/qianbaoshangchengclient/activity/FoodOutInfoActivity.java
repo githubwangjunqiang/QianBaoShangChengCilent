@@ -278,6 +278,7 @@ public class FoodOutInfoActivity extends BaseActivity {
                     }
                 });
                 right_listview.setAdapter(sectionedAdapter);
+//                right_listview.setFriction(ViewConfiguration.getScrollFriction() * 8);
             }
         } else {
             sectionedAdapter.notifyDataSetChanged();
@@ -318,7 +319,7 @@ public class FoodOutInfoActivity extends BaseActivity {
         if (null == data) {
             ivCart.setSelected(false);
             btnBuy.setSelected(false);
-            btnBuy.setText("00元起送");
+            btnBuy.setText(send_price + "元起送");
             zong_Price = 0.0;
             zong_count = 0;
             badge.setBadgeCount(zong_count);
@@ -418,9 +419,11 @@ public class FoodOutInfoActivity extends BaseActivity {
         shoppingCartAnim.setCallBack(new ShoppingCartAnim.Listener() {
             @Override
             public void onAnimationEnd() {
-                ObjectAnimator animator = ObjectAnimator.ofFloat(ivCart, "scaleX", 1, 1.1f, 0.9f, 1);
+                ObjectAnimator animator = ObjectAnimator.ofFloat(ivCart,
+                        "scaleX", 1, 1.1f, 0.9f, 1);
                 animator.setDuration(300);
-                ObjectAnimator animator1 = ObjectAnimator.ofFloat(ivCart, "scaleY", 1, 0.75f, 1.25f, 1);
+                ObjectAnimator animator1 = ObjectAnimator.ofFloat(ivCart,
+                        "scaleY", 1, 0.75f, 1.25f, 1);
                 animator1.setDuration(300);
                 AnimatorSet set = new AnimatorSet();
                 set.setInterpolator(new LinearInterpolator());

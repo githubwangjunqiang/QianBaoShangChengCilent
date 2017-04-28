@@ -50,6 +50,7 @@ public class ShouCangStorAdapter extends RecyclerView.Adapter<StorViewHolder> {
 
     @Override
     public void onBindViewHolder(StorViewHolder holder, final int position) {
+        final int posi = position;
         final ShouCang.DataBean data = list.get(position);
         ToGlide.url(content, HTTPURL.IMAGE + data.getStore_logo(), holder.ivimage);
         holder.tvinfo.setText(data.getStore_name() == null ? "" : data.getStore_name());
@@ -57,7 +58,7 @@ public class ShouCangStorAdapter extends RecyclerView.Adapter<StorViewHolder> {
         holder.tvinStor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toStartInfoActviity(position);
+                toStartInfoActviity(posi);
             }
         });
     }

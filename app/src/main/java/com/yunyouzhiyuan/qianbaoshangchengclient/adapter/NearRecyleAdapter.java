@@ -43,11 +43,12 @@ public class NearRecyleAdapter extends RecyclerView.Adapter<NearViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(NearViewHolder holder, final int position) {
+    public void onBindViewHolder(NearViewHolder holder,  int position) {
+        final int posi = position;
         holder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShopStorinfoActivity.startShopStorinfoActivity(context,list.get(position).getStore_id());
+                ShopStorinfoActivity.startShopStorinfoActivity(context,list.get(posi).getStore_id());
             }
         });
         holder.setData(list.get(position));

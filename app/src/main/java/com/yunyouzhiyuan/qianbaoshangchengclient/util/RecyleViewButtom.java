@@ -10,6 +10,8 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
  */
 public class RecyleViewButtom extends RecyclerView.OnScrollListener {
     public Callback callback;
+    private boolean isLooding = true;
+    private int lastPosition1;
 
     public RecyleViewButtom(Callback callback) {
         this.callback = callback;
@@ -17,10 +19,12 @@ public class RecyleViewButtom extends RecyclerView.OnScrollListener {
 
     public interface Callback {
         void last(int position);
+
         void fist(int position);
 
         /**
          * 第一个itme  不可见
+         *
          * @param position
          */
         void unfist(int position);
@@ -81,10 +85,17 @@ public class RecyleViewButtom extends RecyclerView.OnScrollListener {
             //时判断界面显示的最后item的position是否等于itemCount总数-1也就是最后一个item的position
             //如果相等则说明已经滑动到最后了
             if (lastPosition == recyclerView.getLayoutManager().getItemCount() - 1) {
-                callback.last(lastPosition);
-            }else if (fistPosition == 0) {//第一个可见了
+                if (isLooding) {
+                    callback.last(lastPosition);
+                    lastPosition1 = lastPosition;
+                    isLooding = false;
+                }
+                if (lastPosition1 != lastPosition) {
+                    isLooding = true;
+                }
+            } else if (fistPosition == 0) {//第一个可见了
                 callback.fist(lastPosition);
-            }else{
+            } else {
                 callback.unfist(lastPosition);
             }
 ////                        if(lastPosition == 0){

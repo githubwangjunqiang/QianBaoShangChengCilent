@@ -33,6 +33,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.ui.MyListview;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.DiaLogDingdanOk;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.LoadingDialog;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.DecimalCalculate;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.LogUtils;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.Text_Size;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
@@ -181,7 +182,7 @@ public class FoodOutDingdanActivity extends BaseActivity {
                 YouhuiquanDingdanActivity.startYouhuiquanDingdanActivity(this, App.getUserId(), getIntent().getStringExtra("price"), getIntent().getStringExtra("stor_id"));
                 break;
             case R.id.fooddingdan_btnok://提交
-                tijiao(false);
+                tijiao(false, 0);
                 break;
         }
     }
@@ -189,7 +190,7 @@ public class FoodOutDingdanActivity extends BaseActivity {
     /**
      * 点击提交
      */
-    private void tijiao(final boolean isSubMit) {
+    private void tijiao(final boolean isSubMit, final double payables) {
         if (TextUtils.isEmpty(address_id)) {
             To.oo("请选择地址");
             return;
@@ -219,7 +220,11 @@ public class FoodOutDingdanActivity extends BaseActivity {
                             return;
                         }
                         if (isSubMit) {
-                            zhiFu(String.valueOf(obj));
+                            if (payables < 0.1) {
+                                To.oo("价格不对");
+                                return;
+                            }
+                            zhiFu(String.valueOf(obj), payables);
                         } else {
                             toOkDingdan(obj);
                         }
@@ -244,12 +249,12 @@ public class FoodOutDingdanActivity extends BaseActivity {
      * @param obj
      */
     private void toOkDingdan(Object obj) {
-        DingDanOver.DataBean data = (DingDanOver.DataBean) obj;
+        final DingDanOver.DataBean data = (DingDanOver.DataBean) obj;
 
         new DiaLogDingdanOk(this, new DiaLogDingdanOk.CallBack() {
             @Override
             public void callOk() {
-                tijiao(true);
+                tijiao(true, data.getPayables());
             }
 
             @Override
@@ -342,7 +347,7 @@ public class FoodOutDingdanActivity extends BaseActivity {
             }
         });
         builder.setTitle("黔宝商城提醒您：");
-        builder.setMessage(isfinsh ? result : "支付失败" );
+        builder.setMessage(isfinsh ? result : "支付失败");
         AlertDialog alertDialog = builder.create();
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.show();
@@ -368,18 +373,27 @@ public class FoodOutDingdanActivity extends BaseActivity {
      * 跳转支付
      *
      * @param obj
+     * @param payables
      */
-    private void zhiFu(String obj) {
-        loadingDialog.show();
-        PaymentRequest request = new PaymentRequest(channel,
-                Double.valueOf(getIntent().getStringExtra("price")), obj);
+    private void zhiFu(String obj, double payables) {
+        String json = null;
+        try {
+            loadingDialog.show();
+            PaymentRequest request = new PaymentRequest(channel,
+                    DecimalCalculate.mul(payables, 100.0)
+                    , obj);
 
-        String json = new Gson().toJson(request);
-        LogUtils.i("支付传参json" + json);
-        if (TextUtils.isEmpty(json)) {
-            To.ee("解析channel错误请重试");
+            json = new Gson().toJson(request);
+            LogUtils.i("支付传参json" + json);
+            if (TextUtils.isEmpty(json)) {
+                To.ee("解析channel错误请重试");
+                loadingDialog.dismiss();
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            To.oo("失败");
             loadingDialog.dismiss();
-            return;
         }
         setCall(new PingModel().getJson(json, new IModel.AsyncCallBack() {
             @Override

@@ -15,7 +15,7 @@ import java.lang.ref.SoftReference;
 /**
  * Created by limxing on 16/1/7.
  */
-public class LoadView extends ImageView {
+public class LoadView extends android.support.v7.widget.AppCompatImageView {
     private MyRunable runnable;
     private int width;
     private int height;

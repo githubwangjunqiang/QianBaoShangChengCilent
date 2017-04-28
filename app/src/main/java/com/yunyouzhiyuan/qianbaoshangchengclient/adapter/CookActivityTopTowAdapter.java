@@ -40,18 +40,19 @@ public class CookActivityTopTowAdapter extends RecyclerView.Adapter<CookActivity
     }
 
     @Override
-    public void onBindViewHolder(CookActivityTopTowViewHolder holder, final int position) {
+    public void onBindViewHolder(CookActivityTopTowViewHolder holder,  int position) {
+        final int pos = position;
         ToGlide.url(context, HTTPURL.IMAGE + list.get(position).getStore_logo(), holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (type) {
                     case "cook":
-                        CookStorinfoActivity.startCookStorinfoActivity(context, list.get(position).getStore_id());
+                        CookStorinfoActivity.startCookStorinfoActivity(context, list.get(pos).getStore_id());
                         break;
                     case "food":
                         FoodOutInfoActivity.startFoodOutInfoActivity(context, null,
-                                list.get(position).getStore_id());
+                                list.get(pos).getStore_id());
                         break;
                     default:
                         break;

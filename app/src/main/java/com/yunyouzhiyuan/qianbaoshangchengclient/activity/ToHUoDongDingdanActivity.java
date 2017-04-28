@@ -27,6 +27,7 @@ import com.yunyouzhiyuan.qianbaoshangchengclient.model.PingModel;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.TitleLayout;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.DiaLogDingdanOk;
 import com.yunyouzhiyuan.qianbaoshangchengclient.ui.dialog.LoadingDialog;
+import com.yunyouzhiyuan.qianbaoshangchengclient.util.DecimalCalculate;
 import com.yunyouzhiyuan.qianbaoshangchengclient.util.To;
 
 import butterknife.Bind;
@@ -185,7 +186,8 @@ public class ToHUoDongDingdanActivity extends BaseActivity {
     private void zhiFu(String master_order_sn) {
         loadingDialog.show();
         PaymentRequest request = new PaymentRequest(channel,
-                Double.parseDouble(getIntent().getStringExtra("price")), master_order_sn);
+                DecimalCalculate.mul(Double.parseDouble(getIntent().getStringExtra("price")), 100.0),
+                master_order_sn);
         String json = new Gson().toJson(request);
         if (TextUtils.isEmpty(json)) {
             To.ee("解析channel错误请重试");
@@ -288,7 +290,7 @@ public class ToHUoDongDingdanActivity extends BaseActivity {
             }
         });
         builder.setTitle("黔宝商城提醒您：");
-        builder.setMessage(isfinsh ? result+"\n您可以去我的订单查看详情" : "支付失败" );
+        builder.setMessage(isfinsh ? result + "\n您可以去我的订单查看详情" : "支付失败");
         AlertDialog alertDialog = builder.create();
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.show();

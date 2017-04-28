@@ -38,13 +38,16 @@ public class FoodRecyleViewTopOneAdapter extends RecyclerView.Adapter<FoodViewHo
     }
 
     @Override
-    public void onBindViewHolder(FoodViewHolder holder, final int position) {
+    public void onBindViewHolder(FoodViewHolder holder, int position) {
+        final int posi = position;
         holder.tvname.setText(list.get(position).getMobile_name());
-        ToGlide.url(context, HTTPURL.IMAGE + list.get(position).getImage(), holder.imageView);
+        ToGlide.url(context, HTTPURL.IMAGE + list.get(position).getImage(),
+                holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CookListActivity.startCookListActivity(context, scId,list.get(position).getId(), "外卖");
+                CookListActivity.startCookListActivity(context, scId,
+                        list.get(posi).getId(), "外卖");
             }
         });
     }

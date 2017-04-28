@@ -43,13 +43,15 @@ public class HotelDataAdapter extends RecyclerView.Adapter<HotelDataViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(HotelDataViewHolder holder, final int position) {
+    public void onBindViewHolder(HotelDataViewHolder holder,  int position) {
+        final int posi = position;
+
         holder.setData(context, list.get(position));
         holder.llView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(callback!=null){
-                    callback.onItmeClick(list.get(position).getStore_id());
+                    callback.onItmeClick(list.get(posi).getStore_id());
                 }
             }
         });

@@ -47,7 +47,7 @@ public class DialogBeijingAdapter extends BaseAdapter {
         CheckedTextView textView;
         if (convertView == null) {
 //            holder = new ViewHolder();
-            textView = (CheckedTextView) LayoutInflater.from(context).inflate(R.layout.spinner, null);
+            textView = (CheckedTextView) LayoutInflater.from(context).inflate(R.layout.spinner, parent,false);
 //            holder.textView = (CheckedTextView) convertView.findViewById(R.id.spinnerA_tv);
 //            convertView.setTag(holder);
             convertView = textView;

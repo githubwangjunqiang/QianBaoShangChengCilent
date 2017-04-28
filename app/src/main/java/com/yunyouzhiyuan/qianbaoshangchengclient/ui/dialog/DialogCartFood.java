@@ -4,15 +4,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yunyouzhiyuan.qianbaoshangchengclient.R;
@@ -33,10 +31,10 @@ public class DialogCartFood extends Dialog {
     private int y;
     private List<FoodInfo.DataBean> list;
     private Adapter adapter;
-    private LinearLayout view;
-    private RelativeLayout rlTop;
+    private ImageView ivBack;
 
-    public DialogCartFood(Context context, CallBack callBack, int y, List<FoodInfo.DataBean> list) {
+    public DialogCartFood(Context context, CallBack callBack, int y,
+                          List<FoodInfo.DataBean> list) {
         super(context, R.style.dialogWindowAnim);
         this.callBack = callBack;
         this.y = y;
@@ -52,9 +50,8 @@ public class DialogCartFood extends Dialog {
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
         tvClear = (TextView) findViewById(R.id.dialog_cart_food_tvclear);
-        rlTop = (RelativeLayout) findViewById(R.id.fooddialog_cartrl);
+        ivBack = (ImageView) findViewById(R.id.fooddialog_ivback);
         listView = (ListView) findViewById(R.id.dialog_cart_food_listview);
-        view = (LinearLayout) findViewById(R.id.dialog_cart_food_ll);
         tvClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,32 +68,10 @@ public class DialogCartFood extends Dialog {
         }
         adapter = new Adapter(getContext(), datas);
         listView.setAdapter(adapter);
-//        listView.setClickable(false);
-//        listView.setPressed(false);
-//        listView.setEnabled(false);
-        view.setOnTouchListener(new View.OnTouchListener() {
+        ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent ev) {
-                switch (ev.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        startY = ev.getY();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        moveY = ev.getY() - startY;
-                        view.scrollBy(0, -(int) moveY);
-                        startY = ev.getY();
-                        if (view.getScrollY() > 0) {
-                            view.scrollTo(0, 0);
-                        }
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        if (view.getScrollY() < -getWindow().getAttributes().height / 4 && moveY > 0) {
-                            dismiss();
-                        }
-                        view.scrollTo(0, 0);
-                        break;
-                }
-                return false;
+            public void onClick(View v) {
+                dismiss();
             }
         });
     }
@@ -177,7 +152,7 @@ public class DialogCartFood extends Dialog {
         public View getView(int position, View view, ViewGroup parent) {
             ViewHolder holder;
             if (view == null) {
-                view = LayoutInflater.from(context).inflate(R.layout.itme_dialog_cart_food, null);
+                view = LayoutInflater.from(context).inflate(R.layout.itme_dialog_cart_food, parent, false);
                 holder = new ViewHolder(view);
                 view.setTag(holder);
             }
@@ -199,32 +174,6 @@ public class DialogCartFood extends Dialog {
         }
     }
 
-    float startY;
-    float moveY = 0;
 
-//    @Override
-//    public boolean onTouchEvent(MotionEvent ev) {
-//        switch (ev.getAction()) {
-//            case MotionEvent.ACTION_DOWN:
-//                startY = ev.getY();
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                moveY = ev.getY() - startY;
-//                view.scrollBy(0, -(int) moveY);
-//                startY = ev.getY();
-//                if (view.getScrollY() > 0) {
-//                    view.scrollTo(0, 0);
-//                }
-//                break;
-//            case MotionEvent.ACTION_UP:
-//                if (view.getScrollY() < -this.getWindow().getAttributes().height / 4 && moveY > 0) {
-//                    this.dismiss();
-//
-//                }
-//                view.scrollTo(0, 0);
-//                break;
-//        }
-//        return super.onTouchEvent(ev);
-//    }
 
 }

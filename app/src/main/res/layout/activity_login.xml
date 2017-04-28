@@ -58,7 +58,6 @@
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:singleLine="true"
             android:textColor="@color/text_color"
             android:textColorHint="@color/text_color_alp"
             android:textSize="@dimen/text_size_14sp" />
@@ -75,7 +74,7 @@
             android:paddingBottom="@dimen/pading_10"
             android:paddingLeft="@dimen/pading_20"
             android:paddingRight="@dimen/pading_20"
-            android:text="忘记密码"
+            android:text="@string/wangjimima"
             android:textColor="@color/text_color"
             android:textSize="@dimen/text_size_12sp" />
 
@@ -87,7 +86,7 @@
             android:paddingBottom="@dimen/pading_10"
             android:paddingLeft="@dimen/pading_20"
             android:paddingRight="@dimen/pading_20"
-            android:text="免费注册"
+            android:text="@string/mianfeizhuce"
             android:textColor="@color/text_color"
             android:textSize="@dimen/text_size_12sp" />
 

@@ -50,7 +50,7 @@
                     android:ellipsize="end"
                     android:lineSpacingExtra="@dimen/pading_6"
                     android:maxLines="3"
-                    android:text="东北饺子王（张家湾店）\n公告量大优惠\t\t欢迎选购饺子与"
+                    tools:text="东北饺子王（张家湾店）\n公告量大优惠\t\t欢迎选购饺子与"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_14sp" />
 
@@ -166,7 +166,7 @@
             android:background="@color/white"
             android:gravity="center"
             android:padding="@dimen/pading_12"
-            android:text="配送费以订单为准"
+            tools:text="配送费以订单为准"
             android:textColor="@color/text_color"
             android:textSize="@dimen/text_size_13sp" />
 
@@ -181,7 +181,7 @@
             android:minHeight="@dimen/pading_10"
             android:paddingBottom="@dimen/pading_12"
             android:paddingTop="@dimen/pading_12"
-            android:text="00元起送"
+            tools:text="00元起送"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_14sp" />
     </LinearLayout>

@@ -47,7 +47,7 @@ public class FoodOutShopInfoActivity extends BaseActivity {
      * @param data
      */
     private void init(FoodInfo.DataBean.InfoBean data) {
-        ImageView zoomView = (ImageView) LayoutInflater.from(this).inflate(R.layout.foodout_shopinfo_zoomview, null, false);
+        ImageView zoomView = (ImageView) LayoutInflater.from(this).inflate(R.layout.foodout_shopinfo_zoomview,null);
         scrollViewEx.setZoomView(zoomView);
         View llcontent = LayoutInflater.from(this).inflate(R.layout.fooda_shopinfo_content_view, null);
         scrollViewEx.setScrollContentView(llcontent);

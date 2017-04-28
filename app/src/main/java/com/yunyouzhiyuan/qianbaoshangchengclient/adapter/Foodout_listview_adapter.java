@@ -50,7 +50,7 @@ public class Foodout_listview_adapter extends BaseAdapter {
         Holder holder;
         if (view == null) {
             holder = new Holder();
-            view = LayoutInflater.from(context).inflate(R.layout.left_list_item, null);
+            view = LayoutInflater.from(context).inflate(R.layout.left_list_item,arg2,false );
             holder.left_list_item = (TextView) view.findViewById(R.id.left_list_item_tv);
             view.setTag(holder);
         } else {
